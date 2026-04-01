@@ -1,0 +1,357 @@
+---
+const services = [
+  {
+    icon: "🛋️",
+    title: "Furniture",
+    desc: "Time for new furnishings? We take your old and ragged chairs, tables, couches, and more.",
+  },
+  {
+    icon: "💻",
+    title: "Electronics",
+    desc: "Let us help recycle your e-waste, including old monitors, broken printers, and computers.",
+  },
+  {
+    icon: "🧊",
+    title: "Appliances",
+    desc: "Have an old refrigerator or commercial appliance in need of tossing? Call Junk King.",
+  },
+  {
+    icon: "🛏️",
+    title: "Mattresses",
+    desc: "It's time to toss that old mattress. Make a same-day appointment today.",
+  },
+  {
+    icon: "🛁",
+    title: "Hot Tub",
+    desc: "Old hot tub making the back patio an eyesore? We'll take it off your hands for good!",
+  },
+  {
+    icon: "🌿",
+    title: "Yard Waste",
+    desc: "From wood piles to shrubs and leaves, our team can help take your yard waste away.",
+  },
+  {
+    icon: "📦",
+    title: "Miscellaneous Items",
+    desc: "Categorizing junk isn't always straightforward. Call us to pick up yours quickly and affordably.",
+  },
+  {
+    icon: "🏠",
+    title: "Full Space Cleanouts",
+    desc: "Need to clear a room or office space? Junk King's expert haulers have you covered.",
+  },
+];
+
+const whatWeDo = [
+  {
+    icon: "🚛",
+    title: "Full-Service Junk Removal",
+    desc: "Free estimates · Same day appointments · Pay only for the space you use · Eco-friendly",
+    detail: "1 Junk King truck = 18 cubic yards (12'L × 8'W × 5'H)",
+  },
+  {
+    icon: "💼",
+    title: "We Handle Any Size Job",
+    desc: "Single item · Residential cleanouts · Commercial services · Full-service junk removal",
+    detail: "No job too big or too small",
+  },
+  {
+    icon: "🛍️",
+    title: "Dumpster Bag Pickup",
+    desc: "Buy it, store it & fill it · Self-service, fill at your own pace · Easy online scheduling",
+    detail: "Most dumpster bag brands accepted",
+  },
+];
+---
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="text-center section-header">
+      <span class="section-tag">What We Do</span>
+      <h2 class="section-title">Top-Notch Junk Hauling<br/>for Homes & Businesses</h2>
+      <p class="section-subtitle">
+        Our comprehensive services cover a wide range of items, from old furniture and appliances
+        to construction debris and yard waste. No task is too big or small.
+      </p>
+    </div>
+
+    <!-- What We Do Cards -->
+    <div class="what-we-do">
+      {whatWeDo.map((item) => (
+        <div class="wwd-card">
+          <div class="wwd-icon">{item.icon}</div>
+          <h3 class="wwd-title">{item.title}</h3>
+          <p class="wwd-desc">{item.desc}</p>
+          <span class="wwd-detail">{item.detail}</span>
+        </div>
+      ))}
+    </div>
+
+    <!-- Service Items Grid -->
+    <div class="services-grid">
+      {services.map((service) => (
+        <div class="service-card">
+          <div class="service-icon">{service.icon}</div>
+          <h3 class="service-name">{service.title}</h3>
+          <p class="service-desc">{service.desc}</p>
+          <span class="service-link">Learn More →</span>
+        </div>
+      ))}
+    </div>
+
+    <!-- Dumpster Bag CTA -->
+    <div class="dumpster-cta">
+      <div class="dumpster-content">
+        <div class="dumpster-text">
+          <span class="section-tag">Dumpster Bag Pickup</span>
+          <h3>Fill It at Your Own Pace</h3>
+          <p>
+            Junk King Palm Beach provides fast, flexible dumpster bag pickup services for
+            homes and businesses. We remove any brand of bag, filled with almost anything
+            you need gone. Fill it at your pace, leave it where we can reach it, and our
+            crew will arrive to haul it away — quick, simple, and stress-free.
+          </p>
+          <a href="#contact" class="btn btn-secondary">Schedule Pickup</a>
+        </div>
+        <div class="dumpster-visual">
+          <div class="dumpster-bag-icon">🛍️</div>
+          <div class="dumpster-features">
+            <div class="feat">✅ Any brand bag accepted</div>
+            <div class="feat">✅ Fill at your own pace</div>
+            <div class="feat">✅ Easy online scheduling</div>
+            <div class="feat">✅ Fast, stress-free pickup</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    padding: 6rem 0;
+    background: var(--color-gray-50);
+  }
+
+  .section-header {
+    margin-bottom: 4rem;
+  }
+
+  .what-we-do {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .wwd-card {
+    background: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-gray-200);
+    transition: all var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .wwd-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--color-primary);
+  }
+
+  .wwd-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+  }
+
+  .wwd-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .wwd-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--color-gray-900);
+    margin-bottom: 0.75rem;
+  }
+
+  .wwd-desc {
+    font-size: 0.875rem;
+    color: var(--color-gray-600);
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+  }
+
+  .wwd-detail {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    background: rgba(200, 16, 46, 0.07);
+    padding: 0.35rem 0.75rem;
+    border-radius: 100px;
+    display: inline-block;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 4rem;
+  }
+
+  .service-card {
+    background: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    padding: 1.75rem 1.5rem;
+    border: 1px solid var(--color-gray-200);
+    transition: all var(--transition);
+    cursor: pointer;
+  }
+
+  .service-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+  }
+
+  .service-icon {
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .service-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-gray-900);
+    margin-bottom: 0.6rem;
+  }
+
+  .service-desc {
+    font-size: 0.825rem;
+    color: var(--color-gray-500);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .service-link {
+    font-size: 0.825rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .dumpster-cta {
+    background: var(--color-gray-900);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+  }
+
+  .dumpster-content {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: center;
+    padding: 3rem;
+  }
+
+  .dumpster-text h3 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--color-white);
+    margin-bottom: 1rem;
+  }
+
+  .dumpster-text p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.7;
+    margin-bottom: 1.75rem;
+    max-width: 500px;
+  }
+
+  .dumpster-text .section-tag {
+    background: rgba(200, 16, 46, 0.2);
+    color: #ff6b6b;
+  }
+
+  .dumpster-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .dumpster-bag-icon {
+    font-size: 5rem;
+    background: rgba(255, 255, 255, 0.05);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .dumpster-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .feat {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+  }
+
+  @media (max-width: 1024px) {
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .what-we-do {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .services {
+      padding: 4rem 0;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dumpster-content {
+      grid-template-columns: 1fr;
+      padding: 2rem;
+    }
+
+    .dumpster-visual {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+
+    .dumpster-bag-icon {
+      font-size: 3rem;
+      width: 80px;
+      height: 80px;
+      flex-shrink: 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

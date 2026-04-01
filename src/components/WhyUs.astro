@@ -1,0 +1,275 @@
+---
+const reasons = [
+  {
+    icon: "⚡",
+    title: "Super Fast Service",
+    desc: "Don't wait! With same-day appointments, our expert junk haulers take your junk pile away super fast. Let Junk King toss your old furniture and rusted appliances today.",
+    color: "#f59e0b",
+  },
+  {
+    icon: "♻️",
+    title: "Eco-Friendly",
+    desc: "With local warehouses, Junk King provides a top-rated, fast, safe, and eco-friendly disposal service. We can sort, reuse, and recycle up to 60% of every haul.",
+    color: "#2d7a2d",
+  },
+  {
+    icon: "💰",
+    title: "Fair & Flexible Pricing",
+    desc: "Only pay for the space you use. We offer affordable prices and free, no-obligation estimates. We guarantee to beat any written estimate.",
+    color: "#3b82f6",
+  },
+  {
+    icon: "🚛",
+    title: "King-Size Trucks",
+    desc: "Our junk trucks are 20% bigger than competitors, giving you king-size savings with more volume for less money. One truck = 18 cubic yards of space.",
+    color: "#c8102e",
+  },
+];
+---
+
+<section class="why-us" id="why-us">
+  <div class="container">
+    <div class="why-us-inner">
+      <div class="why-us-content">
+        <span class="section-tag">Why Choose Us</span>
+        <h2 class="section-title">Service You Can<br/>Trust!</h2>
+        <p class="section-subtitle">
+          Junk King Palm Beach is committed to making your junk removal experience
+          stress-free. We show up on time, work fast, and leave your space clean.
+        </p>
+
+        <div class="reasons">
+          {reasons.map((reason) => (
+            <div class="reason">
+              <div class="reason-icon" style={`background: ${reason.color}15; color: ${reason.color};`}>
+                {reason.icon}
+              </div>
+              <div class="reason-text">
+                <h3>{reason.title}</h3>
+                <p>{reason.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <a href="#contact" class="btn btn-primary btn-lg">Book Online Today</a>
+      </div>
+
+      <div class="why-us-visual">
+        <div class="truck-card">
+          <div class="truck-emoji">🚛</div>
+          <h3>King-Size Trucks</h3>
+          <div class="truck-specs">
+            <div class="spec">
+              <span class="spec-value">18</span>
+              <span class="spec-unit">cubic yards</span>
+            </div>
+            <div class="spec">
+              <span class="spec-value">20%</span>
+              <span class="spec-unit">bigger than competitors</span>
+            </div>
+          </div>
+          <div class="truck-dimensions">
+            <span>12'L × 8'W × 5'H</span>
+          </div>
+          <p class="truck-note">= 12 standard size refrigerators</p>
+        </div>
+
+        <div class="trust-badges">
+          <div class="trust-badge">
+            <span class="trust-icon">⭐</span>
+            <div>
+              <strong>5/5 Rating</strong>
+              <span>983+ Reviews</span>
+            </div>
+          </div>
+          <div class="trust-badge">
+            <span class="trust-icon">🤝</span>
+            <div>
+              <strong>Neighborly</strong>
+              <span>Certified Partner</span>
+            </div>
+          </div>
+          <div class="trust-badge">
+            <span class="trust-icon">✅</span>
+            <div>
+              <strong>Fully Insured</strong>
+              <span>Licensed & Bonded</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .why-us {
+    padding: 6rem 0;
+    background: var(--color-gray-50);
+  }
+
+  .why-us-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .reasons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+  }
+
+  .reason {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .reason-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .reason-text h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-gray-900);
+    margin-bottom: 0.35rem;
+  }
+
+  .reason-text p {
+    font-size: 0.875rem;
+    color: var(--color-gray-500);
+    line-height: 1.6;
+  }
+
+  .why-us-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .truck-card {
+    background: var(--color-gray-900);
+    border-radius: var(--border-radius-lg);
+    padding: 2.5rem;
+    text-align: center;
+    color: var(--color-white);
+  }
+
+  .truck-emoji {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  .truck-card h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+  }
+
+  .truck-specs {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .spec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .spec-value {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .spec-unit {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    margin-top: 0.25rem;
+  }
+
+  .truck-dimensions {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1.25rem;
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .truck-note {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .trust-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--color-white);
+    border-radius: var(--border-radius);
+    padding: 1rem 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-gray-200);
+  }
+
+  .trust-icon {
+    font-size: 1.75rem;
+    flex-shrink: 0;
+  }
+
+  .trust-badge div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .trust-badge strong {
+    font-size: 0.95rem;
+    color: var(--color-gray-900);
+  }
+
+  .trust-badge span {
+    font-size: 0.8rem;
+    color: var(--color-gray-500);
+  }
+
+  @media (max-width: 1024px) {
+    .why-us-inner {
+      gap: 3rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .why-us {
+      padding: 4rem 0;
+    }
+
+    .why-us-inner {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

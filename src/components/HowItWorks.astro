@@ -1,0 +1,257 @@
+---
+const steps = [
+  {
+    number: "1",
+    icon: "📅",
+    title: "You pick a date & two-hour window",
+    desc: "Schedule online or call us. We offer same-day appointments and flexible scheduling to fit your busy life.",
+  },
+  {
+    number: "2",
+    icon: "📞",
+    title: "We call you 15 minutes before arrival",
+    desc: "Our crew gives you a heads-up so you're ready. We arrive on time, every time.",
+  },
+  {
+    number: "3",
+    icon: "🤝",
+    title: "If you agree to our price, we take your junk",
+    desc: "Free estimate on-site. 90% of the time we can take your junk immediately after the estimate.",
+  },
+];
+
+const contactMethods = [
+  {
+    icon: "🌐",
+    title: "Book Online",
+    desc: "See how much it would cost and save $20 by booking online.",
+    cta: "Book Now",
+    href: "#contact",
+    badge: "Save $20",
+  },
+  {
+    icon: "📞",
+    title: "Call Us",
+    desc: "Tell us about your items and we'll send our team for a free estimate.",
+    cta: "(561) 246-6352",
+    href: "tel:5612466352",
+    badge: null,
+  },
+  {
+    icon: "💬",
+    title: "Text Us",
+    desc: "Snap a photo of your item and text it to us — we've got the rest covered.",
+    cta: "1-737-888-5865",
+    href: "sms:+17378885865",
+    badge: null,
+  },
+];
+---
+
+<section class="how-it-works" id="how-it-works">
+  <div class="container">
+    <div class="text-center section-header">
+      <span class="section-tag">How It Works</span>
+      <h2 class="section-title">Booking Is as Easy as 1, 2, 3!</h2>
+      <p class="section-subtitle">
+        Our highly skilled team arrives promptly and takes care of all the heavy lifting,
+        so you don't have to lift a finger.
+      </p>
+    </div>
+
+    <div class="steps">
+      {steps.map((step, i) => (
+        <div class="step">
+          <div class="step-number">{step.number}</div>
+          {i < steps.length - 1 && <div class="step-connector"></div>}
+          <div class="step-icon">{step.icon}</div>
+          <h3 class="step-title">{step.title}</h3>
+          <p class="step-desc">{step.desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="contact-methods">
+      {contactMethods.map((method) => (
+        <div class="contact-card">
+          {method.badge && <span class="contact-badge">{method.badge}</span>}
+          <div class="contact-icon">{method.icon}</div>
+          <h3 class="contact-title">{method.title}</h3>
+          <p class="contact-desc">{method.desc}</p>
+          <a href={method.href} class="btn btn-primary">{method.cta}</a>
+        </div>
+      ))}
+    </div>
+
+    <p class="estimate-note">
+      * Estimate provided on arrival. 90% of the time, we can take your junk immediately.
+    </p>
+  </div>
+</section>
+
+<style>
+  .how-it-works {
+    padding: 6rem 0;
+    background: var(--color-white);
+  }
+
+  .section-header {
+    margin-bottom: 4rem;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    position: relative;
+    margin-bottom: 5rem;
+  }
+
+  .step {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: var(--color-gray-50);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-gray-200);
+    position: relative;
+    transition: all var(--transition);
+  }
+
+  .step:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary);
+    transform: translateY(-3px);
+  }
+
+  .step-number {
+    position: absolute;
+    top: -1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 900;
+    border: 3px solid var(--color-white);
+    box-shadow: var(--shadow-md);
+  }
+
+  .step-connector {
+    display: none;
+  }
+
+  .step-icon {
+    font-size: 2.5rem;
+    margin: 1rem 0 1rem;
+  }
+
+  .step-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--color-gray-900);
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .step-desc {
+    font-size: 0.875rem;
+    color: var(--color-gray-500);
+    line-height: 1.6;
+  }
+
+  .contact-methods {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-card {
+    background: var(--color-gray-900);
+    border-radius: var(--border-radius-lg);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition);
+  }
+
+  .contact-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .contact-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(200, 16, 46, 0.1) 0%, transparent 60%);
+  }
+
+  .contact-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--color-accent);
+    color: var(--color-gray-900);
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .contact-icon {
+    font-size: 2.75rem;
+    margin-bottom: 1.25rem;
+    position: relative;
+  }
+
+  .contact-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-white);
+    margin-bottom: 0.75rem;
+    position: relative;
+  }
+
+  .contact-desc {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin-bottom: 1.75rem;
+    position: relative;
+  }
+
+  .contact-card .btn {
+    position: relative;
+    width: 100%;
+  }
+
+  .estimate-note {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--color-gray-400);
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .how-it-works {
+      padding: 4rem 0;
+    }
+
+    .steps {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-methods {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

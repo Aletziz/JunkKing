@@ -1,0 +1,157 @@
+---
+---
+<section class="offer-section" id="offer">
+  <div class="container">
+    <div class="text-center section-header">
+      <span class="section-tag">Special Offers</span>
+      <h2 class="section-title">Our Special Offer</h2>
+      <p class="section-subtitle">
+        Junk King is ready to help you remove the excess junk and clutter in your home.
+        Below is a great coupon to help you get started.
+      </p>
+    </div>
+
+    <div class="offer-card">
+      <div class="offer-left">
+        <div class="offer-logo">👑 JUNK KING</div>
+        <div class="offer-amount">$20</div>
+        <div class="offer-label">OFF</div>
+      </div>
+      <div class="offer-right">
+        <h3 class="offer-title">$20 Off When Booking Online</h3>
+        <p class="offer-desc">
+          Limit One. Not valid with any other offer or below the minimum.
+          Valid only at participating locations. All services are performed by
+          locally owned and independently operated franchise companies.
+          Terms and Limits Apply. No cash value.
+        </p>
+        <div class="offer-expiry">
+          <span>🗓️ Expires: September 30, 2026</span>
+        </div>
+        <a href="#contact" class="btn btn-primary btn-lg">Claim This Offer</a>
+      </div>
+      <div class="offer-scissors">✂️ - - - - - - - - - - - -</div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .offer-section {
+    padding: 6rem 0;
+    background: var(--color-gray-50);
+  }
+
+  .section-header {
+    margin-bottom: 3.5rem;
+  }
+
+  .offer-card {
+    max-width: 780px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    background: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 2px dashed var(--color-gray-300);
+    position: relative;
+  }
+
+  .offer-left {
+    background: var(--color-primary);
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.25rem;
+  }
+
+  .offer-logo {
+    font-size: 0.9rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  .offer-amount {
+    font-size: 5rem;
+    font-weight: 900;
+    color: var(--color-white);
+    line-height: 1;
+  }
+
+  .offer-label {
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 0.2em;
+  }
+
+  .offer-right {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .offer-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-gray-900);
+  }
+
+  .offer-desc {
+    font-size: 0.8rem;
+    color: var(--color-gray-400);
+    line-height: 1.6;
+  }
+
+  .offer-expiry {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-gray-700);
+    background: var(--color-gray-100);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: fit-content;
+  }
+
+  .offer-scissors {
+    position: absolute;
+    top: 50%;
+    left: 190px;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: var(--color-gray-300);
+    writing-mode: vertical-rl;
+    letter-spacing: -0.1em;
+    pointer-events: none;
+  }
+
+  @media (max-width: 600px) {
+    .offer-card {
+      grid-template-columns: 1fr;
+    }
+
+    .offer-left {
+      padding: 2rem;
+      flex-direction: row;
+      gap: 1rem;
+    }
+
+    .offer-amount {
+      font-size: 3.5rem;
+    }
+
+    .offer-scissors {
+      display: none;
+    }
+  }
+</style>

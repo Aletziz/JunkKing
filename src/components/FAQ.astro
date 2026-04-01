@@ -1,0 +1,183 @@
+---
+const faqs = [
+  {
+    q: "Will you pick up any brand of dumpster bag, or does it have to be Junk King?",
+    a: "Yes! While we no longer offer Junk King specific bags, we'll pick up any brand of dumpster bag — no matter where it's located on your property. Just give us a call or book your pickup time online for a fast, easy and hassle-free service.",
+    open: true,
+  },
+  {
+    q: "How much does it cost to remove a sectional sofa/couch in Palm Beach?",
+    a: "The cost depends on the size of the sofa and how much space it takes up in our truck. We offer free, no-obligation estimates on arrival. Most sectional removals fall within our minimum to half-truck pricing range. Book online to save $20!",
+    open: false,
+  },
+  {
+    q: "Does a refrigerator have to be empty for Junk King to pick it up?",
+    a: "For safety and hygiene reasons, we ask that you empty your refrigerator before we arrive. This ensures a cleaner removal process and helps us recycle or donate the appliance more effectively.",
+    open: false,
+  },
+  {
+    q: "My hot tub is in a tight spot. Will Junk King disassemble a hot tub and take it away?",
+    a: "Absolutely! Our trained crew can disassemble hot tubs and remove them from even the tightest spaces. We handle all the heavy lifting and will clean up after removal. Give us a call to discuss your specific situation and get a free estimate.",
+    open: false,
+  },
+  {
+    q: "What areas do you serve in Palm Beach County?",
+    a: "We serve all of Palm Beach County including West Palm Beach, Boynton Beach, Delray Beach, Lake Worth, Wellington, Greenacres, Lantana, Palm Springs, and surrounding areas. Call us or check online to confirm service availability at your address.",
+    open: false,
+  },
+  {
+    q: "How does pricing work?",
+    a: "You only pay for the space your junk takes up in our truck. We provide a free, no-obligation estimate before starting any work. Our prices are competitive, and we guarantee to beat any written estimate from a competitor.",
+    open: false,
+  },
+];
+---
+
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="faq-inner">
+      <div class="faq-header">
+        <span class="section-tag">FAQ</span>
+        <h2 class="section-title">Frequently Asked<br/>Questions</h2>
+        <p class="section-subtitle">
+          At Junk King Palm Beach, we understand that junk removal can be a hassle.
+          Here are answers to our most common questions.
+        </p>
+        <a href="https://www.junk-king.com/faq" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top: 2rem; display: inline-flex;">
+          See All FAQs →
+        </a>
+      </div>
+
+      <div class="faq-list">
+        {faqs.map((faq, i) => (
+          <details class="faq-item" open={faq.open}>
+            <summary class="faq-question">
+              <span>{faq.q}</span>
+              <span class="faq-toggle">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.faq-item').forEach((item) => {
+    item.addEventListener('toggle', () => {
+      const toggle = item.querySelector('.faq-toggle') as HTMLElement | null;
+      if (toggle) {
+        toggle.textContent = (item as HTMLDetailsElement).open ? '−' : '+';
+      }
+    });
+  });
+</script>
+
+<style>
+  .faq {
+    padding: 6rem 0;
+    background: var(--color-white);
+  }
+
+  .faq-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .faq-header {
+    position: sticky;
+    top: 100px;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .faq-item {
+    background: var(--color-gray-50);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-gray-200);
+    overflow: hidden;
+    transition: border-color var(--transition);
+  }
+
+  .faq-item[open] {
+    border-color: var(--color-primary);
+  }
+
+  .faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-gray-900);
+    list-style: none;
+    user-select: none;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question:hover {
+    color: var(--color-primary);
+  }
+
+  .faq-toggle {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    transition: transform var(--transition);
+  }
+
+  .faq-answer {
+    padding: 0 1.5rem 1.25rem;
+    border-top: 1px solid var(--color-gray-200);
+  }
+
+  .faq-answer p {
+    font-size: 0.9rem;
+    color: var(--color-gray-600);
+    line-height: 1.7;
+    padding-top: 1rem;
+  }
+
+  @media (max-width: 1024px) {
+    .faq-inner {
+      gap: 3rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .faq {
+      padding: 4rem 0;
+    }
+
+    .faq-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .faq-header {
+      position: static;
+    }
+  }
+</style>

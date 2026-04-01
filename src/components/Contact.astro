@@ -1,0 +1,372 @@
+---
+---
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">Let Us Call You!</h2>
+        <p class="section-subtitle">
+          Fill out the form and one of our junk removal specialists will reach out to
+          you shortly to schedule your free estimate.
+        </p>
+
+        <div class="contact-details">
+          <a href="tel:5612466352" class="contact-detail">
+            <span class="detail-icon">📞</span>
+            <div>
+              <strong>Call Us</strong>
+              <span>(561) 246-6352</span>
+            </div>
+          </a>
+          <a href="sms:+17378885865" class="contact-detail">
+            <span class="detail-icon">💬</span>
+            <div>
+              <strong>Text Us</strong>
+              <span>1-737-888-5865</span>
+            </div>
+          </a>
+          <div class="contact-detail">
+            <span class="detail-icon">📍</span>
+            <div>
+              <strong>Our Location</strong>
+              <span>1559 S Cypress Dr, Unit 3, Jupiter, FL 33469</span>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <span class="detail-icon">🕐</span>
+            <div>
+              <strong>Hours</strong>
+              <span>Mon–Sat: 7am–6pm · Sun: 8am–4pm</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <span>Follow Us:</span>
+          <div class="socials">
+            <a href="https://www.facebook.com/487713624675546" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">
+              <span>f</span>
+            </a>
+            <a href="https://x.com/JunkKingCorp" target="_blank" rel="noopener" class="social-btn" aria-label="Twitter/X">
+              <span>𝕏</span>
+            </a>
+            <a href="https://www.linkedin.com/company/junk-king" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">
+              <span>in</span>
+            </a>
+            <a href="https://www.instagram.com/junkking_corporate/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+              <span>📸</span>
+            </a>
+            <a href="https://www.youtube.com/@JunkKing" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">
+              <span>▶</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrapper">
+        <div class="form-header">
+          <h3>Request a Call Back</h3>
+          <p>We'll respond within 15 minutes during business hours</p>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" name="firstName" placeholder="John" required />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name *</label>
+              <input type="text" id="lastName" name="lastName" placeholder="Doe" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" placeholder="(561) 000-0000" required />
+          </div>
+          <div class="form-group">
+            <label for="zip">ZIP Code *</label>
+            <input type="text" id="zip" name="zip" placeholder="33401" required />
+          </div>
+          <div class="form-group">
+            <label for="service">Service Needed</label>
+            <select id="service" name="service">
+              <option value="">Select a service...</option>
+              <option value="full-service">Full-Service Junk Removal</option>
+              <option value="furniture">Furniture Removal</option>
+              <option value="appliances">Appliance Removal</option>
+              <option value="electronics">Electronics / E-Waste</option>
+              <option value="mattress">Mattress Removal</option>
+              <option value="hot-tub">Hot Tub Removal</option>
+              <option value="yard-waste">Yard Waste Removal</option>
+              <option value="cleanout">Full Space Cleanout</option>
+              <option value="dumpster-bag">Dumpster Bag Pickup</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group form-check">
+            <label class="checkbox-label">
+              <input type="checkbox" name="smsOptIn" id="smsOptIn" />
+              <span>Yes! You can text me service reminders and other messages.</span>
+            </label>
+          </div>
+          <p class="form-disclaimer">
+            By entering your email address, you agree to receive emails about services,
+            updates or promotions. You may unsubscribe at any time.
+          </p>
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+            📞 Request a Call Back
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('contactForm') as HTMLFormElement | null;
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    btn.textContent = '✅ Request Sent! We\'ll call you soon.';
+    btn.disabled = true;
+    btn.style.background = '#2d7a2d';
+  });
+</script>
+
+<style>
+  .contact {
+    padding: 6rem 0;
+    background: var(--color-gray-900);
+  }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .contact-info .section-tag {
+    background: rgba(200, 16, 46, 0.25);
+    color: #ff6b6b;
+  }
+
+  .contact-info .section-title {
+    color: var(--color-white);
+  }
+
+  .contact-info .section-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin: 2.5rem 0;
+  }
+
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    transition: transform var(--transition);
+  }
+
+  .contact-detail:hover {
+    transform: translateX(4px);
+  }
+
+  .detail-icon {
+    font-size: 1.5rem;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact-detail div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-detail strong {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.75rem;
+  }
+
+  .contact-detail span {
+    font-size: 0.95rem;
+    color: var(--color-white);
+    font-weight: 600;
+  }
+
+  .social-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .social-links > span {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+  }
+
+  .socials {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .social-btn {
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 700;
+    transition: all var(--transition);
+  }
+
+  .social-btn:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+    transform: translateY(-2px);
+  }
+
+  .contact-form-wrapper {
+    background: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .form-header {
+    background: var(--color-primary);
+    padding: 1.75rem 2rem;
+    color: var(--color-white);
+  }
+
+  .form-header h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 0.3rem;
+  }
+
+  .form-header p {
+    font-size: 0.875rem;
+    opacity: 0.85;
+  }
+
+  .contact-form {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-group label {
+    font-size: 0.825rem;
+    font-weight: 600;
+    color: var(--color-gray-700);
+  }
+
+  .form-group input,
+  .form-group select {
+    padding: 0.75rem 1rem;
+    border: 1.5px solid var(--color-gray-200);
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+    color: var(--color-gray-900);
+    background: var(--color-white);
+    transition: border-color var(--transition);
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.1);
+  }
+
+  .form-check {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    cursor: pointer;
+    font-size: 0.825rem;
+    color: var(--color-gray-600);
+    line-height: 1.5;
+  }
+
+  .checkbox-label input {
+    margin-top: 2px;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    accent-color: var(--color-primary);
+  }
+
+  .form-disclaimer {
+    font-size: 0.75rem;
+    color: var(--color-gray-400);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 1024px) {
+    .contact-inner {
+      gap: 3rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .contact {
+      padding: 4rem 0;
+    }
+
+    .contact-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
