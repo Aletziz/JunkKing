@@ -1,8 +1,9 @@
 ---
 const services = [
-  "Furniture Removal", "Appliance Removal", "Electronics Recycling",
-  "Mattress Removal", "Hot Tub Removal", "Yard Waste Removal",
-  "Full Space Cleanout", "Dumpster Bag Pickup",
+  "Rent (Truck / Dumpster)",
+  "Junk Removal",
+  "Sod Installation",
+  "Fast Delivery & Pickup",
 ];
 ---
 
@@ -73,55 +74,32 @@ const services = [
       <!-- Form side -->
       <div class="contact__form-wrap">
         <div class="contact__form-header">
-          <span>Get a Free Quote</span>
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.845L.057 23.571a.75.75 0 00.92.92l5.726-1.471A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.81-.535-5.388-1.465l-.385-.23-3.993 1.026 1.055-3.872-.252-.4A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Contact via WhatsApp
         </div>
-        <form class="contact__form" action="#" method="POST" novalidate>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="first-name">First Name</label>
-              <input type="text" id="first-name" name="first_name" placeholder="John" required />
-            </div>
-            <div class="form-group">
-              <label for="last-name">Last Name</label>
-              <input type="text" id="last-name" name="last_name" placeholder="Smith" required />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="john@example.com" required />
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="(561) 000-0000" />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="zip">ZIP Code</label>
-              <input type="text" id="zip" name="zip" placeholder="33401" />
-            </div>
-            <div class="form-group">
-              <label for="service">Service Needed</label>
-              <select id="service" name="service">
-                <option value="">Select a service…</option>
-                {services.map((s) => <option value={s}>{s}</option>)}
-              </select>
-            </div>
+        <form class="contact__form" id="wa-form" novalidate>
+          <div class="form-group">
+            <label for="wa-name">Your Name</label>
+            <input type="text" id="wa-name" name="name" placeholder="John Smith" required />
           </div>
           <div class="form-group">
-            <label for="message">Tell Us About Your Job <span>(optional)</span></label>
-            <textarea id="message" name="message" placeholder="Describe what needs to be removed…" rows="3"></textarea>
+            <label for="wa-service">Service Needed</label>
+            <select id="wa-service" name="service" required>
+              <option value="">Select a service…</option>
+              {services.map((s) => <option value={s}>{s}</option>)}
+            </select>
           </div>
-          <label class="form-check">
-            <input type="checkbox" name="sms_opt_in" />
-            <span>I agree to receive SMS/text appointment reminders and updates.</span>
-          </label>
+          <div class="form-group">
+            <label for="wa-zip">ZIP Code</label>
+            <input type="text" id="wa-zip" name="zip" placeholder="33401" required />
+          </div>
+          <div class="form-group">
+            <label for="wa-msg">Brief Description <span>(optional)</span></label>
+            <textarea id="wa-msg" name="message" placeholder="e.g. Old sofa, fridge and some boxes…" rows="3"></textarea>
+          </div>
           <button type="submit" class="btn btn-primary btn-lg form-submit">
-            Get My Free Quote — Save $20
-            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M4 10h12M11 5l6 5-6 5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.845L.057 23.571a.75.75 0 00.92.92l5.726-1.471A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.81-.535-5.388-1.465l-.385-.23-3.993 1.026 1.055-3.872-.252-.4A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Send via WhatsApp
           </button>
         </form>
       </div>
@@ -129,6 +107,34 @@ const services = [
     </div>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById("wa-form") as HTMLFormElement;
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name    = (form.querySelector("#wa-name")    as HTMLInputElement).value.trim();
+    const service = (form.querySelector("#wa-service") as HTMLSelectElement).value;
+    const zip     = (form.querySelector("#wa-zip")     as HTMLInputElement).value.trim();
+    const msg     = (form.querySelector("#wa-msg")     as HTMLTextAreaElement).value.trim();
+
+    if (!name || !service || !zip) {
+      alert("Please fill in your name, service and ZIP code.");
+      return;
+    }
+
+    const text = [
+      `Hi! I'd like to request a quote from AMG Junk Removal LLC.`,
+      ``,
+      `*Name:* ${name}`,
+      `*Service:* ${service}`,
+      `*ZIP Code:* ${zip}`,
+      msg ? `*Details:* ${msg}` : "",
+    ].filter(Boolean).join("\n");
+
+    const url = `https://wa.me/15614607921?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank");
+  });
+</script>
 
 <style>
   .contact { padding: 6rem 0; background: var(--ink-900); }
@@ -163,17 +169,12 @@ const services = [
     background: var(--white); border-radius: var(--r-xl); overflow: hidden;
   }
   .contact__form-header {
-    background: var(--red); padding: 1rem 2rem;
-    display: flex; align-items: center; gap: 0.75rem;
-    font-size: 0.9rem; font-weight: 700; color: var(--ink-900);
-  }
-  .contact__form-badge {
-    background: rgba(0,0,0,0.12); border-radius: 20px;
-    padding: 0.2rem 0.65rem; font-size: 0.75rem; color: var(--ink-900);
+    background: #25D366; padding: 1rem 2rem;
+    display: flex; align-items: center; gap: 0.65rem;
+    font-size: 0.95rem; font-weight: 700; color: #fff;
   }
   .contact__form { padding: 2rem; display: flex; flex-direction: column; gap: 1rem; }
 
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
   .form-group label { font-size: 0.78rem; font-weight: 600; color: var(--ink-700); }
   .form-group label span { font-weight: 400; color: var(--ink-400); }
@@ -188,19 +189,17 @@ const services = [
   }
   .form-group input:focus,
   .form-group select:focus,
-  .form-group textarea:focus { border-color: var(--red); box-shadow: 0 0 0 3px var(--red-sub); }
+  .form-group textarea:focus { border-color: #25D366; box-shadow: 0 0 0 3px rgba(37,211,102,0.12); }
   .form-group textarea { resize: vertical; min-height: 80px; }
   .form-group select { cursor: pointer; }
-
-  .form-check { display: flex; align-items: flex-start; gap: 0.6rem; cursor: pointer; }
-  .form-check input { margin-top: 2px; accent-color: var(--red); }
-  .form-check span { font-size: 0.78rem; color: var(--ink-500); line-height: 1.5; }
 
   .form-submit {
     display: flex; align-items: center; justify-content: center;
     gap: 0.6rem; width: 100%;
+    background: #25D366 !important; border-color: #25D366 !important; color: #fff !important;
   }
-  .form-submit svg { width: 18px; height: 18px; stroke: var(--ink-900); }
+  .form-submit:hover { background: #1ebe5d !important; border-color: #1ebe5d !important; }
+  .form-submit svg { width: 20px; height: 20px; flex-shrink: 0; fill: #fff; }
 
   @media (max-width: 1024px) {
     .contact__layout { grid-template-columns: 1fr; gap: 3rem; }
