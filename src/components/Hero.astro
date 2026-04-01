@@ -51,18 +51,14 @@
 
     <div class="hero__visual">
       <div class="truck-card">
-        <div class="truck-card__icon">
-          <svg viewBox="0 0 64 40" fill="none" stroke="currentColor" stroke-width="1.6">
-            <rect x="2" y="8" width="40" height="24" rx="2" stroke-width="1.8"/>
-            <path d="M42 14h12l6 10v8h-18V14z" stroke-width="1.8"/>
-            <circle cx="12" cy="34" r="4" stroke-width="1.8"/>
-            <circle cx="30" cy="34" r="4" stroke-width="1.8"/>
-            <circle cx="52" cy="34" r="4" stroke-width="1.8"/>
-          </svg>
+        <div class="truck-card__photo">
+          <img src="/truck.jpg" alt="AMG Junk Removal LLC — King-Size Truck" />
         </div>
-        <h3>King-Size Trucks</h3>
-        <p>18 cubic yards · 20% bigger than competitors</p>
-        <div class="truck-card__dims">12'L × 8'W × 5'H</div>
+        <div class="truck-card__info">
+          <h3>Our King-Size Truck</h3>
+          <p>18 cubic yards · 20% bigger than competitors</p>
+          <div class="truck-card__dims">12'L × 8'W × 5'H</div>
+        </div>
       </div>
       <div class="hero__chips">
         <span class="chip">
@@ -156,14 +152,21 @@
 
   .truck-card {
     background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
-    border-radius: var(--r-xl); padding: 2.25rem;
+    border-radius: var(--r-xl); overflow: hidden;
     transition: border-color var(--ease);
   }
   .truck-card:hover { border-color: rgba(0,247,247,0.4); }
-  .truck-card__icon { margin-bottom: 1.25rem; }
-  .truck-card__icon svg { width: 80px; height: 50px; stroke: rgba(255,255,255,0.8); }
-  .truck-card h3 { font-size: 1.15rem; font-weight: 800; color: #fff; margin-bottom: 0.4rem; }
-  .truck-card p  { font-size: 0.85rem; color: rgba(255,255,255,0.55); margin-bottom: 1rem; }
+
+  .truck-card__photo { width: 100%; aspect-ratio: 16/9; overflow: hidden; }
+  .truck-card__photo img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center;
+    display: block; transition: transform 0.5s ease;
+  }
+  .truck-card:hover .truck-card__photo img { transform: scale(1.03); }
+
+  .truck-card__info { padding: 1.5rem 2rem 2rem; }
+  .truck-card__info h3 { font-size: 1.1rem; font-weight: 800; color: #fff; margin-bottom: 0.35rem; }
+  .truck-card__info p  { font-size: 0.85rem; color: rgba(255,255,255,0.55); margin-bottom: 1rem; }
   .truck-card__dims {
     display: inline-block; background: rgba(0,247,247,0.12);
     color: var(--red); border: 1px solid rgba(0,247,247,0.25);
