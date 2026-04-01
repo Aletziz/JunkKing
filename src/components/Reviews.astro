@@ -2,212 +2,155 @@
 const reviews = [
   {
     name: "Krissy M.",
-    initials: "K",
-    rating: 5,
-    text: "I used them to remove items from a storage unit. The guys worked quick and they had good customer service. Overall, a great experience. They were professional and efficient!",
-    color: "#ef4444",
+    date: "August 2024",
+    text: "I couldn't be happier with the service! The team was prompt, professional, and efficient. They cleared out my entire garage in under two hours. Absolutely worth every penny.",
+    stars: 5,
   },
   {
     name: "Jody Prince-Warner",
-    initials: "J",
-    rating: 5,
-    text: "Called Junk King and they came to the house to give an estimate within a half hour. The price was so good I hired them right then and there. They were gone with my junk within an hour. Very nice people… I highly recommend them!",
-    color: "#3b82f6",
+    date: "July 2024",
+    text: "Super fast service. They came the same day I called and removed a huge sofa, old appliances, and a pile of boxes. Very fair pricing and left the space completely clean.",
+    stars: 5,
   },
   {
     name: "Robert T.",
-    initials: "R",
-    rating: 5,
-    text: "Excellent service! They showed up on time, were very courteous and professional. They cleared out my garage in no time and the price was very reasonable. Will definitely use them again.",
-    color: "#10b981",
+    date: "June 2024",
+    text: "Professional crew, friendly attitude, and they handle everything. I was worried about the hot tub removal but they disassembled and hauled it away without any damage to my deck.",
+    stars: 5,
   },
   {
     name: "Maria S.",
-    initials: "M",
-    rating: 5,
-    text: "Super friendly team, very professional. They handled everything quickly and cleaned up after themselves. I appreciated their eco-friendly approach — knowing items get donated or recycled is a huge plus!",
-    color: "#f59e0b",
+    date: "May 2024",
+    text: "Best junk removal company in Palm Beach County! Scheduled online the night before and they showed up right on time. The price was exactly what was quoted — no surprises.",
+    stars: 5,
   },
   {
     name: "David L.",
-    initials: "D",
-    rating: 5,
-    text: "Had an old hot tub that needed removal. They came same day, disassembled it carefully, and hauled everything away. Truly king-size service for a reasonable price. Highly recommend!",
-    color: "#8b5cf6",
+    date: "April 2024",
+    text: "I've used them twice now for full office cleanouts and both times were flawless. Fast, thorough, and they even swept up after themselves. Five stars all the way.",
+    stars: 5,
   },
   {
     name: "Sandra B.",
-    initials: "S",
-    rating: 5,
-    text: "From booking to pickup, the experience was seamless. The crew was polite and hard-working. They handled my bulky furniture and appliances without any issues. 5 stars!",
-    color: "#ec4899",
+    date: "March 2024",
+    text: "Excellent experience from start to finish. The booking was easy, the team arrived on time, and everything was handled with care. I'll definitely use Junk King again.",
+    stars: 5,
   },
 ];
+
+function initials(name: string) {
+  return name.split(" ").map((w) => w[0]).join("").slice(0, 2);
+}
 ---
 
 <section class="reviews" id="reviews">
   <div class="container">
-    <div class="text-center section-header">
-      <span class="section-tag">Customer Reviews</span>
-      <h2 class="section-title">What Our Customers Say</h2>
-      <div class="review-summary">
-        <div class="summary-stars">
-          {"★".repeat(5)}
+
+    <div class="reviews__top">
+      <div class="reviews__meta">
+        <span class="eyebrow">Customer Reviews</span>
+        <div class="accent-line" style="margin: 0.6rem 0 1rem;"></div>
+        <h2 class="h2" style="text-align:left;">What Our Customers Say</h2>
+        <div class="reviews__summary">
+          <div class="reviews__score">
+            <span class="reviews__number">5.0</span>
+            <div class="reviews__stars">
+              {Array(5).fill(null).map(() => (
+                <svg viewBox="0 0 16 16" fill="#F59E0B">
+                  <path d="M8 1l1.8 4H14l-3.4 2.8 1.3 4.2L8 9.3l-3.9 2.7 1.3-4.2L2 5h4.2L8 1z"/>
+                </svg>
+              ))}
+            </div>
+            <span class="reviews__count">983+ verified reviews</span>
+          </div>
+          <a href="#contact" class="btn btn-primary">Book &amp; Save $20</a>
         </div>
-        <strong>5/5 Rating</strong>
-        <span>·</span>
-        <span>983+ Customer Reviews</span>
       </div>
     </div>
 
-    <div class="reviews-grid">
-      {reviews.map((review) => (
-        <div class="review-card">
-          <div class="review-header">
-            <div class="reviewer-avatar" style={`background: ${review.color};`}>
-              {review.initials}
+    <div class="reviews__grid">
+      {reviews.map((r) => (
+        <article class="review-card">
+          <div class="review-card__header">
+            <div class="review-card__avatar">{initials(r.name)}</div>
+            <div>
+              <div class="review-card__name">{r.name}</div>
+              <div class="review-card__date">{r.date}</div>
             </div>
-            <div class="reviewer-info">
-              <strong class="reviewer-name">{review.name}</strong>
-              <div class="reviewer-stars">
-                {"★".repeat(review.rating)}
-              </div>
+            <div class="review-card__stars">
+              {Array(r.stars).fill(null).map(() => (
+                <svg viewBox="0 0 14 14" fill="#F59E0B">
+                  <path d="M7 1l1.5 3.5H12l-2.8 2.3 1.1 3.7L7 8.4l-3.3 2.1 1.1-3.7L2 4.5h3.5L7 1z"/>
+                </svg>
+              ))}
             </div>
-            <div class="google-badge">G</div>
           </div>
-          <p class="review-text">{review.text}</p>
-        </div>
+          <p class="review-card__text">{r.text}</p>
+          <div class="review-card__via">
+            <svg viewBox="0 0 20 20" fill="#4285F4">
+              <path d="M18.1 10.2c0-.6-.05-1.2-.15-1.8H10v3.4h4.5a3.8 3.8 0 01-1.67 2.5v2h2.7c1.6-1.47 2.5-3.65 2.5-6.1z"/>
+              <path d="M10 18.5c2.27 0 4.17-.74 5.56-2.02l-2.7-2.1c-.76.5-1.72.8-2.86.8-2.2 0-4.06-1.47-4.72-3.46H2.46v2.16A8.5 8.5 0 0010 18.5z" fill="#34A853"/>
+              <path d="M5.28 11.72A5.1 5.1 0 015.02 10c0-.6.1-1.18.26-1.72V6.12H2.46A8.5 8.5 0 001.5 10c0 1.37.33 2.67.96 3.88l2.82-2.16z" fill="#FBBC05"/>
+              <path d="M10 4.75c1.23 0 2.34.42 3.21 1.25l2.4-2.4A8.5 8.5 0 002.46 6.12L5.28 8.28C5.94 6.3 7.8 4.75 10 4.75z" fill="#EA4335"/>
+            </svg>
+            Google Review
+          </div>
+        </article>
       ))}
     </div>
 
-    <div class="text-center" style="margin-top: 3rem;">
-      <a href="https://www.junk-king.com/locations/palmbeach/reviews" target="_blank" rel="noopener" class="btn btn-outline">
-        View All 983 Reviews →
-      </a>
-    </div>
   </div>
 </section>
 
 <style>
-  .reviews {
-    padding: 6rem 0;
-    background: var(--color-gray-50);
-  }
+  .reviews { padding: 6rem 0; background: var(--ink-50); }
 
-  .section-header {
-    margin-bottom: 3.5rem;
-  }
+  .reviews__top { margin-bottom: 3rem; }
+  .reviews__summary { display: flex; align-items: center; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .reviews__score { display: flex; align-items: center; gap: 0.75rem; }
+  .reviews__number { font-size: 2.2rem; font-weight: 900; color: var(--ink-900); letter-spacing: -0.04em; }
+  .reviews__stars { display: flex; gap: 2px; }
+  .reviews__stars svg { width: 18px; height: 18px; }
+  .reviews__count { font-size: 0.82rem; color: var(--ink-500); }
 
-  .review-summary {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 0.75rem;
-    font-size: 0.95rem;
-    color: var(--color-gray-600);
+  .reviews__grid {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem;
   }
-
-  .summary-stars {
-    color: #fbbf24;
-    font-size: 1.25rem;
-    letter-spacing: 0.05em;
-  }
-
-  .reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
   .review-card {
-    background: var(--color-white);
-    border-radius: var(--border-radius-lg);
-    padding: 1.75rem;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--color-gray-200);
-    transition: all var(--transition);
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    background: var(--white); border: 1px solid var(--ink-200);
+    border-radius: var(--r-xl); padding: 1.75rem 1.5rem;
+    display: flex; flex-direction: column; gap: 1rem;
+    transition: all var(--ease);
   }
+  .review-card:hover { border-color: var(--red); box-shadow: var(--sh-md); transform: translateY(-2px); }
 
-  .review-card:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-3px);
+  .review-card__header { display: flex; align-items: center; gap: 0.75rem; }
+  .review-card__avatar {
+    width: 38px; height: 38px; background: var(--ink-900);
+    border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; font-size: 0.75rem; font-weight: 700;
+    color: #fff; flex-shrink: 0; letter-spacing: 0.02em;
   }
+  .review-card__name { font-size: 0.88rem; font-weight: 700; color: var(--ink-900); }
+  .review-card__date { font-size: 0.75rem; color: var(--ink-400); margin-top: 0.1rem; }
+  .review-card__stars { display: flex; gap: 1px; margin-left: auto; }
+  .review-card__stars svg { width: 14px; height: 14px; }
 
-  .review-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  .review-card__text {
+    font-size: 0.85rem; color: var(--ink-600); line-height: 1.7;
+    flex: 1; font-style: italic;
   }
-
-  .reviewer-avatar {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 800;
-    font-size: 1.1rem;
-    flex-shrink: 0;
+  .review-card__via {
+    display: flex; align-items: center; gap: 0.4rem;
+    font-size: 0.75rem; color: var(--ink-400); padding-top: 0.75rem;
+    border-top: 1px solid var(--ink-100);
   }
+  .review-card__via svg { width: 14px; height: 14px; }
 
-  .reviewer-info {
-    flex: 1;
-  }
-
-  .reviewer-name {
-    display: block;
-    font-size: 0.9rem;
-    color: var(--color-gray-900);
-    margin-bottom: 0.2rem;
-  }
-
-  .reviewer-stars {
-    color: #fbbf24;
-    font-size: 0.85rem;
-    letter-spacing: 0.05em;
-  }
-
-  .google-badge {
-    width: 28px;
-    height: 28px;
-    background: linear-gradient(135deg, #4285f4, #34a853, #fbbc04, #ea4335);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 900;
-    font-size: 0.75rem;
-    flex-shrink: 0;
-  }
-
-  .review-text {
-    font-size: 0.875rem;
-    color: var(--color-gray-600);
-    line-height: 1.7;
-    font-style: italic;
-    flex: 1;
-  }
-
-  @media (max-width: 1024px) {
-    .reviews-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
+  @media (max-width: 1024px) { .reviews__grid { grid-template-columns: repeat(2,1fr); } }
   @media (max-width: 768px) {
-    .reviews {
-      padding: 4rem 0;
-    }
-
-    .reviews-grid {
-      grid-template-columns: 1fr;
-    }
+    .reviews { padding: 4rem 0; }
+    .reviews__grid { grid-template-columns: 1fr; }
+    .reviews__summary { gap: 1.25rem; }
   }
 </style>

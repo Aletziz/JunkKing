@@ -1,5 +1,5 @@
 ---
-const areas = [
+const cities = [
   "Boynton Beach",
   "Delray Beach",
   "Greenacres",
@@ -17,160 +17,144 @@ const areas = [
 
 <section class="areas" id="areas">
   <div class="container">
-    <div class="areas-inner">
-      <div class="areas-content">
-        <span class="section-tag">Service Area</span>
-        <h2 class="section-title">We Proudly Serve<br/>Palm Beach County</h2>
-        <p class="section-subtitle">
-          Junk King Jupiter strives to make your junk removal experience stress-free.
-          We serve Palm Beach County and the surrounding regions with fast, reliable service.
-        </p>
 
-        <a href="#contact" class="btn btn-primary btn-lg" style="margin-top: 2rem; display: inline-flex;">
-          Book in Your Area
-        </a>
+    <div class="tc areas__header">
+      <span class="eyebrow">Service Area</span>
+      <div class="accent-line"></div>
+      <h2 class="h2">Serving Palm Beach County</h2>
+      <p class="lead">
+        Proudly providing professional junk removal across Palm Beach County.
+        Can't find your city? Call us — we likely serve your area too.
+      </p>
+    </div>
+
+    <div class="areas__layout">
+
+      <!-- Map placeholder -->
+      <div class="areas__map">
+        <div class="map-placeholder">
+          <svg viewBox="0 0 80 80" fill="none">
+            <circle cx="40" cy="40" r="38" stroke="rgba(200,16,46,0.15)" stroke-width="1.5"/>
+            <circle cx="40" cy="40" r="28" stroke="rgba(200,16,46,0.1)" stroke-width="1.5"/>
+            <circle cx="40" cy="40" r="18" stroke="rgba(200,16,46,0.12)" stroke-width="1.5"/>
+            <!-- Pin -->
+            <path d="M40 18C33.4 18 28 23.4 28 30c0 10.5 12 24 12 24s12-13.5 12-24c0-6.6-5.4-12-12-12z" fill="rgba(200,16,46,0.12)" stroke="#c8102e" stroke-width="1.5"/>
+            <circle cx="40" cy="30" r="4" fill="#c8102e"/>
+          </svg>
+          <p class="map-placeholder__title">Palm Beach County</p>
+          <p class="map-placeholder__sub">Florida, USA</p>
+        </div>
+        <div class="areas__hq">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+            <circle cx="12" cy="9" r="2.5"/>
+          </svg>
+          <div>
+            <span class="areas__hq-label">Headquarters</span>
+            <span class="areas__hq-address">1559 S Cypress Dr, Unit 3<br/>Jupiter, FL 33469</span>
+          </div>
+        </div>
       </div>
 
-      <div class="areas-grid-wrapper">
-        <h3 class="areas-grid-title">Areas We Serve</h3>
-        <div class="areas-grid">
-          {areas.map((area) => (
-            <div class="area-item">
-              <span class="area-pin">📍</span>
-              <span>{area}</span>
-            </div>
+      <!-- City list -->
+      <div class="areas__cities">
+        <div class="cities-grid">
+          {cities.map((city) => (
+            <a href={`#contact`} class="city-chip">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6c0 3.5 4.5 8.5 4.5 8.5S12.5 9.5 12.5 6c0-2.5-2-4.5-4.5-4.5z"/>
+                <circle cx="8" cy="6" r="1.5"/>
+              </svg>
+              {city}
+            </a>
           ))}
         </div>
-
-        <div class="hq-card">
-          <div class="hq-icon">🏢</div>
-          <div class="hq-info">
-            <strong>Junk King Jupiter</strong>
-            <span>1559 S Cypress Dr, Unit 3</span>
-            <span>Jupiter, FL 33469</span>
-          </div>
-          <a href="tel:5612466352" class="btn btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.875rem;">
-            📞 Call Now
+        <div class="areas__cta">
+          <p>Don't see your city? We likely serve your area.</p>
+          <a href="tel:+15612466352" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.02 2.84 2 2 0 012 .67h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.49a16 16 0 006.29 6.29l1.1-1.1a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+            Call (561) 246-6352
           </a>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
 <style>
-  .areas {
-    padding: 6rem 0;
-    background: var(--color-white);
+  .areas { padding: 6rem 0; background: var(--white); }
+  .areas__header { margin-bottom: 4rem; }
+
+  .areas__layout {
+    display: grid; grid-template-columns: 1fr 1.4fr;
+    gap: 3rem; align-items: start;
   }
 
-  .areas-inner {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 5rem;
-    align-items: center;
+  /* Map */
+  .areas__map {
+    background: var(--ink-50); border: 1px solid var(--ink-200);
+    border-radius: var(--r-xl); overflow: hidden;
   }
-
-  .areas-grid-wrapper {
-    background: var(--color-gray-50);
-    border-radius: var(--border-radius-lg);
-    padding: 2.5rem;
-    border: 1px solid var(--color-gray-200);
+  .map-placeholder {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; padding: 3rem 2rem;
+    background: linear-gradient(135deg, var(--ink-50) 0%, #fff 100%);
   }
+  .map-placeholder svg { width: 120px; height: 120px; margin-bottom: 1rem; }
+  .map-placeholder__title { font-size: 1rem; font-weight: 700; color: var(--ink-900); }
+  .map-placeholder__sub   { font-size: 0.8rem; color: var(--ink-500); margin-top: 0.25rem; }
 
-  .areas-grid-title {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--color-gray-900);
-    margin-bottom: 1.25rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid var(--color-primary);
-    display: inline-block;
+  .areas__hq {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+    padding: 1.25rem 1.5rem; border-top: 1px solid var(--ink-200);
+    background: var(--white);
   }
+  .areas__hq svg { width: 18px; height: 18px; stroke: var(--red); flex-shrink: 0; margin-top: 2px; }
+  .areas__hq-label { display: block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-400); margin-bottom: 0.3rem; }
+  .areas__hq-address { font-size: 0.82rem; color: var(--ink-700); line-height: 1.5; }
 
-  .areas-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
-    margin-bottom: 2rem;
+  /* Cities */
+  .areas__cities { display: flex; flex-direction: column; gap: 2rem; }
+  .cities-grid {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 0.6rem;
   }
-
-  .area-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.9rem;
-    color: var(--color-gray-700);
-    padding: 0.6rem 0.75rem;
-    border-radius: var(--border-radius);
-    transition: all var(--transition);
-    cursor: pointer;
-    font-weight: 500;
+  .city-chip {
+    display: flex; align-items: center; gap: 0.45rem;
+    padding: 0.6rem 0.85rem; border-radius: var(--r);
+    border: 1px solid var(--ink-200); background: var(--ink-50);
+    font-size: 0.82rem; font-weight: 500; color: var(--ink-700);
+    text-decoration: none; transition: all var(--ease);
   }
+  .city-chip:hover { background: var(--red-sub); border-color: rgba(200,16,46,0.25); color: var(--red); }
+  .city-chip svg { width: 13px; height: 13px; flex-shrink: 0; }
+  .city-chip:hover svg { stroke: var(--red); }
 
-  .area-item:hover {
-    background: rgba(200, 16, 46, 0.06);
-    color: var(--color-primary);
+  .areas__cta {
+    display: flex; align-items: center; gap: 1.5rem;
+    background: var(--ink-50); border: 1px solid var(--ink-200);
+    border-radius: var(--r-lg); padding: 1.25rem 1.5rem;
   }
-
-  .area-pin {
-    font-size: 0.85rem;
-    flex-shrink: 0;
+  .areas__cta p { font-size: 0.85rem; color: var(--ink-600); flex: 1; }
+  .areas__cta .btn {
+    display: flex; align-items: center; gap: 0.5rem;
+    white-space: nowrap; flex-shrink: 0;
   }
+  .areas__cta .btn svg { width: 16px; height: 16px; stroke: #fff; }
 
-  .hq-card {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    background: var(--color-white);
-    border-radius: var(--border-radius);
-    padding: 1.25rem;
-    border: 1px solid var(--color-gray-200);
-    box-shadow: var(--shadow-sm);
+  @media (max-width: 900px) {
+    .areas__layout { grid-template-columns: 1fr; }
+    .areas__map { max-width: 420px; }
+    .cities-grid { grid-template-columns: repeat(2,1fr); }
+    .areas__cta { flex-direction: column; text-align: center; }
   }
-
-  .hq-icon {
-    font-size: 2rem;
-    flex-shrink: 0;
-  }
-
-  .hq-info {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-
-  .hq-info strong {
-    font-size: 0.9rem;
-    color: var(--color-gray-900);
-  }
-
-  .hq-info span {
-    font-size: 0.8rem;
-    color: var(--color-gray-500);
-  }
-
-  @media (max-width: 1024px) {
-    .areas-inner {
-      gap: 3rem;
-    }
-  }
-
   @media (max-width: 768px) {
-    .areas {
-      padding: 4rem 0;
-    }
-
-    .areas-inner {
-      grid-template-columns: 1fr;
-    }
-
-    .areas-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .hq-card {
-      flex-wrap: wrap;
-    }
+    .areas { padding: 4rem 0; }
+    .cities-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 480px) {
+    .cities-grid { grid-template-columns: 1fr; }
   }
 </style>

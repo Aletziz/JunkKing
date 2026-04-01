@@ -1,402 +1,212 @@
 ---
+const serviceLinks = [
+  "Furniture Removal", "Appliance Removal", "Electronics Recycling",
+  "Mattress Removal", "Hot Tub Removal", "Yard Waste Removal",
+  "Full Space Cleanout", "Dumpster Bag Pickup",
+];
+const companyLinks = [
+  { label: "How It Works", href: "#how-it-works" },
+  { label: "Why Choose Us", href: "#why-us" },
+  { label: "Reviews", href: "#reviews" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Blog & Resources", href: "#resources" },
+];
+const areas = [
+  "West Palm Beach", "Boca Raton", "Delray Beach", "Boynton Beach",
+  "Wellington", "Jupiter", "Palm Beach Gardens", "Lake Worth",
+];
 ---
+
 <footer class="footer">
-  <div class="footer-main">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <div class="footer-logo">
-          <div class="footer-logo-icon">👑</div>
-          <div>
-            <span class="footer-logo-brand">JUNK KING</span>
-            <span class="footer-logo-loc">PALM BEACH</span>
-          </div>
-        </div>
-        <p class="footer-tagline">
-          Fast, eco-friendly junk removal services in Palm Beach County and surrounding areas.
+
+  <!-- Main footer grid -->
+  <div class="footer__main">
+    <div class="container footer__grid">
+
+      <!-- Brand -->
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">
+          <svg viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <polygon points="14,2 26,8 26,20 14,26 2,20 2,8" fill="#c8102e" opacity="0.12" stroke="#c8102e" stroke-width="1.5"/>
+            <path d="M9 14l3 3 7-7" stroke="#c8102e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Junk King <em>Palm Beach</em></span>
+        </a>
+        <p class="footer__tagline">
+          Palm Beach County's most trusted junk removal service.
+          Fast, eco-friendly, and priced right.
         </p>
-        <a href="tel:5612466352" class="footer-phone">📞 (561) 246-6352</a>
-        <address class="footer-address">
-          1559 S Cypress Dr, Unit 3<br />
-          Jupiter, FL 33469
-        </address>
-
-        <div class="footer-socials">
-          <a href="https://www.facebook.com/487713624675546" target="_blank" rel="noopener" aria-label="Facebook" class="footer-social">f</a>
-          <a href="https://x.com/JunkKingCorp" target="_blank" rel="noopener" aria-label="X (Twitter)" class="footer-social">𝕏</a>
-          <a href="https://www.linkedin.com/company/junk-king" target="_blank" rel="noopener" aria-label="LinkedIn" class="footer-social">in</a>
-          <a href="https://www.youtube.com/@JunkKing" target="_blank" rel="noopener" aria-label="YouTube" class="footer-social">▶</a>
-          <a href="https://www.instagram.com/junkking_corporate/" target="_blank" rel="noopener" aria-label="Instagram" class="footer-social">📸</a>
-        </div>
-      </div>
-
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="#services">Residential Junk Removal</a></li>
-          <li><a href="#services">Commercial Junk Removal</a></li>
-          <li><a href="#services">Furniture Removal</a></li>
-          <li><a href="#services">Appliance Removal</a></li>
-          <li><a href="#services">Electronics Recycling</a></li>
-          <li><a href="#services">Mattress Removal</a></li>
-          <li><a href="#services">Hot Tub Removal</a></li>
-          <li><a href="#services">Yard Waste Removal</a></li>
-          <li><a href="#services">Dumpster Bag Pickup</a></li>
-          <li><a href="#services">Full Space Cleanouts</a></li>
+        <ul class="footer__contact-list">
+          <li>
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M18 14.7v2.5a1.67 1.67 0 01-1.82 1.67A16.5 16.5 0 019.5 16.3a16.25 16.25 0 01-4.67-4.67 16.5 16.5 0 01-2.5-7.22A1.67 1.67 0 013.99 2.5H6.5a1.67 1.67 0 011.67 1.43c.1.8.3 1.59.58 2.35a1.67 1.67 0 01-.38 1.76l-1.07 1.07A13.34 13.34 0 0012.57 14l1.07-1.07a1.67 1.67 0 011.76-.38c.76.28 1.54.48 2.35.58A1.67 1.67 0 0118 14.7z"/>
+            </svg>
+            <a href="tel:+15612466352">(561) 246-6352</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/>
+            </svg>
+            <span>1559 S Cypress Dr, Unit 3, Jupiter FL</span>
+          </li>
         </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="https://www.junk-king.com/company" target="_blank" rel="noopener">About Us</a></li>
-          <li><a href="https://www.junk-king.com/locations/palmbeach/contact" target="_blank" rel="noopener">Contact Us</a></li>
-          <li><a href="https://www.junk-king.com/why-us" target="_blank" rel="noopener">Why Choose Junk King</a></li>
-          <li><a href="https://franchise.neighborly.com/junk-king" target="_blank" rel="noopener">Own a Franchise</a></li>
-          <li><a href="https://jobs.junk-king.com/" target="_blank" rel="noopener">Join Our Team</a></li>
-        </ul>
-
-        <h4 style="margin-top: 2rem;">Resources</h4>
-        <ul>
-          <li><a href="https://www.junk-king.com/blog/article" target="_blank" rel="noopener">National Blog</a></li>
-          <li><a href="https://www.junk-king.com/locations/palmbeach/blog/article" target="_blank" rel="noopener">Local Blog</a></li>
-          <li><a href="https://www.junk-king.com/faq" target="_blank" rel="noopener">FAQ</a></li>
-          <li><a href="https://www.junk-king.com/company/locations" target="_blank" rel="noopener">All Locations</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Areas We Serve</h4>
-        <ul>
-          <li><a href="#areas">West Palm Beach</a></li>
-          <li><a href="#areas">Boynton Beach</a></li>
-          <li><a href="#areas">Delray Beach</a></li>
-          <li><a href="#areas">Lake Worth</a></li>
-          <li><a href="#areas">Wellington</a></li>
-          <li><a href="#areas">Greenacres</a></li>
-          <li><a href="#areas">Lantana</a></li>
-          <li><a href="#areas">Palm Springs</a></li>
-          <li><a href="#areas">Jupiter</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer-neighborly">
-    <div class="container footer-neighborly-inner">
-      <div class="neighborly-text">
-        <span class="neighborly-logo">🤝 Neighborly</span>
-        <p>
-          Junk King is part of the Neighborly family of home and commercial service providers.
-          Rely on Neighborly's national network of trusted, local home service professionals.
-        </p>
-      </div>
-      <div class="app-download">
-        <span>Download the App</span>
-        <div class="app-buttons">
-          <a href="https://apps.apple.com/us/app/neighborly-home-services/id1504241093" target="_blank" rel="noopener" class="app-btn">
-            🍎 App Store
+        <div class="footer__social">
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
           </a>
-          <a href="https://play.google.com/store/apps/details?id=com.nbly.custapp" target="_blank" rel="noopener" class="app-btn">
-            ▶ Google Play
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           </a>
         </div>
       </div>
+
+      <!-- Services -->
+      <div class="footer__col">
+        <h4 class="footer__heading">Services</h4>
+        <ul class="footer__links">
+          {serviceLinks.map((s) => (
+            <li><a href="#services">{s}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div class="footer__col">
+        <h4 class="footer__heading">Company</h4>
+        <ul class="footer__links">
+          {companyLinks.map((l) => (
+            <li><a href={l.href}>{l.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Areas -->
+      <div class="footer__col">
+        <h4 class="footer__heading">Service Areas</h4>
+        <ul class="footer__links">
+          {areas.map((a) => (
+            <li><a href="#areas">{a}</a></li>
+          ))}
+        </ul>
+      </div>
+
     </div>
   </div>
 
-  <div class="footer-bottom">
-    <div class="container footer-bottom-inner">
-      <p>© 2026 Neighborly Company and its affiliates. All rights reserved.</p>
-      <div class="footer-legal">
-        <a href="https://www.neighborly.com/terms-of-use" target="_blank" rel="noopener">Terms of Use</a>
-        <a href="https://www.neighborly.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
-        <a href="https://www.neighborly.com/accessibility" target="_blank" rel="noopener">Accessibility</a>
-        <a href="https://www.junk-king.com/about/site-disclaimer" target="_blank" rel="noopener">Disclaimer</a>
+  <!-- Neighborly bar -->
+  <div class="footer__neighborly">
+    <div class="container footer__neighborly-inner">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M10 2l2.5 5H18l-4 3.5 1.5 5.5L10 13l-5.5 3 1.5-5.5L2 7h5.5L10 2z"/>
+      </svg>
+      <span>Proud member of the <strong>Neighborly</strong> family of trusted home service brands</span>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer__bottom">
+    <div class="container footer__bottom-inner">
+      <span>© {new Date().getFullYear()} Junk King Palm Beach. All rights reserved.</span>
+      <div class="footer__legal">
+        <a href="#">Privacy Policy</a>
+        <span>·</span>
+        <a href="#">Terms of Service</a>
+        <span>·</span>
+        <a href="#">Sitemap</a>
       </div>
     </div>
   </div>
+
 </footer>
 
 <style>
-  .footer {
-    background: var(--color-gray-900);
-    color: var(--color-white);
+  .footer { background: var(--ink-900); color: rgba(255,255,255,0.55); }
+
+  /* Main grid */
+  .footer__main { padding: 5rem 0 4rem; }
+  .footer__grid {
+    display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr;
+    gap: 3.5rem; align-items: start;
   }
 
-  .footer-main {
-    padding: 4rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  /* Brand */
+  .footer__logo {
+    display: flex; align-items: center; gap: 0.7rem;
+    text-decoration: none; margin-bottom: 1.25rem;
   }
+  .footer__logo svg { width: 28px; height: 28px; flex-shrink: 0; }
+  .footer__logo span { font-size: 1rem; font-weight: 800; color: #fff; letter-spacing: -0.01em; }
+  .footer__logo em { color: var(--red); font-style: normal; }
+  .footer__tagline { font-size: 0.82rem; line-height: 1.7; margin-bottom: 1.5rem; max-width: 280px; }
 
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    gap: 3rem;
+  .footer__contact-list { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.5rem; }
+  .footer__contact-list li { display: flex; align-items: center; gap: 0.55rem; font-size: 0.82rem; }
+  .footer__contact-list svg { width: 14px; height: 14px; flex-shrink: 0; opacity: 0.5; }
+  .footer__contact-list a { color: rgba(255,255,255,0.7); text-decoration: none; }
+  .footer__contact-list a:hover { color: #fff; }
+
+  .footer__social { display: flex; gap: 0.6rem; }
+  .footer__social a {
+    width: 32px; height: 32px; background: rgba(255,255,255,0.07);
+    border-radius: var(--r); display: flex; align-items: center;
+    justify-content: center; color: rgba(255,255,255,0.4);
+    transition: all var(--ease);
   }
+  .footer__social a:hover { background: rgba(255,255,255,0.13); color: #fff; }
+  .footer__social svg { width: 14px; height: 14px; }
 
-  .footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  /* Columns */
+  .footer__heading {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: rgba(255,255,255,0.35);
+    margin-bottom: 1.25rem;
   }
-
-  .footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+  .footer__links { display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer__links li {}
+  .footer__links a {
+    font-size: 0.83rem; color: rgba(255,255,255,0.55); text-decoration: none;
+    transition: color var(--ease);
   }
+  .footer__links a:hover { color: #fff; }
 
-  .footer-logo-icon {
-    font-size: 1.75rem;
-    background: var(--color-primary);
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  /* Neighborly */
+  .footer__neighborly {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    padding: 1rem 0;
   }
-
-  .footer-logo > div {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .footer-logo-brand {
-    font-size: 1.1rem;
-    font-weight: 900;
-    color: var(--color-white);
-    line-height: 1;
-    letter-spacing: -0.01em;
-  }
-
-  .footer-logo-loc {
-    font-size: 0.6rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.45);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .footer-tagline {
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.6);
-    line-height: 1.6;
-  }
-
-  .footer-phone {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--color-white);
-    text-decoration: none;
-    transition: color var(--transition);
-  }
-
-  .footer-phone:hover {
-    color: var(--color-primary);
-  }
-
-  .footer-address {
-    font-style: normal;
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.5);
-    line-height: 1.6;
-  }
-
-  .footer-socials {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-  }
-
-  .footer-social {
-    width: 34px;
-    height: 34px;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: var(--border-radius);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .footer__neighborly-inner {
+    display: flex; align-items: center; gap: 0.6rem;
     font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.7);
-    font-weight: 700;
-    transition: all var(--transition);
   }
+  .footer__neighborly svg { width: 16px; height: 16px; opacity: 0.4; flex-shrink: 0; }
+  .footer__neighborly strong { color: rgba(255,255,255,0.75); }
 
-  .footer-social:hover {
-    background: var(--color-primary);
-    color: var(--color-white);
-    transform: translateY(-2px);
+  /* Bottom */
+  .footer__bottom { padding: 1.5rem 0; }
+  .footer__bottom-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1.5rem; flex-wrap: wrap;
+    font-size: 0.78rem;
   }
-
-  .footer-col h4 {
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: rgba(255, 255, 255, 0.45);
-    margin-bottom: 1rem;
-  }
-
-  .footer-col ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-
-  .footer-col a {
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.7);
-    transition: color var(--transition);
-  }
-
-  .footer-col a:hover {
-    color: var(--color-white);
-  }
-
-  .footer-neighborly {
-    padding: 2rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.03);
-  }
-
-  .footer-neighborly-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-
-  .neighborly-text {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    flex: 1;
-  }
-
-  .neighborly-logo {
-    font-size: 1rem;
-    font-weight: 800;
-    color: var(--color-white);
-    white-space: nowrap;
-  }
-
-  .neighborly-text p {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.5);
-    line-height: 1.5;
-  }
-
-  .app-download {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    align-items: flex-end;
-  }
-
-  .app-download > span {
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.45);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  .app-buttons {
-    display: flex;
-    gap: 0.75rem;
-  }
-
-  .app-btn {
-    padding: 0.5rem 1.1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: var(--border-radius);
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.8);
-    transition: all var(--transition);
-  }
-
-  .app-btn:hover {
-    background: var(--color-primary);
-    color: var(--color-white);
-  }
-
-  .footer-bottom {
-    padding: 1.5rem 0;
-  }
-
-  .footer-bottom-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .footer-bottom p {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.35);
-  }
-
-  .footer-legal {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-  }
-
-  .footer-legal a {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.4);
-    transition: color var(--transition);
-  }
-
-  .footer-legal a:hover {
-    color: rgba(255, 255, 255, 0.75);
-  }
+  .footer__legal { display: flex; align-items: center; gap: 0.5rem; }
+  .footer__legal a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color var(--ease); }
+  .footer__legal a:hover { color: rgba(255,255,255,0.75); }
+  .footer__legal span { opacity: 0.25; }
 
   @media (max-width: 1024px) {
-    .footer-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2.5rem;
-    }
-
-    .footer-brand {
-      grid-column: 1 / -1;
-    }
+    .footer__grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+    .footer__brand { grid-column: 1 / -1; }
   }
-
-  @media (max-width: 768px) {
-    .footer-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .footer-brand {
-      grid-column: 1;
-    }
-
-    .footer-neighborly-inner {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .neighborly-text {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .app-download {
-      align-items: flex-start;
-    }
-
-    .footer-bottom-inner {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .footer-legal {
-      gap: 1rem;
-    }
+  @media (max-width: 640px) {
+    .footer__grid { grid-template-columns: 1fr; }
+    .footer__main { padding: 4rem 0 3rem; }
+    .footer__bottom-inner { flex-direction: column; text-align: center; }
   }
 </style>

@@ -3,13 +3,11 @@ export interface Props {
   title?: string;
   description?: string;
 }
-
 const {
   title = "Junk King Palm Beach | Junk Removal Services",
-  description = "Junk King Palm Beach is the top choice for efficient junk removal services in Palm Beach, FL. Same-day appointments. Eco-friendly. Free estimates.",
+  description = "Junk King Palm Beach — Palm Beach County's #1 junk removal. Same-day appointments, free estimates, eco-friendly.",
 } = Astro.props;
 ---
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -19,10 +17,7 @@ const {
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body>
@@ -32,191 +27,97 @@ const {
 
 <style is:global>
   :root {
-    --color-primary: #c8102e;
-    --color-primary-dark: #a00d24;
-    --color-secondary: #2d7a2d;
-    --color-secondary-dark: #1f5c1f;
-    --color-accent: #f5a623;
-    --color-dark: #1a1a1a;
-    --color-gray-900: #111827;
-    --color-gray-800: #1f2937;
-    --color-gray-700: #374151;
-    --color-gray-600: #4b5563;
-    --color-gray-500: #6b7280;
-    --color-gray-400: #9ca3af;
-    --color-gray-300: #d1d5db;
-    --color-gray-200: #e5e7eb;
-    --color-gray-100: #f3f4f6;
-    --color-gray-50: #f9fafb;
-    --color-white: #ffffff;
-    --font-family: "Inter", system-ui, -apple-system, sans-serif;
-    --max-width: 1200px;
-    --border-radius: 8px;
-    --border-radius-lg: 16px;
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
-    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
-    --transition: 0.2s ease;
+    --red:        #c8102e;
+    --red-dark:   #a3102b;
+    --red-sub:    rgba(200,16,46,0.07);
+    --ink-900:    #0d0f13;
+    --ink-800:    #1a1d24;
+    --ink-700:    #2c3140;
+    --ink-600:    #454c5e;
+    --ink-500:    #6b7280;
+    --ink-400:    #9ca3af;
+    --ink-300:    #d1d5db;
+    --ink-200:    #e8eaed;
+    --ink-100:    #f3f4f6;
+    --ink-50:     #f9fafb;
+    --white:      #ffffff;
+    --font:       "Inter", system-ui, sans-serif;
+    --w:          1160px;
+    --r:          8px;
+    --r-lg:       14px;
+    --r-xl:       20px;
+    --ease:       0.18s ease;
+    --sh-sm:      0 1px 4px rgba(0,0,0,0.07);
+    --sh-md:      0 4px 18px rgba(0,0,0,0.09);
+    --sh-lg:      0 16px 48px rgba(0,0,0,0.12);
   }
 
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    font-family: var(--font-family);
-    color: var(--color-gray-800);
-    background: var(--color-white);
-    line-height: 1.6;
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html  { scroll-behavior: smooth; }
+  body  {
+    font-family: var(--font);
+    color: var(--ink-600);
+    background: var(--white);
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
+  img   { max-width: 100%; height: auto; display: block; }
+  a     { color: inherit; text-decoration: none; }
+  ul    { list-style: none; }
+  button, input, select, textarea { font-family: var(--font); }
+  button { cursor: pointer; }
 
-  img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
+  /* Container */
+  .container { max-width: var(--w); margin: 0 auto; padding: 0 1.5rem; }
 
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  ul {
-    list-style: none;
-  }
-
-  button {
-    cursor: pointer;
-    font-family: var(--font-family);
-  }
-
-  input,
-  select,
-  textarea {
-    font-family: var(--font-family);
-  }
-
-  .container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
-
+  /* Buttons */
   .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.75rem;
-    border-radius: var(--border-radius);
-    font-weight: 700;
-    font-size: 0.95rem;
-    transition:
-      background var(--transition),
-      transform var(--transition),
-      box-shadow var(--transition);
-    border: none;
-    white-space: nowrap;
-    letter-spacing: 0.01em;
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 0.45rem; padding: 0.68rem 1.5rem;
+    border-radius: var(--r); font-weight: 600; font-size: 0.875rem;
+    letter-spacing: 0.01em; transition: all var(--ease);
+    border: 1.5px solid transparent; white-space: nowrap; line-height: 1;
+    cursor: pointer;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn svg   { width: 15px; height: 15px; flex-shrink: 0; }
+
+  .btn-primary  { background: var(--red); color: #fff; border-color: var(--red); }
+  .btn-primary:hover  { background: var(--red-dark); border-color: var(--red-dark); box-shadow: 0 4px 16px rgba(200,16,46,0.30); }
+
+  .btn-outline  { background: transparent; color: var(--red); border-color: var(--red); }
+  .btn-outline:hover  { background: var(--red); color: #fff; }
+
+  .btn-ghost    { background: rgba(255,255,255,0.06); color: #fff; border-color: rgba(255,255,255,0.14); }
+  .btn-ghost:hover    { background: rgba(255,255,255,0.12); }
+
+  .btn-white    { background: #fff; color: var(--ink-900); border-color: #fff; }
+  .btn-white:hover    { background: var(--ink-100); }
+
+  .btn-lg { padding: 0.82rem 1.9rem; font-size: 0.92rem; }
+
+  /* Typography helpers */
+  .eyebrow {
+    display: block; font-size: 0.68rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--red); margin-bottom: 0.75rem;
+  }
+  .h2 {
+    font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800;
+    color: var(--ink-900); line-height: 1.18; letter-spacing: -0.02em;
+    margin-bottom: 0.85rem;
+  }
+  .lead {
+    font-size: 0.975rem; color: var(--ink-500); line-height: 1.72;
+    max-width: 540px;
   }
 
-  .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+  /* Helpers */
+  .tc  { text-align: center; }
+  .tc .lead { margin: 0 auto; }
+  .accent-line {
+    width: 36px; height: 3px; background: var(--red);
+    border-radius: 2px; margin-bottom: 1.25rem;
   }
-
-  .btn-primary {
-    background: var(--color-primary);
-    color: var(--color-white);
-  }
-
-  .btn-primary:hover {
-    background: var(--color-primary-dark);
-  }
-
-  .btn-secondary {
-    background: var(--color-secondary);
-    color: var(--color-white);
-  }
-
-  .btn-secondary:hover {
-    background: var(--color-secondary-dark);
-  }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--color-primary);
-    border: 2px solid var(--color-primary);
-  }
-
-  .btn-outline:hover {
-    background: var(--color-primary);
-    color: var(--color-white);
-  }
-
-  .btn-white {
-    background: var(--color-white);
-    color: var(--color-primary);
-  }
-
-  .btn-white:hover {
-    background: var(--color-gray-100);
-  }
-
-  .btn-lg {
-    padding: 1rem 2.25rem;
-    font-size: 1.05rem;
-  }
-
-  .section-tag {
-    display: inline-block;
-    background: rgba(200, 16, 46, 0.1);
-    color: var(--color-primary);
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 0.35rem 1rem;
-    border-radius: 100px;
-    margin-bottom: 1rem;
-  }
-
-  .section-title {
-    font-size: clamp(1.75rem, 4vw, 2.75rem);
-    font-weight: 800;
-    color: var(--color-gray-900);
-    line-height: 1.2;
-    margin-bottom: 1rem;
-  }
-
-  .section-subtitle {
-    font-size: 1.05rem;
-    color: var(--color-gray-500);
-    max-width: 600px;
-    line-height: 1.7;
-  }
-
-  .text-center {
-    text-align: center;
-  }
-
-  .text-center .section-subtitle {
-    margin: 0 auto;
-  }
-
-  @media (max-width: 768px) {
-    .btn-lg {
-      padding: 0.875rem 1.75rem;
-      font-size: 1rem;
-    }
-  }
+  .tc .accent-line { margin: 0 auto 1.25rem; }
 </style>

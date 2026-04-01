@@ -1,275 +1,160 @@
 ---
 const reasons = [
   {
-    icon: "⚡",
     title: "Super Fast Service",
-    desc: "Don't wait! With same-day appointments, our expert junk haulers take your junk pile away super fast. Let Junk King toss your old furniture and rusted appliances today.",
-    color: "#f59e0b",
+    desc: "Same-day and next-day appointments available. We show up in the scheduled window — guaranteed.",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
   },
   {
-    icon: "♻️",
-    title: "Eco-Friendly",
-    desc: "With local warehouses, Junk King provides a top-rated, fast, safe, and eco-friendly disposal service. We can sort, reuse, and recycle up to 60% of every haul.",
-    color: "#2d7a2d",
+    title: "Eco-Friendly Disposal",
+    desc: "We recycle or donate over 60% of everything we collect, keeping as much as possible out of landfills.",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 16.5a4.5 4.5 0 01-1.5-8.7M17 16.5a4.5 4.5 0 001.5-8.7"/><path d="M12 4v16M8 8l4-4 4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
   },
   {
-    icon: "💰",
     title: "Fair & Flexible Pricing",
-    desc: "Only pay for the space you use. We offer affordable prices and free, no-obligation estimates. We guarantee to beat any written estimate.",
-    color: "#3b82f6",
+    desc: "Upfront quotes — no hidden fees. We'll beat any written estimate. You pay only for the space you use.",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
   },
   {
-    icon: "🚛",
     title: "King-Size Trucks",
-    desc: "Our junk trucks are 20% bigger than competitors, giving you king-size savings with more volume for less money. One truck = 18 cubic yards of space.",
-    color: "#c8102e",
+    desc: "Our trucks are 20% bigger than the competition — meaning fewer trips, lower cost, and a faster job done.",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1" y="10" width="15" height="10" rx="1"/><path d="M16 13h4l3 3v4h-7V13z"/><circle cx="5.5" cy="20.5" r="1.5"/><circle cx="18.5" cy="20.5" r="1.5"/></svg>`,
   },
+];
+
+const badges = [
+  { label: "5-Star Rating",       sub: "983+ Google Reviews",     icon: `<svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.6"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>` },
+  { label: "Neighborly Certified", sub: "Trusted local partner",  icon: `<svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>` },
+  { label: "Fully Insured",        sub: "Licensed & bonded",       icon: `<svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.6"><path d="M9 12l2 2 4-4M12 3l-8 3v7c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V6l-8-3z"/></svg>` },
 ];
 ---
 
-<section class="why-us" id="why-us">
+<section class="why" id="why-us">
   <div class="container">
-    <div class="why-us-inner">
-      <div class="why-us-content">
-        <span class="section-tag">Why Choose Us</span>
-        <h2 class="section-title">Service You Can<br/>Trust!</h2>
-        <p class="section-subtitle">
-          Junk King Palm Beach is committed to making your junk removal experience
-          stress-free. We show up on time, work fast, and leave your space clean.
-        </p>
 
-        <div class="reasons">
-          {reasons.map((reason) => (
-            <div class="reason">
-              <div class="reason-icon" style={`background: ${reason.color}15; color: ${reason.color};`}>
-                {reason.icon}
-              </div>
-              <div class="reason-text">
-                <h3>{reason.title}</h3>
-                <p>{reason.desc}</p>
-              </div>
-            </div>
-          ))}
+    <div class="tc why__header">
+      <span class="eyebrow">Why Choose Us</span>
+      <div class="accent-line"></div>
+      <h2 class="h2">The Junk King Difference</h2>
+      <p class="lead">We don't just remove junk — we do it faster, cleaner, and more responsibly than anyone else in Palm Beach County.</p>
+    </div>
+
+    <div class="reasons">
+      {reasons.map((r) => (
+        <div class="reason">
+          <div class="reason__icon" set:html={r.icon}></div>
+          <h3 class="reason__title">{r.title}</h3>
+          <p class="reason__desc">{r.desc}</p>
         </div>
+      ))}
+    </div>
 
-        <a href="#contact" class="btn btn-primary btn-lg">Book Online Today</a>
+    <!-- Truck specs -->
+    <div class="truck-specs">
+      <div class="truck-specs__label">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <rect x="1" y="10" width="15" height="10" rx="1"/><path d="M16 13h4l3 3v4h-7V13z"/>
+          <circle cx="5.5" cy="20.5" r="1.5"/><circle cx="18.5" cy="20.5" r="1.5"/>
+        </svg>
+        <span>King-Size Truck Specs</span>
       </div>
-
-      <div class="why-us-visual">
-        <div class="truck-card">
-          <div class="truck-emoji">🚛</div>
-          <h3>King-Size Trucks</h3>
-          <div class="truck-specs">
-            <div class="spec">
-              <span class="spec-value">18</span>
-              <span class="spec-unit">cubic yards</span>
-            </div>
-            <div class="spec">
-              <span class="spec-value">20%</span>
-              <span class="spec-unit">bigger than competitors</span>
-            </div>
-          </div>
-          <div class="truck-dimensions">
-            <span>12'L × 8'W × 5'H</span>
-          </div>
-          <p class="truck-note">= 12 standard size refrigerators</p>
-        </div>
-
-        <div class="trust-badges">
-          <div class="trust-badge">
-            <span class="trust-icon">⭐</span>
-            <div>
-              <strong>5/5 Rating</strong>
-              <span>983+ Reviews</span>
-            </div>
-          </div>
-          <div class="trust-badge">
-            <span class="trust-icon">🤝</span>
-            <div>
-              <strong>Neighborly</strong>
-              <span>Certified Partner</span>
-            </div>
-          </div>
-          <div class="trust-badge">
-            <span class="trust-icon">✅</span>
-            <div>
-              <strong>Fully Insured</strong>
-              <span>Licensed & Bonded</span>
-            </div>
-          </div>
-        </div>
+      <div class="truck-specs__stats">
+        <div class="spec"><strong>18</strong><span>Cubic Yards</span></div>
+        <div class="spec-divider"></div>
+        <div class="spec"><strong>12 ft</strong><span>Length</span></div>
+        <div class="spec-divider"></div>
+        <div class="spec"><strong>8 ft</strong><span>Width</span></div>
+        <div class="spec-divider"></div>
+        <div class="spec"><strong>5 ft</strong><span>Height</span></div>
+        <div class="spec-divider"></div>
+        <div class="spec spec--highlight"><strong>20%</strong><span>Bigger than competition</span></div>
       </div>
     </div>
+
+    <!-- Trust badges -->
+    <div class="badges">
+      {badges.map((b) => (
+        <div class="badge-card">
+          <div class="badge-card__icon" set:html={b.icon}></div>
+          <div>
+            <div class="badge-card__label">{b.label}</div>
+            <div class="badge-card__sub">{b.sub}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+
   </div>
 </section>
 
 <style>
-  .why-us {
-    padding: 6rem 0;
-    background: var(--color-gray-50);
-  }
+  .why { padding: 6rem 0; background: var(--ink-50); }
+  .why__header { margin-bottom: 4rem; }
 
-  .why-us-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-
+  /* Reasons */
   .reasons {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin: 2.5rem 0;
+    display: grid; grid-template-columns: repeat(4,1fr);
+    gap: 1.25rem; margin-bottom: 2.5rem;
   }
-
   .reason {
-    display: flex;
-    gap: 1.25rem;
-    align-items: flex-start;
+    background: var(--white); border: 1px solid var(--ink-200);
+    border-radius: var(--r-xl); padding: 2rem 1.5rem;
+    transition: all var(--ease);
   }
-
-  .reason-icon {
-    width: 52px;
-    height: 52px;
-    border-radius: var(--border-radius);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    flex-shrink: 0;
+  .reason:hover { border-color: var(--red); transform: translateY(-3px); box-shadow: var(--sh-md); }
+  .reason__icon {
+    width: 48px; height: 48px; background: var(--red-sub);
+    border-radius: var(--r-lg); display: flex; align-items: center;
+    justify-content: center; margin-bottom: 1.25rem;
   }
+  .reason__icon :global(svg) { width: 22px; height: 22px; stroke: var(--red); }
+  .reason__title { font-size: 0.95rem; font-weight: 700; color: var(--ink-900); margin-bottom: 0.6rem; }
+  .reason__desc  { font-size: 0.82rem; color: var(--ink-500); line-height: 1.7; }
 
-  .reason-text h3 {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--color-gray-900);
-    margin-bottom: 0.35rem;
-  }
-
-  .reason-text p {
-    font-size: 0.875rem;
-    color: var(--color-gray-500);
-    line-height: 1.6;
-  }
-
-  .why-us-visual {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .truck-card {
-    background: var(--color-gray-900);
-    border-radius: var(--border-radius-lg);
-    padding: 2.5rem;
-    text-align: center;
-    color: var(--color-white);
-  }
-
-  .truck-emoji {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-  }
-
-  .truck-card h3 {
-    font-size: 1.5rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-  }
-
+  /* Truck specs */
   .truck-specs {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    margin-bottom: 1.5rem;
+    background: var(--ink-900); border-radius: var(--r-xl);
+    padding: 2rem 2.5rem; margin-bottom: 2rem;
   }
-
-  .spec {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .truck-specs__label {
+    display: flex; align-items: center; gap: 0.6rem;
+    font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.5);
+    text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1.5rem;
   }
+  .truck-specs__label svg { width: 16px; height: 16px; stroke: rgba(255,255,255,0.4); }
+  .truck-specs__stats { display: flex; align-items: center; gap: 0; }
+  .spec { flex: 1; text-align: center; }
+  .spec strong { display: block; font-size: 1.8rem; font-weight: 900; color: #fff; letter-spacing: -0.03em; line-height: 1; }
+  .spec span { font-size: 0.75rem; color: rgba(255,255,255,0.45); margin-top: 0.35rem; display: block; }
+  .spec--highlight strong { color: var(--red); }
+  .spec-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.1); flex-shrink: 0; }
 
-  .spec-value {
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: var(--color-primary);
-    line-height: 1;
+  /* Badges */
+  .badges { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
+  .badge-card {
+    display: flex; align-items: center; gap: 1rem;
+    background: var(--white); border: 1px solid var(--ink-200);
+    border-radius: var(--r-lg); padding: 1.25rem 1.5rem;
+    transition: all var(--ease);
   }
-
-  .spec-unit {
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.6);
-    text-align: center;
-    margin-top: 0.25rem;
+  .badge-card:hover { border-color: var(--red); box-shadow: var(--sh-sm); }
+  .badge-card__icon {
+    width: 44px; height: 44px; background: var(--red-sub);
+    border-radius: var(--r); display: flex; align-items: center;
+    justify-content: center; flex-shrink: 0;
   }
+  .badge-card__icon :global(svg) { width: 20px; height: 20px; stroke: var(--red); }
+  .badge-card__label { font-size: 0.88rem; font-weight: 700; color: var(--ink-900); }
+  .badge-card__sub   { font-size: 0.78rem; color: var(--ink-500); margin-top: 0.15rem; }
 
-  .truck-dimensions {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: var(--border-radius);
-    padding: 0.5rem 1.25rem;
-    display: inline-block;
-    font-size: 0.875rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-  }
-
-  .truck-note {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.5);
-  }
-
-  .trust-badges {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .trust-badge {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    background: var(--color-white);
-    border-radius: var(--border-radius);
-    padding: 1rem 1.5rem;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--color-gray-200);
-  }
-
-  .trust-icon {
-    font-size: 1.75rem;
-    flex-shrink: 0;
-  }
-
-  .trust-badge div {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .trust-badge strong {
-    font-size: 0.95rem;
-    color: var(--color-gray-900);
-  }
-
-  .trust-badge span {
-    font-size: 0.8rem;
-    color: var(--color-gray-500);
-  }
-
-  @media (max-width: 1024px) {
-    .why-us-inner {
-      gap: 3rem;
-    }
-  }
-
+  @media (max-width: 1024px) { .reasons { grid-template-columns: repeat(2,1fr); } }
   @media (max-width: 768px) {
-    .why-us {
-      padding: 4rem 0;
-    }
-
-    .why-us-inner {
-      grid-template-columns: 1fr;
-    }
+    .why { padding: 4rem 0; }
+    .reasons { grid-template-columns: 1fr; }
+    .badges { grid-template-columns: 1fr; }
+    .truck-specs { padding: 1.5rem; }
+    .truck-specs__stats { flex-wrap: wrap; gap: 1rem; }
+    .spec-divider { display: none; }
+    .spec { flex: 0 0 calc(50% - 0.5rem); }
   }
 </style>

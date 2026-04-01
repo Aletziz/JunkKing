@@ -1,257 +1,221 @@
 ---
 const steps = [
   {
-    number: "1",
-    icon: "📅",
-    title: "You pick a date & two-hour window",
-    desc: "Schedule online or call us. We offer same-day appointments and flexible scheduling to fit your busy life.",
+    number: "01",
+    title: "Pick Your Date & Window",
+    desc: "Schedule online or by phone. Choose a 2-hour arrival window that works for your schedule.",
   },
   {
-    number: "2",
-    icon: "📞",
-    title: "We call you 15 minutes before arrival",
-    desc: "Our crew gives you a heads-up so you're ready. We arrive on time, every time.",
+    number: "02",
+    title: "We Call 15 Min Ahead",
+    desc: "Our crew calls before arrival so you're never waiting around. We show up on time, every time.",
   },
   {
-    number: "3",
-    icon: "🤝",
-    title: "If you agree to our price, we take your junk",
-    desc: "Free estimate on-site. 90% of the time we can take your junk immediately after the estimate.",
+    number: "03",
+    title: "Approve Price. We Haul.",
+    desc: "Review the upfront quote — no surprise fees. Approve it and we remove your junk on the spot.",
   },
 ];
 
-const contactMethods = [
+const contacts = [
   {
-    icon: "🌐",
-    title: "Book Online",
-    desc: "See how much it would cost and save $20 by booking online.",
-    cta: "Book Now",
-    href: "#contact",
+    label: "Book Online",
     badge: "Save $20",
+    detail: "Schedule anytime — 24/7 online booking",
+    href: "#contact",
+    primary: true,
   },
   {
-    icon: "📞",
-    title: "Call Us",
-    desc: "Tell us about your items and we'll send our team for a free estimate.",
-    cta: "(561) 246-6352",
-    href: "tel:5612466352",
+    label: "Call Us",
     badge: null,
+    detail: "(561) 246-6352",
+    href: "tel:+15612466352",
+    primary: false,
   },
   {
-    icon: "💬",
-    title: "Text Us",
-    desc: "Snap a photo of your item and text it to us — we've got the rest covered.",
-    cta: "1-737-888-5865",
-    href: "sms:+17378885865",
+    label: "Text Us",
     badge: null,
+    detail: "1-737-888-5865",
+    href: "sms:17378885865",
+    primary: false,
   },
 ];
 ---
 
-<section class="how-it-works" id="how-it-works">
+<section class="how" id="how-it-works">
   <div class="container">
-    <div class="text-center section-header">
-      <span class="section-tag">How It Works</span>
-      <h2 class="section-title">Booking Is as Easy as 1, 2, 3!</h2>
-      <p class="section-subtitle">
-        Our highly skilled team arrives promptly and takes care of all the heavy lifting,
-        so you don't have to lift a finger.
+
+    <div class="tc how__header">
+      <span class="eyebrow">Simple Process</span>
+      <div class="accent-line"></div>
+      <h2 class="h2">How It Works</h2>
+      <p class="lead">
+        Getting rid of junk has never been easier. Three steps and it's done —
+        90% of the time we can take your junk the same day you call.
       </p>
     </div>
 
     <div class="steps">
-      {steps.map((step, i) => (
+      {steps.map((s, i) => (
         <div class="step">
-          <div class="step-number">{step.number}</div>
-          {i < steps.length - 1 && <div class="step-connector"></div>}
-          <div class="step-icon">{step.icon}</div>
-          <h3 class="step-title">{step.title}</h3>
-          <p class="step-desc">{step.desc}</p>
+          <span class="step__number">{s.number}</span>
+          {i < steps.length - 1 && <span class="step__arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>}
+          <h3 class="step__title">{s.title}</h3>
+          <p class="step__desc">{s.desc}</p>
         </div>
       ))}
     </div>
 
+    <!-- Same-day callout -->
+    <div class="same-day">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 8v4l3 3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <p><strong>Same-day service available.</strong> 90% of the time we can take your junk immediately after you call.</p>
+    </div>
+
+    <!-- Contact methods -->
     <div class="contact-methods">
-      {contactMethods.map((method) => (
-        <div class="contact-card">
-          {method.badge && <span class="contact-badge">{method.badge}</span>}
-          <div class="contact-icon">{method.icon}</div>
-          <h3 class="contact-title">{method.title}</h3>
-          <p class="contact-desc">{method.desc}</p>
-          <a href={method.href} class="btn btn-primary">{method.cta}</a>
-        </div>
+      {contacts.map((c) => (
+        <a href={c.href} class={`contact-card${c.primary ? " contact-card--primary" : ""}`}>
+          {c.primary ? (
+            <div class="contact-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <path d="M8 7h8M8 12h5" stroke-linecap="round"/>
+              </svg>
+            </div>
+          ) : c.detail.includes("561") ? (
+            <div class="contact-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.02 2.84 2 2 0 012 .67h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.49a16 16 0 006.29 6.29l1.1-1.1a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+              </svg>
+            </div>
+          ) : (
+            <div class="contact-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+              </svg>
+            </div>
+          )}
+          <div class="contact-card__body">
+            <span class="contact-card__label">
+              {c.label}
+              {c.badge && <span class="badge">{c.badge}</span>}
+            </span>
+            <span class="contact-card__detail">{c.detail}</span>
+          </div>
+          <svg class="contact-card__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       ))}
     </div>
 
-    <p class="estimate-note">
-      * Estimate provided on arrival. 90% of the time, we can take your junk immediately.
-    </p>
   </div>
 </section>
 
 <style>
-  .how-it-works {
-    padding: 6rem 0;
-    background: var(--color-white);
-  }
+  .how { padding: 6rem 0; background: var(--white); }
+  .how__header { margin-bottom: 4rem; }
 
-  .section-header {
-    margin-bottom: 4rem;
-  }
-
+  /* Steps */
   .steps {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    position: relative;
-    margin-bottom: 5rem;
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 0; position: relative; margin-bottom: 2.5rem;
   }
-
   .step {
-    text-align: center;
-    padding: 2rem 1.5rem;
-    background: var(--color-gray-50);
-    border-radius: var(--border-radius-lg);
-    border: 1px solid var(--color-gray-200);
-    position: relative;
-    transition: all var(--transition);
+    position: relative; padding: 2.5rem 2rem 2.5rem;
+    text-align: center; border: 1px solid var(--ink-200);
+    background: var(--white); transition: all var(--ease);
   }
+  .step:first-child { border-radius: var(--r-lg) 0 0 var(--r-lg); }
+  .step:last-child  { border-radius: 0 var(--r-lg) var(--r-lg) 0; }
+  .step + .step     { border-left: none; }
+  .step:hover       { background: var(--ink-50); }
 
-  .step:hover {
-    box-shadow: var(--shadow-md);
-    border-color: var(--color-primary);
-    transform: translateY(-3px);
+  .step__number {
+    display: block; font-size: 3rem; font-weight: 900;
+    color: var(--red-sub); letter-spacing: -0.04em;
+    line-height: 1; margin-bottom: 1.25rem;
+    -webkit-text-stroke: 2px var(--red);
   }
-
-  .step-number {
-    position: absolute;
-    top: -1.25rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2.5rem;
-    height: 2.5rem;
-    background: var(--color-primary);
-    color: var(--color-white);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    font-weight: 900;
-    border: 3px solid var(--color-white);
-    box-shadow: var(--shadow-md);
+  .step__arrow {
+    position: absolute; top: 50%; right: -1px;
+    transform: translateY(-50%);
+    background: var(--white); border: 1px solid var(--ink-200);
+    border-radius: 50%; width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 1;
   }
+  .step__arrow svg { width: 14px; height: 14px; stroke: var(--ink-400); }
+  .step__title { font-size: 1rem; font-weight: 700; color: var(--ink-900); margin-bottom: 0.6rem; }
+  .step__desc  { font-size: 0.85rem; color: var(--ink-500); line-height: 1.65; }
 
-  .step-connector {
-    display: none;
+  /* Same-day */
+  .same-day {
+    display: flex; align-items: center; gap: 0.85rem;
+    background: var(--red-sub); border: 1px solid rgba(200,16,46,0.15);
+    border-radius: var(--r-lg); padding: 1rem 1.5rem;
+    margin-bottom: 3rem;
   }
+  .same-day svg { width: 22px; height: 22px; stroke: var(--red); flex-shrink: 0; }
+  .same-day p   { font-size: 0.88rem; color: var(--ink-700); line-height: 1.5; }
+  .same-day strong { color: var(--ink-900); }
 
-  .step-icon {
-    font-size: 2.5rem;
-    margin: 1rem 0 1rem;
-  }
-
-  .step-title {
-    font-size: 1rem;
-    font-weight: 800;
-    color: var(--color-gray-900);
-    margin-bottom: 0.75rem;
-    line-height: 1.4;
-  }
-
-  .step-desc {
-    font-size: 0.875rem;
-    color: var(--color-gray-500);
-    line-height: 1.6;
-  }
-
-  .contact-methods {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
-
+  /* Contact cards */
+  .contact-methods { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 1rem; }
   .contact-card {
-    background: var(--color-gray-900);
-    border-radius: var(--border-radius-lg);
-    padding: 2.5rem 2rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    transition: transform var(--transition);
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1.5rem; border-radius: var(--r-lg);
+    border: 1px solid var(--ink-200); background: var(--white);
+    text-decoration: none; transition: all var(--ease);
+  }
+  .contact-card:hover { border-color: var(--red); box-shadow: var(--sh-md); transform: translateY(-2px); }
+  .contact-card--primary { background: var(--ink-900); border-color: var(--ink-900); }
+  .contact-card--primary .contact-card__icon { background: rgba(255,255,255,0.08); }
+  .contact-card--primary .contact-card__icon svg { stroke: #fff; }
+  .contact-card--primary .contact-card__label { color: #fff; }
+  .contact-card--primary .contact-card__detail { color: rgba(255,255,255,0.55); }
+  .contact-card--primary .contact-card__arrow { stroke: rgba(255,255,255,0.5); }
+  .contact-card--primary:hover .contact-card__arrow { stroke: #fff; }
+
+  .contact-card__icon {
+    width: 44px; height: 44px; background: var(--ink-100);
+    border-radius: var(--r); display: flex; align-items: center;
+    justify-content: center; flex-shrink: 0;
+  }
+  .contact-card__icon svg { width: 20px; height: 20px; stroke: var(--ink-600); }
+  .contact-card__body { flex: 1; }
+  .contact-card__label {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.88rem; font-weight: 700; color: var(--ink-900);
+    margin-bottom: 0.2rem;
+  }
+  .contact-card__detail { font-size: 0.82rem; color: var(--ink-500); display: block; }
+  .contact-card__arrow { width: 16px; height: 16px; stroke: var(--ink-300); flex-shrink: 0; transition: all var(--ease); }
+  .contact-card:hover .contact-card__arrow { stroke: var(--red); transform: translateX(3px); }
+
+  .badge {
+    font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.04em; background: var(--red); color: #fff;
+    padding: 0.15rem 0.5rem; border-radius: 20px;
   }
 
-  .contact-card:hover {
-    transform: translateY(-4px);
+  @media (max-width: 900px) {
+    .steps { grid-template-columns: 1fr; }
+    .step:first-child { border-radius: var(--r-lg) var(--r-lg) 0 0; }
+    .step:last-child  { border-radius: 0 0 var(--r-lg) var(--r-lg); }
+    .step + .step { border-left: 1px solid var(--ink-200); border-top: none; }
+    .step__arrow { display: none; }
+    .contact-methods { grid-template-columns: 1fr; }
   }
-
-  .contact-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(200, 16, 46, 0.1) 0%, transparent 60%);
-  }
-
-  .contact-badge {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: var(--color-accent);
-    color: var(--color-gray-900);
-    font-size: 0.7rem;
-    font-weight: 800;
-    padding: 0.25rem 0.75rem;
-    border-radius: 100px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .contact-icon {
-    font-size: 2.75rem;
-    margin-bottom: 1.25rem;
-    position: relative;
-  }
-
-  .contact-title {
-    font-size: 1.25rem;
-    font-weight: 800;
-    color: var(--color-white);
-    margin-bottom: 0.75rem;
-    position: relative;
-  }
-
-  .contact-desc {
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.6;
-    margin-bottom: 1.75rem;
-    position: relative;
-  }
-
-  .contact-card .btn {
-    position: relative;
-    width: 100%;
-  }
-
-  .estimate-note {
-    text-align: center;
-    font-size: 0.8rem;
-    color: var(--color-gray-400);
-    font-style: italic;
-  }
-
   @media (max-width: 768px) {
-    .how-it-works {
-      padding: 4rem 0;
-    }
-
-    .steps {
-      grid-template-columns: 1fr;
-    }
-
-    .contact-methods {
-      grid-template-columns: 1fr;
-    }
+    .how { padding: 4rem 0; }
   }
 </style>

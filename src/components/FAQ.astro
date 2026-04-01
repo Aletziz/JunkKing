@@ -1,183 +1,130 @@
 ---
 const faqs = [
   {
-    q: "Will you pick up any brand of dumpster bag, or does it have to be Junk King?",
-    a: "Yes! While we no longer offer Junk King specific bags, we'll pick up any brand of dumpster bag — no matter where it's located on your property. Just give us a call or book your pickup time online for a fast, easy and hassle-free service.",
-    open: true,
+    q: "Do you accept all brands of dumpster bags?",
+    a: "Yes — we pick up any brand of dumpster bag (Bagster, CLEAN OUT, Clean Earth, etc.) from anywhere on your property. Just fill it at your own pace and schedule pickup when ready.",
   },
   {
-    q: "How much does it cost to remove a sectional sofa/couch in Palm Beach?",
-    a: "The cost depends on the size of the sofa and how much space it takes up in our truck. We offer free, no-obligation estimates on arrival. Most sectional removals fall within our minimum to half-truck pricing range. Book online to save $20!",
-    open: false,
+    q: "How much does sofa or couch removal cost?",
+    a: "Pricing is based on volume — how much space your items take up in the truck. A standard sofa typically runs $75–$150. We provide an upfront quote before any work begins. No surprises.",
   },
   {
-    q: "Does a refrigerator have to be empty for Junk King to pick it up?",
-    a: "For safety and hygiene reasons, we ask that you empty your refrigerator before we arrive. This ensures a cleaner removal process and helps us recycle or donate the appliance more effectively.",
-    open: false,
+    q: "Does a refrigerator need to be empty for removal?",
+    a: "Yes, please empty and defrost your refrigerator before our crew arrives. We can handle most appliances, but food inside can create sanitation issues and additional charges.",
   },
   {
-    q: "My hot tub is in a tight spot. Will Junk King disassemble a hot tub and take it away?",
-    a: "Absolutely! Our trained crew can disassemble hot tubs and remove them from even the tightest spaces. We handle all the heavy lifting and will clean up after removal. Give us a call to discuss your specific situation and get a free estimate.",
-    open: false,
+    q: "Do you disassemble hot tubs before removal?",
+    a: "Absolutely. Our crew will disassemble the hot tub on-site and remove all components, including the shell, base, and any equipment. We handle everything so you don't have to.",
   },
   {
-    q: "What areas do you serve in Palm Beach County?",
-    a: "We serve all of Palm Beach County including West Palm Beach, Boynton Beach, Delray Beach, Lake Worth, Wellington, Greenacres, Lantana, Palm Springs, and surrounding areas. Call us or check online to confirm service availability at your address.",
-    open: false,
+    q: "Which areas do you serve?",
+    a: "We serve all of Palm Beach County including West Palm Beach, Boca Raton, Delray Beach, Boynton Beach, Wellington, Jupiter, Palm Beach Gardens, Lake Worth, and surrounding areas.",
   },
   {
-    q: "How does pricing work?",
-    a: "You only pay for the space your junk takes up in our truck. We provide a free, no-obligation estimate before starting any work. Our prices are competitive, and we guarantee to beat any written estimate from a competitor.",
-    open: false,
+    q: "How is pricing determined?",
+    a: "We price based on the volume of space your junk occupies in our truck — not per item, not by weight. We give you a firm quote on-site before starting any work. We'll also beat any written competitor estimate.",
   },
 ];
 ---
 
 <section class="faq" id="faq">
   <div class="container">
-    <div class="faq-inner">
-      <div class="faq-header">
-        <span class="section-tag">FAQ</span>
-        <h2 class="section-title">Frequently Asked<br/>Questions</h2>
-        <p class="section-subtitle">
-          At Junk King Palm Beach, we understand that junk removal can be a hassle.
-          Here are answers to our most common questions.
+    <div class="faq__layout">
+
+      <!-- Left column -->
+      <div class="faq__sidebar">
+        <span class="eyebrow">FAQ</span>
+        <div class="accent-line" style="margin: 0.6rem 0 1rem;"></div>
+        <h2 class="h2" style="text-align:left;">Frequently Asked Questions</h2>
+        <p style="font-size:0.9rem;color:var(--ink-500);line-height:1.7;margin-top:1rem;">
+          Have a question not listed here? Our team is always happy to help.
         </p>
-        <a href="https://www.junk-king.com/faq" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top: 2rem; display: inline-flex;">
-          See All FAQs →
-        </a>
+        <div class="faq__contact-links">
+          <a href="tel:+15612466352" class="faq__link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.02 2.84 2 2 0 012 .67h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.49a16 16 0 006.29 6.29l1.1-1.1a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+            (561) 246-6352
+          </a>
+          <a href="#contact" class="faq__link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+            </svg>
+            Contact Form
+          </a>
+        </div>
       </div>
 
-      <div class="faq-list">
-        {faqs.map((faq, i) => (
-          <details class="faq-item" open={faq.open}>
-            <summary class="faq-question">
-              <span>{faq.q}</span>
-              <span class="faq-toggle">+</span>
+      <!-- Accordion -->
+      <div class="faq__accordion">
+        {faqs.map((item, i) => (
+          <details class="faq__item" name="faq">
+            <summary class="faq__question">
+              <span class="faq__q-text">{item.q}</span>
+              <span class="faq__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
             </summary>
-            <div class="faq-answer">
-              <p>{faq.a}</p>
+            <div class="faq__answer">
+              <p>{item.a}</p>
             </div>
           </details>
         ))}
       </div>
+
     </div>
   </div>
 </section>
 
-<script>
-  document.querySelectorAll('.faq-item').forEach((item) => {
-    item.addEventListener('toggle', () => {
-      const toggle = item.querySelector('.faq-toggle') as HTMLElement | null;
-      if (toggle) {
-        toggle.textContent = (item as HTMLDetailsElement).open ? '−' : '+';
-      }
-    });
-  });
-</script>
-
 <style>
-  .faq {
-    padding: 6rem 0;
-    background: var(--color-white);
+  .faq { padding: 6rem 0; background: var(--ink-50); }
+  .faq__layout {
+    display: grid; grid-template-columns: 320px 1fr;
+    gap: 5rem; align-items: start;
   }
 
-  .faq-inner {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 5rem;
-    align-items: start;
+  /* Sidebar */
+  .faq__contact-links { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 2rem; }
+  .faq__link {
+    display: flex; align-items: center; gap: 0.65rem;
+    font-size: 0.88rem; font-weight: 600; color: var(--ink-700);
+    text-decoration: none; padding: 0.75rem 1rem;
+    border: 1px solid var(--ink-200); border-radius: var(--r);
+    background: var(--white); transition: all var(--ease);
   }
+  .faq__link:hover { border-color: var(--red); color: var(--red); }
+  .faq__link svg { width: 16px; height: 16px; flex-shrink: 0; }
 
-  .faq-header {
-    position: sticky;
-    top: 100px;
+  /* Accordion */
+  .faq__accordion { display: flex; flex-direction: column; gap: 0; }
+  .faq__item {
+    border-bottom: 1px solid var(--ink-200);
   }
+  .faq__item:first-child { border-top: 1px solid var(--ink-200); }
+  .faq__item[open] .faq__icon svg { transform: rotate(180deg); }
 
-  .faq-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+  .faq__question {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; padding: 1.35rem 0; cursor: pointer;
+    list-style: none; transition: color var(--ease);
   }
+  .faq__question::-webkit-details-marker { display: none; }
+  .faq__question:hover .faq__q-text { color: var(--red); }
 
-  .faq-item {
-    background: var(--color-gray-50);
-    border-radius: var(--border-radius-lg);
-    border: 1px solid var(--color-gray-200);
-    overflow: hidden;
-    transition: border-color var(--transition);
+  .faq__q-text { font-size: 0.92rem; font-weight: 600; color: var(--ink-900); line-height: 1.4; }
+  .faq__icon { width: 28px; height: 28px; border: 1px solid var(--ink-200); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .faq__icon svg { width: 14px; height: 14px; stroke: var(--ink-500); transition: transform 0.2s ease; }
+  .faq__item[open] .faq__icon { border-color: var(--red); background: var(--red-sub); }
+  .faq__item[open] .faq__icon svg { stroke: var(--red); }
+
+  .faq__answer { padding: 0 0 1.25rem; }
+  .faq__answer p { font-size: 0.86rem; color: var(--ink-600); line-height: 1.75; max-width: 540px; }
+
+  @media (max-width: 900px) {
+    .faq__layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    .faq__sidebar { max-width: 480px; }
   }
-
-  .faq-item[open] {
-    border-color: var(--color-primary);
-  }
-
-  .faq-question {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1.25rem 1.5rem;
-    cursor: pointer;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--color-gray-900);
-    list-style: none;
-    user-select: none;
-  }
-
-  .faq-question::-webkit-details-marker {
-    display: none;
-  }
-
-  .faq-question:hover {
-    color: var(--color-primary);
-  }
-
-  .faq-toggle {
-    width: 28px;
-    height: 28px;
-    background: var(--color-primary);
-    color: var(--color-white);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    font-weight: 700;
-    flex-shrink: 0;
-    transition: transform var(--transition);
-  }
-
-  .faq-answer {
-    padding: 0 1.5rem 1.25rem;
-    border-top: 1px solid var(--color-gray-200);
-  }
-
-  .faq-answer p {
-    font-size: 0.9rem;
-    color: var(--color-gray-600);
-    line-height: 1.7;
-    padding-top: 1rem;
-  }
-
-  @media (max-width: 1024px) {
-    .faq-inner {
-      gap: 3rem;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .faq {
-      padding: 4rem 0;
-    }
-
-    .faq-inner {
-      grid-template-columns: 1fr;
-    }
-
-    .faq-header {
-      position: static;
-    }
-  }
+  @media (max-width: 768px) { .faq { padding: 4rem 0; } }
 </style>

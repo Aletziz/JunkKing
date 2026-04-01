@@ -1,372 +1,229 @@
 ---
+const services = [
+  "Furniture Removal", "Appliance Removal", "Electronics Recycling",
+  "Mattress Removal", "Hot Tub Removal", "Yard Waste Removal",
+  "Full Space Cleanout", "Dumpster Bag Pickup",
+];
 ---
+
 <section class="contact" id="contact">
   <div class="container">
-    <div class="contact-inner">
-      <div class="contact-info">
-        <span class="section-tag">Get In Touch</span>
-        <h2 class="section-title">Let Us Call You!</h2>
-        <p class="section-subtitle">
-          Fill out the form and one of our junk removal specialists will reach out to
-          you shortly to schedule your free estimate.
+    <div class="contact__layout">
+
+      <!-- Info side -->
+      <div class="contact__info">
+        <span class="eyebrow" style="color:rgba(255,255,255,0.55);">Contact Us</span>
+        <div class="accent-line" style="margin:0.6rem 0 1rem;"></div>
+        <h2 class="h2" style="text-align:left;color:#fff;">Get a Free<br/>Quote Today</h2>
+        <p style="font-size:0.9rem;color:rgba(255,255,255,0.6);line-height:1.7;margin-top:1rem;margin-bottom:2.5rem;">
+          Ready to reclaim your space? Book online and save $20, or reach out directly.
+          Our team responds fast — same-day service available.
         </p>
 
-        <div class="contact-details">
-          <a href="tel:5612466352" class="contact-detail">
-            <span class="detail-icon">📞</span>
-            <div>
-              <strong>Call Us</strong>
-              <span>(561) 246-6352</span>
+        <ul class="contact__details">
+          <li>
+            <div class="contact__detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.02 2.84 2 2 0 012 .67h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.49a16 16 0 006.29 6.29l1.1-1.1a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+              </svg>
             </div>
-          </a>
-          <a href="sms:+17378885865" class="contact-detail">
-            <span class="detail-icon">💬</span>
             <div>
-              <strong>Text Us</strong>
-              <span>1-737-888-5865</span>
+              <span class="contact__detail-label">Phone</span>
+              <a href="tel:+15612466352" class="contact__detail-value">(561) 246-6352</a>
             </div>
-          </a>
-          <div class="contact-detail">
-            <span class="detail-icon">📍</span>
+          </li>
+          <li>
+            <div class="contact__detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+              </svg>
+            </div>
             <div>
-              <strong>Our Location</strong>
-              <span>1559 S Cypress Dr, Unit 3, Jupiter, FL 33469</span>
+              <span class="contact__detail-label">Text</span>
+              <a href="sms:17378885865" class="contact__detail-value">1-737-888-5865</a>
             </div>
-          </div>
-          <div class="contact-detail">
-            <span class="detail-icon">🕐</span>
+          </li>
+          <li>
+            <div class="contact__detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                <circle cx="12" cy="9" r="2.5"/>
+              </svg>
+            </div>
             <div>
-              <strong>Hours</strong>
-              <span>Mon–Sat: 7am–6pm · Sun: 8am–4pm</span>
+              <span class="contact__detail-label">Address</span>
+              <span class="contact__detail-value">1559 S Cypress Dr, Unit 3<br/>Jupiter, FL 33469</span>
             </div>
-          </div>
-        </div>
+          </li>
+          <li>
+            <div class="contact__detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+              </svg>
+            </div>
+            <div>
+              <span class="contact__detail-label">Hours</span>
+              <span class="contact__detail-value">Mon–Sat 7 AM – 8 PM<br/>Sun 8 AM – 5 PM</span>
+            </div>
+          </li>
+        </ul>
 
-        <div class="social-links">
-          <span>Follow Us:</span>
-          <div class="socials">
-            <a href="https://www.facebook.com/487713624675546" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">
-              <span>f</span>
-            </a>
-            <a href="https://x.com/JunkKingCorp" target="_blank" rel="noopener" class="social-btn" aria-label="Twitter/X">
-              <span>𝕏</span>
-            </a>
-            <a href="https://www.linkedin.com/company/junk-king" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">
-              <span>in</span>
-            </a>
-            <a href="https://www.instagram.com/junkking_corporate/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
-              <span>📸</span>
-            </a>
-            <a href="https://www.youtube.com/@JunkKing" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">
-              <span>▶</span>
-            </a>
-          </div>
+        <!-- Social -->
+        <div class="contact__social">
+          <a href="#" class="contact__social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="#" class="contact__social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </a>
+          <a href="#" class="contact__social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="contact__social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
         </div>
       </div>
 
-      <div class="contact-form-wrapper">
-        <div class="form-header">
-          <h3>Request a Call Back</h3>
-          <p>We'll respond within 15 minutes during business hours</p>
+      <!-- Form side -->
+      <div class="contact__form-wrap">
+        <div class="contact__form-header">
+          <span class="contact__form-badge">Save $20</span>
+          <span>Book Online &amp; Get $20 Off</span>
         </div>
-
-        <form class="contact-form" id="contactForm">
+        <form class="contact__form" action="#" method="POST" novalidate>
           <div class="form-row">
             <div class="form-group">
-              <label for="firstName">First Name *</label>
-              <input type="text" id="firstName" name="firstName" placeholder="John" required />
+              <label for="first-name">First Name</label>
+              <input type="text" id="first-name" name="first_name" placeholder="John" required />
             </div>
             <div class="form-group">
-              <label for="lastName">Last Name *</label>
-              <input type="text" id="lastName" name="lastName" placeholder="Doe" required />
+              <label for="last-name">Last Name</label>
+              <input type="text" id="last-name" name="last_name" placeholder="Smith" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="john@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(561) 000-0000" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="zip">ZIP Code</label>
+              <input type="text" id="zip" name="zip" placeholder="33401" />
+            </div>
+            <div class="form-group">
+              <label for="service">Service Needed</label>
+              <select id="service" name="service">
+                <option value="">Select a service…</option>
+                {services.map((s) => <option value={s}>{s}</option>)}
+              </select>
             </div>
           </div>
           <div class="form-group">
-            <label for="email">Email *</label>
-            <input type="email" id="email" name="email" placeholder="john@example.com" required />
+            <label for="message">Tell Us About Your Job <span>(optional)</span></label>
+            <textarea id="message" name="message" placeholder="Describe what needs to be removed…" rows="3"></textarea>
           </div>
-          <div class="form-group">
-            <label for="phone">Phone Number *</label>
-            <input type="tel" id="phone" name="phone" placeholder="(561) 000-0000" required />
-          </div>
-          <div class="form-group">
-            <label for="zip">ZIP Code *</label>
-            <input type="text" id="zip" name="zip" placeholder="33401" required />
-          </div>
-          <div class="form-group">
-            <label for="service">Service Needed</label>
-            <select id="service" name="service">
-              <option value="">Select a service...</option>
-              <option value="full-service">Full-Service Junk Removal</option>
-              <option value="furniture">Furniture Removal</option>
-              <option value="appliances">Appliance Removal</option>
-              <option value="electronics">Electronics / E-Waste</option>
-              <option value="mattress">Mattress Removal</option>
-              <option value="hot-tub">Hot Tub Removal</option>
-              <option value="yard-waste">Yard Waste Removal</option>
-              <option value="cleanout">Full Space Cleanout</option>
-              <option value="dumpster-bag">Dumpster Bag Pickup</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <div class="form-group form-check">
-            <label class="checkbox-label">
-              <input type="checkbox" name="smsOptIn" id="smsOptIn" />
-              <span>Yes! You can text me service reminders and other messages.</span>
-            </label>
-          </div>
-          <p class="form-disclaimer">
-            By entering your email address, you agree to receive emails about services,
-            updates or promotions. You may unsubscribe at any time.
-          </p>
-          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
-            📞 Request a Call Back
+          <label class="form-check">
+            <input type="checkbox" name="sms_opt_in" />
+            <span>I agree to receive SMS/text appointment reminders and updates.</span>
+          </label>
+          <button type="submit" class="btn btn-primary btn-lg form-submit">
+            Get My Free Quote — Save $20
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M4 10h12M11 5l6 5-6 5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </button>
         </form>
       </div>
+
     </div>
   </div>
 </section>
 
-<script>
-  const form = document.getElementById('contactForm') as HTMLFormElement | null;
-  form?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
-    btn.textContent = '✅ Request Sent! We\'ll call you soon.';
-    btn.disabled = true;
-    btn.style.background = '#2d7a2d';
-  });
-</script>
-
 <style>
-  .contact {
-    padding: 6rem 0;
-    background: var(--color-gray-900);
-  }
+  .contact { padding: 6rem 0; background: var(--ink-900); }
+  .contact__layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; }
 
-  .contact-inner {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 5rem;
-    align-items: start;
+  /* Info */
+  .contact__details { display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 2.5rem; }
+  .contact__details li { display: flex; align-items: flex-start; gap: 1rem; }
+  .contact__detail-icon {
+    width: 38px; height: 38px; background: rgba(255,255,255,0.07);
+    border-radius: var(--r); display: flex; align-items: center;
+    justify-content: center; flex-shrink: 0;
   }
+  .contact__detail-icon svg { width: 18px; height: 18px; stroke: rgba(255,255,255,0.5); }
+  .contact__detail-label { display: block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.35); margin-bottom: 0.2rem; }
+  .contact__detail-value { font-size: 0.88rem; color: rgba(255,255,255,0.8); line-height: 1.55; text-decoration: none; }
+  a.contact__detail-value:hover { color: #fff; text-decoration: underline; }
 
-  .contact-info .section-tag {
-    background: rgba(200, 16, 46, 0.25);
-    color: #ff6b6b;
+  .contact__social { display: flex; gap: 0.75rem; }
+  .contact__social-link {
+    width: 36px; height: 36px; background: rgba(255,255,255,0.07);
+    border-radius: var(--r); display: flex; align-items: center;
+    justify-content: center; color: rgba(255,255,255,0.4);
+    transition: all var(--ease);
   }
+  .contact__social-link:hover { background: rgba(255,255,255,0.12); color: #fff; }
+  .contact__social-link svg { width: 16px; height: 16px; }
 
-  .contact-info .section-title {
-    color: var(--color-white);
+  /* Form */
+  .contact__form-wrap {
+    background: var(--white); border-radius: var(--r-xl); overflow: hidden;
   }
-
-  .contact-info .section-subtitle {
-    color: rgba(255, 255, 255, 0.7);
+  .contact__form-header {
+    background: var(--red); padding: 1rem 2rem;
+    display: flex; align-items: center; gap: 0.75rem;
+    font-size: 0.9rem; font-weight: 700; color: #fff;
   }
-
-  .contact-details {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    margin: 2.5rem 0;
+  .contact__form-badge {
+    background: rgba(255,255,255,0.2); border-radius: 20px;
+    padding: 0.2rem 0.65rem; font-size: 0.75rem;
   }
+  .contact__form { padding: 2rem; display: flex; flex-direction: column; gap: 1rem; }
 
-  .contact-detail {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    text-decoration: none;
-    transition: transform var(--transition);
-  }
-
-  .contact-detail:hover {
-    transform: translateX(4px);
-  }
-
-  .detail-icon {
-    font-size: 1.5rem;
-    width: 44px;
-    height: 44px;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: var(--border-radius);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .contact-detail div {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .contact-detail strong {
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.5);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-size: 0.75rem;
-  }
-
-  .contact-detail span {
-    font-size: 0.95rem;
-    color: var(--color-white);
-    font-weight: 600;
-  }
-
-  .social-links {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .social-links > span {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.5);
-    font-weight: 500;
-  }
-
-  .socials {
-    display: flex;
-    gap: 0.5rem;
-  }
-
-  .social-btn {
-    width: 36px;
-    height: 36px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: var(--border-radius);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.75);
-    font-weight: 700;
-    transition: all var(--transition);
-  }
-
-  .social-btn:hover {
-    background: var(--color-primary);
-    color: var(--color-white);
-    transform: translateY(-2px);
-  }
-
-  .contact-form-wrapper {
-    background: var(--color-white);
-    border-radius: var(--border-radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
-  }
-
-  .form-header {
-    background: var(--color-primary);
-    padding: 1.75rem 2rem;
-    color: var(--color-white);
-  }
-
-  .form-header h3 {
-    font-size: 1.25rem;
-    font-weight: 800;
-    margin-bottom: 0.3rem;
-  }
-
-  .form-header p {
-    font-size: 0.875rem;
-    opacity: 0.85;
-  }
-
-  .contact-form {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-
-  .form-group label {
-    font-size: 0.825rem;
-    font-weight: 600;
-    color: var(--color-gray-700);
-  }
-
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label { font-size: 0.78rem; font-weight: 600; color: var(--ink-700); }
+  .form-group label span { font-weight: 400; color: var(--ink-400); }
   .form-group input,
-  .form-group select {
-    padding: 0.75rem 1rem;
-    border: 1.5px solid var(--color-gray-200);
-    border-radius: var(--border-radius);
-    font-size: 0.9rem;
-    color: var(--color-gray-900);
-    background: var(--color-white);
-    transition: border-color var(--transition);
+  .form-group select,
+  .form-group textarea {
+    padding: 0.7rem 0.875rem; border: 1px solid var(--ink-200);
+    border-radius: var(--r); font-size: 0.875rem; color: var(--ink-900);
+    font-family: var(--font); background: var(--white);
+    transition: border-color var(--ease);
     outline: none;
   }
-
   .form-group input:focus,
-  .form-group select:focus {
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.1);
-  }
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--red); box-shadow: 0 0 0 3px var(--red-sub); }
+  .form-group textarea { resize: vertical; min-height: 80px; }
+  .form-group select { cursor: pointer; }
 
-  .form-check {
-    flex-direction: row;
-    align-items: flex-start;
-  }
+  .form-check { display: flex; align-items: flex-start; gap: 0.6rem; cursor: pointer; }
+  .form-check input { margin-top: 2px; accent-color: var(--red); }
+  .form-check span { font-size: 0.78rem; color: var(--ink-500); line-height: 1.5; }
 
-  .checkbox-label {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    cursor: pointer;
-    font-size: 0.825rem;
-    color: var(--color-gray-600);
-    line-height: 1.5;
+  .form-submit {
+    display: flex; align-items: center; justify-content: center;
+    gap: 0.6rem; width: 100%;
   }
-
-  .checkbox-label input {
-    margin-top: 2px;
-    width: 16px;
-    height: 16px;
-    flex-shrink: 0;
-    accent-color: var(--color-primary);
-  }
-
-  .form-disclaimer {
-    font-size: 0.75rem;
-    color: var(--color-gray-400);
-    line-height: 1.6;
-  }
+  .form-submit svg { width: 18px; height: 18px; stroke: #fff; }
 
   @media (max-width: 1024px) {
-    .contact-inner {
-      gap: 3rem;
-    }
+    .contact__layout { grid-template-columns: 1fr; gap: 3rem; }
   }
-
   @media (max-width: 768px) {
-    .contact {
-      padding: 4rem 0;
-    }
-
-    .contact-inner {
-      grid-template-columns: 1fr;
-    }
-
-    .form-row {
-      grid-template-columns: 1fr;
-    }
+    .contact { padding: 4rem 0; }
+    .form-row { grid-template-columns: 1fr; }
+    .contact__form { padding: 1.5rem; }
+    .contact__form-header { padding: 1rem 1.5rem; }
   }
 </style>
