@@ -11,6 +11,45 @@
         <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17.5s-6.25-5.25-6.25-9.75a6.25 6.25 0 1112.5 0c0 4.5-6.25 9.75-6.25 9.75z"/><circle cx="9.75" cy="7.75" r="1.75"/></svg>
         Jupiter, FL 33469
       </span>
+
+      <!-- Language selector -->
+      <div class="lang-wrap" id="langWrap">
+        <button class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="8"/><path d="M10 2a14.5 14.5 0 010 16M2 10h16" stroke-linecap="round"/><path d="M3.5 6.5C5.3 7.3 7.6 7.8 10 7.8s4.7-.5 6.5-1.3M3.5 13.5C5.3 12.7 7.6 12.2 10 12.2s4.7.5 6.5 1.3" stroke-linecap="round"/></svg>
+          <span id="langLabel">Language</span>
+          <svg class="lang-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <ul class="lang-dropdown" id="langDropdown" role="listbox">
+          <li role="option" data-lang="en">🇺🇸 English</li>
+          <li role="option" data-lang="es">🇪🇸 Español</li>
+          <li role="option" data-lang="pt">🇧🇷 Português</li>
+          <li role="option" data-lang="fr">🇫🇷 Français</li>
+          <li role="option" data-lang="de">🇩🇪 Deutsch</li>
+          <li role="option" data-lang="it">🇮🇹 Italiano</li>
+          <li role="option" data-lang="nl">🇳🇱 Nederlands</li>
+          <li role="option" data-lang="pl">🇵🇱 Polski</li>
+          <li role="option" data-lang="ru">🇷🇺 Русский</li>
+          <li role="option" data-lang="uk">🇺🇦 Українська</li>
+          <li role="option" data-lang="ar">🇸🇦 العربية</li>
+          <li role="option" data-lang="he">🇮🇱 עברית</li>
+          <li role="option" data-lang="hi">🇮🇳 हिन्दी</li>
+          <li role="option" data-lang="bn">🇧🇩 বাংলা</li>
+          <li role="option" data-lang="zh-CN">🇨🇳 中文 (简体)</li>
+          <li role="option" data-lang="zh-TW">🇹🇼 中文 (繁體)</li>
+          <li role="option" data-lang="ja">🇯🇵 日本語</li>
+          <li role="option" data-lang="ko">🇰🇷 한국어</li>
+          <li role="option" data-lang="vi">🇻🇳 Tiếng Việt</li>
+          <li role="option" data-lang="th">🇹🇭 ภาษาไทย</li>
+          <li role="option" data-lang="id">🇮🇩 Bahasa Indonesia</li>
+          <li role="option" data-lang="ms">🇲🇾 Bahasa Melayu</li>
+          <li role="option" data-lang="tl">🇵🇭 Filipino</li>
+          <li role="option" data-lang="tr">🇹🇷 Türkçe</li>
+          <li role="option" data-lang="fa">🇮🇷 فارسی</li>
+          <li role="option" data-lang="sw">🇰🇪 Kiswahili</li>
+          <li role="option" data-lang="ht">🇭🇹 Kreyòl Ayisyen</li>
+        </ul>
+      </div>
+
     </div>
   </div>
 
@@ -49,6 +88,7 @@
 </header>
 
 <script>
+  /* ── Burger ── */
   const burger = document.getElementById("burger")!;
   const nav    = document.getElementById("mainNav")!;
   burger.addEventListener("click", () => {
@@ -57,7 +97,80 @@
     burger.classList.toggle("is-open");
     nav.classList.toggle("is-open");
   });
+
+  /* ── Language switcher ── */
+  const langBtn      = document.getElementById("langBtn")!;
+  const langDropdown = document.getElementById("langDropdown")!;
+  const langLabel    = document.getElementById("langLabel")!;
+  const langWrap     = document.getElementById("langWrap")!;
+
+  const LANG_NAMES: Record<string, string> = {
+    en: "English", es: "Español", pt: "Português", fr: "Français",
+    de: "Deutsch", it: "Italiano", nl: "Nederlands", pl: "Polski",
+    ru: "Русский", uk: "Українська", ar: "العربية", he: "עברית",
+    hi: "हिन्दी", bn: "বাংলা", "zh-CN": "中文(简)", "zh-TW": "中文(繁)",
+    ja: "日本語", ko: "한국어", vi: "Tiếng Việt", th: "ภาษาไทย",
+    id: "Bahasa ID", ms: "Bahasa MY", tl: "Filipino", tr: "Türkçe",
+    fa: "فارسی", sw: "Kiswahili", ht: "Kreyòl"
+  };
+
+  /* Toggle dropdown */
+  langBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = langBtn.getAttribute("aria-expanded") === "true";
+    langBtn.setAttribute("aria-expanded", String(!isOpen));
+    langDropdown.classList.toggle("is-open");
+  });
+
+  /* Close on outside click */
+  document.addEventListener("click", () => {
+    langBtn.setAttribute("aria-expanded", "false");
+    langDropdown.classList.remove("is-open");
+  });
+  langDropdown.addEventListener("click", (e) => e.stopPropagation());
+
+  /* Select language */
+  langDropdown.querySelectorAll("li[data-lang]").forEach((li) => {
+    li.addEventListener("click", () => {
+      const code = (li as HTMLElement).dataset.lang!;
+      langLabel.textContent = LANG_NAMES[code] ?? code;
+      langBtn.setAttribute("aria-expanded", "false");
+      langDropdown.classList.remove("is-open");
+      translatePage(code);
+    });
+  });
+
+  /* Google Translate helper */
+  function translatePage(lang: string) {
+    // Try Google Translate cookie approach (works without widget)
+    const d = new Date();
+    d.setFullYear(d.getFullYear() + 1);
+    if (lang === "en") {
+      // Reset — remove translation cookie
+      document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." + location.hostname;
+      location.reload();
+      return;
+    }
+    const val = `/en/${lang}`;
+    document.cookie = `googtrans=${val}; expires=${d.toUTCString()}; path=/`;
+    document.cookie = `googtrans=${val}; expires=${d.toUTCString()}; path=/; domain=.${location.hostname}`;
+    location.reload();
+  }
 </script>
+
+<!-- Google Translate widget (hidden, needed for cookie-based translation) -->
+<div id="google_translate_element" style="display:none" aria-hidden="true"></div>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    // @ts-ignore
+    new google.translate.TranslateElement(
+      { pageLanguage: "en", autoDisplay: false },
+      "google_translate_element"
+    );
+  }
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 
 <style>
   /* ── Top bar ── */
@@ -65,6 +178,38 @@
   .top-bar__inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
   .top-bar__item  { display: flex; align-items: center; gap: 0.4rem; font-weight: 500; opacity: 0.92; }
   .top-bar__item svg { width: 14px; height: 14px; stroke: var(--red); }
+
+  /* ── Language switcher ── */
+  .lang-wrap { position: relative; margin-left: auto; }
+
+  .lang-btn {
+    display: flex; align-items: center; gap: 0.35rem;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18);
+    color: #fff; border-radius: 6px; padding: 0.28rem 0.6rem;
+    font-size: 0.75rem; font-weight: 500; cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+  .lang-btn:hover { background: rgba(255,255,255,0.15); border-color: var(--red); }
+  .lang-btn svg:first-child { width: 14px; height: 14px; flex-shrink: 0; }
+  .lang-chevron { width: 12px; height: 12px; transition: transform 0.2s; }
+  .lang-btn[aria-expanded="true"] .lang-chevron { transform: rotate(180deg); }
+
+  .lang-dropdown {
+    display: none; position: absolute; top: calc(100% + 6px); right: 0;
+    background: #fff; border: 1px solid var(--ink-200); border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.14); min-width: 170px;
+    max-height: 320px; overflow-y: auto; z-index: 9999;
+    padding: 0.35rem 0; list-style: none;
+    scrollbar-width: thin; scrollbar-color: var(--ink-200) transparent;
+  }
+  .lang-dropdown.is-open { display: block; }
+  .lang-dropdown li {
+    padding: 0.48rem 1rem; font-size: 0.8rem; font-weight: 500;
+    color: var(--ink-700); cursor: pointer; white-space: nowrap;
+    transition: background 0.15s, color 0.15s;
+  }
+  .lang-dropdown li:hover { background: var(--red-sub); color: var(--ink-900); }
 
   /* ── Nav bar ── */
   .nav-bar { background: #fff; border-bottom: 1px solid var(--ink-200); }
@@ -96,6 +241,11 @@
   .burger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
   .burger.is-open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
+  /* Suppress Google Translate banner */
+  :global(.goog-te-banner-frame) { display: none !important; }
+  :global(body) { top: 0 !important; }
+  :global(.skiptranslate) { display: none !important; }
+
   @media (max-width: 1024px) {
     .nav {
       display: none; position: absolute; top: 100%; left: 0; right: 0;
@@ -112,6 +262,6 @@
 
   @media (max-width: 480px) {
     .top-bar__inner { justify-content: center; }
-    .top-bar__item:last-child { display: none; }
+    #langLabel { display: none; }
   }
 </style>
