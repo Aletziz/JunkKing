@@ -19,6 +19,31 @@ const {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/png" href="/logo.png" />
+    <!-- Fix Google Translate layout injection (must load before body renders) -->
+    <style>
+      /* Kill GT banner & body offset */
+      .goog-te-banner-frame,
+      .goog-te-banner-frame.skiptranslate { display: none !important; visibility: hidden !important; }
+      .skiptranslate > iframe              { display: none !important; height: 0 !important; }
+      #goog-gt-tt, .goog-te-balloon-frame  { display: none !important; }
+      body                                 { top: 0 !important; position: static !important; }
+      /* Prevent the translated-ltr/rtl class from shifting anything */
+      body.translated-ltr,
+      body.translated-rtl                  { top: 0 !important; margin-top: 0 !important; }
+    </style>
+    <script is:inline>
+      // MutationObserver: undo body.style.top whenever GT sets it
+      (function () {
+        var mo = new MutationObserver(function () {
+          if (document.body && document.body.style.top && document.body.style.top !== '0px') {
+            document.body.style.top = '0px';
+          }
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+          mo.observe(document.body, { attributes: true, attributeFilter: ['style', 'class'] });
+        });
+      })();
+    </script>
   </head>
   <body>
     <slot />

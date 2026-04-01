@@ -142,30 +142,50 @@
 
   /* Google Translate helper */
   function translatePage(lang: string) {
-    // Try Google Translate cookie approach (works without widget)
-    const d = new Date();
-    d.setFullYear(d.getFullYear() + 1);
+    // Wait for the widget to be ready, then use its select element
+    function doTranslate() {
+      // @ts-ignore
+      const gtCombo: HTMLSelectElement | null = document.querySelector(".goog-te-combo");
+      if (gtCombo) {
+        gtCombo.value = lang;
+        gtCombo.dispatchEvent(new Event("change"));
+        return true;
+      }
+      return false;
+    }
+
     if (lang === "en") {
-      // Reset — remove translation cookie
-      document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-      document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." + location.hostname;
+      // Reset: remove cookies and reload
+      const exp = "expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+      document.cookie = `googtrans=; ${exp}`;
+      document.cookie = `googtrans=; ${exp}; domain=.${location.hostname}`;
       location.reload();
       return;
     }
-    const val = `/en/${lang}`;
-    document.cookie = `googtrans=${val}; expires=${d.toUTCString()}; path=/`;
-    document.cookie = `googtrans=${val}; expires=${d.toUTCString()}; path=/; domain=.${location.hostname}`;
-    location.reload();
+
+    // Try immediately, then poll until widget is ready
+    if (!doTranslate()) {
+      let attempts = 0;
+      const poll = setInterval(() => {
+        attempts++;
+        if (doTranslate() || attempts > 40) clearInterval(poll);
+      }, 150);
+    }
   }
 </script>
 
-<!-- Google Translate widget (hidden, needed for cookie-based translation) -->
-<div id="google_translate_element" style="display:none" aria-hidden="true"></div>
+<!-- Google Translate widget (hidden, drives translations via .goog-te-combo select) -->
+<div id="google_translate_element" style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none" aria-hidden="true"></div>
 <script type="text/javascript">
   function googleTranslateElementInit() {
     // @ts-ignore
     new google.translate.TranslateElement(
-      { pageLanguage: "en", autoDisplay: false },
+      {
+        pageLanguage: "en",
+        includedLanguages: "en,es,pt,fr,de,it,nl,pl,ru,uk,ar,he,hi,bn,zh-CN,zh-TW,ja,ko,vi,th,id,ms,tl,tr,fa,sw,ht",
+        autoDisplay: false,
+        layout: 0
+      },
       "google_translate_element"
     );
   }
@@ -241,10 +261,11 @@
   .burger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
   .burger.is-open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-  /* Suppress Google Translate banner */
-  :global(.goog-te-banner-frame) { display: none !important; }
-  :global(body) { top: 0 !important; }
-  :global(.skiptranslate) { display: none !important; }
+  /* Suppress Google Translate banner (backup, Layout.astro has the canonical rules) */
+  :global(.goog-te-banner-frame)   { display: none !important; }
+  :global(body.translated-ltr),
+  :global(body.translated-rtl)     { top: 0 !important; margin-top: 0 !important; }
+  :global(.skiptranslate > iframe) { display: none !important; height: 0 !important; }
 
   @media (max-width: 1024px) {
     .nav {
