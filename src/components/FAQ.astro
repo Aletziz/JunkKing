@@ -33,10 +33,10 @@ const faqs = [
 
       <!-- Left column -->
       <div class="faq__sidebar">
-        <span class="eyebrow">FAQ</span>
+        <span class="eyebrow" style="color:var(--red);">FAQ</span>
         <div class="accent-line" style="margin: 0.6rem 0 1rem;"></div>
-        <h2 class="h2" style="text-align:left;">Frequently Asked Questions</h2>
-        <p style="font-size:0.9rem;color:var(--ink-500);line-height:1.7;margin-top:1rem;">
+        <h2 class="h2" style="text-align:left;color:#fff;">Frequently Asked Questions</h2>
+        <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);line-height:1.7;margin-top:1rem;">
           Have a question not listed here? Our team is always happy to help.
         </p>
         <div class="faq__contact-links">
@@ -79,7 +79,7 @@ const faqs = [
 </section>
 
 <style>
-  .faq { padding: 6rem 0; background: var(--ink-50); }
+  .faq { padding: 6rem 0; background: #000A1A; }
   .faq__layout {
     display: grid; grid-template-columns: 320px 1fr;
     gap: 5rem; align-items: start;
@@ -89,20 +89,20 @@ const faqs = [
   .faq__contact-links { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 2rem; }
   .faq__link {
     display: flex; align-items: center; gap: 0.65rem;
-    font-size: 0.88rem; font-weight: 600; color: var(--ink-700);
+    font-size: 0.88rem; font-weight: 600; color: rgba(255,255,255,0.7);
     text-decoration: none; padding: 0.75rem 1rem;
-    border: 1px solid var(--ink-200); border-radius: var(--r);
-    background: var(--white); transition: all var(--ease);
+    border: 1px solid rgba(255,255,255,0.1); border-radius: var(--r);
+    background: rgba(255,255,255,0.04); transition: all var(--ease);
   }
-  .faq__link:hover { border-color: var(--red); color: var(--red); }
+  .faq__link:hover { border-color: var(--red); color: var(--red); background: rgba(0,247,247,0.05); }
   .faq__link svg { width: 16px; height: 16px; flex-shrink: 0; }
 
   /* Accordion */
   .faq__accordion { display: flex; flex-direction: column; gap: 0; }
   .faq__item {
-    border-bottom: 1px solid var(--ink-200);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
-  .faq__item:first-child { border-top: 1px solid var(--ink-200); }
+  .faq__item:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
   .faq__item[open] .faq__icon svg { transform: rotate(180deg); }
 
   .faq__question {
@@ -113,14 +113,14 @@ const faqs = [
   .faq__question::-webkit-details-marker { display: none; }
   .faq__question:hover .faq__q-text { color: var(--red); }
 
-  .faq__q-text { font-size: 0.92rem; font-weight: 600; color: var(--ink-900); line-height: 1.4; }
-  .faq__icon { width: 28px; height: 28px; border: 1px solid var(--ink-200); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .faq__icon svg { width: 14px; height: 14px; stroke: var(--ink-500); transition: transform 0.2s ease; }
-  .faq__item[open] .faq__icon { border-color: var(--red); background: var(--red-sub); }
+  .faq__q-text { font-size: 0.92rem; font-weight: 600; color: rgba(255,255,255,0.85); line-height: 1.4; }
+  .faq__icon { width: 28px; height: 28px; border: 1px solid rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .faq__icon svg { width: 14px; height: 14px; stroke: rgba(255,255,255,0.4); transition: transform 0.2s ease; }
+  .faq__item[open] .faq__icon { border-color: var(--red); background: rgba(0,247,247,0.07); }
   .faq__item[open] .faq__icon svg { stroke: var(--red); }
 
   .faq__answer { padding: 0 0 1.25rem; }
-  .faq__answer p { font-size: 0.86rem; color: var(--ink-600); line-height: 1.75; max-width: 540px; }
+  .faq__answer p { font-size: 0.86rem; color: rgba(255,255,255,0.55); line-height: 1.75; max-width: 540px; }
 
   @media (max-width: 900px) {
     .faq__layout { grid-template-columns: 1fr; gap: 2.5rem; }

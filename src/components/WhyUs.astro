@@ -88,8 +88,11 @@ const badges = [
 </section>
 
 <style>
-  .why { padding: 6rem 0; background: var(--ink-50); }
+  .why { padding: 6rem 0; background: #000A1A; }
   .why__header { margin-bottom: 4rem; }
+  .why__header .h2 { color: #fff; }
+  .why__header .lead { color: rgba(255,255,255,0.6); }
+  .why__header .eyebrow { color: var(--red); }
 
   /* Reasons */
   .reasons {
@@ -97,19 +100,19 @@ const badges = [
     gap: 1.25rem; margin-bottom: 2.5rem;
   }
   .reason {
-    background: var(--white); border: 1px solid var(--ink-200);
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
     border-radius: var(--r-xl); padding: 2rem 1.5rem;
     transition: all var(--ease);
   }
-  .reason:hover { border-color: var(--red); transform: translateY(-3px); box-shadow: var(--sh-md); }
+  .reason:hover { border-color: #000A1A; transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.5); background: rgba(255,255,255,0.07); }
   .reason__icon {
-    width: 48px; height: 48px; background: var(--red-sub);
+    width: 48px; height: 48px; background: rgba(255,255,255,0.08);
     border-radius: var(--r-lg); display: flex; align-items: center;
     justify-content: center; margin-bottom: 1.25rem;
   }
-  .reason__icon :global(svg) { width: 22px; height: 22px; stroke: var(--red); }
-  .reason__title { font-size: 0.95rem; font-weight: 700; color: var(--ink-900); margin-bottom: 0.6rem; }
-  .reason__desc  { font-size: 0.82rem; color: var(--ink-500); line-height: 1.7; }
+  .reason__icon :global(svg) { width: 22px; height: 22px; stroke: #fff; }
+  .reason__title { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.6rem; }
+  .reason__desc  { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
 
   /* Truck specs */
   .truck-specs {
@@ -133,19 +136,19 @@ const badges = [
   .badges { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
   .badge-card {
     display: flex; align-items: center; gap: 1rem;
-    background: var(--white); border: 1px solid var(--ink-200);
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
     border-radius: var(--r-lg); padding: 1.25rem 1.5rem;
     transition: all var(--ease);
   }
-  .badge-card:hover { border-color: var(--red); box-shadow: var(--sh-sm); }
+  .badge-card:hover { border-color: #000A1A; box-shadow: 0 4px 20px rgba(0,0,0,0.4); background: rgba(255,255,255,0.07); }
   .badge-card__icon {
-    width: 44px; height: 44px; background: var(--red-sub);
+    width: 44px; height: 44px; background: rgba(255,255,255,0.08);
     border-radius: var(--r); display: flex; align-items: center;
     justify-content: center; flex-shrink: 0;
   }
-  .badge-card__icon :global(svg) { width: 20px; height: 20px; stroke: var(--red); }
-  .badge-card__label { font-size: 0.88rem; font-weight: 700; color: var(--ink-900); }
-  .badge-card__sub   { font-size: 0.78rem; color: var(--ink-500); margin-top: 0.15rem; }
+  .badge-card__icon :global(svg) { width: 20px; height: 20px; stroke: #fff; }
+  .badge-card__label { font-size: 0.88rem; font-weight: 700; color: #fff; }
+  .badge-card__sub   { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-top: 0.15rem; }
 
   @media (max-width: 1024px) { .reasons { grid-template-columns: repeat(2,1fr); } }
   @media (max-width: 768px) {
