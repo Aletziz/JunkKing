@@ -1,25 +1,30 @@
 ---
-const items = [
-  { title: "Furniture",           desc: "Chairs, sofas, tables, shelving — old or bulky, we haul it away." },
-  { title: "Electronics",         desc: "E-waste recycling for monitors, computers, printers and more." },
-  { title: "Appliances",          desc: "Refrigerators, washers, dryers, commercial equipment." },
-  { title: "Mattresses",          desc: "Same-day mattress removal — we handle all the heavy lifting." },
-  { title: "Yard Waste",          desc: "Wood piles, shrubs, leaves, soil — full outdoor cleanouts." },
-  { title: "Sod Installation",    desc: "Fresh sod laid fast and clean — transform your lawn in one day." },
-  { title: "Delivery & Pickup",   desc: "Fast same-day delivery and pickup for materials, bags or items." },
-  { title: "Full Space Cleanouts", desc: "Rooms, garages, offices, storage units — total clearouts." },
+const services = [
+  {
+    title: "Rent",
+    desc: "Need a truck or dumpster for your project? Rent our equipment at competitive rates — flexible durations, no hidden fees.",
+    bullets: ["Flexible rental periods", "Trucks & dumpsters available", "No hidden charges"],
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1" y="10" width="15" height="10" rx="1"/><path d="M16 13h4l3 3v4h-7V13z"/><circle cx="5.5" cy="20.5" r="1.5"/><circle cx="18.5" cy="20.5" r="1.5"/></svg>`,
+  },
+  {
+    title: "Junk Removal",
+    desc: "We haul away anything — furniture, appliances, yard waste, full property cleanouts. You point, we lift and load.",
+    bullets: ["Same-day appointments", "Free on-site estimates", "Up to 60% recycled or donated"],
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 3h4l2.68 13.39a2 2 0 001.98 1.61h9.72a2 2 0 001.98-1.61L23 6H6"/><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/></svg>`,
+  },
+  {
+    title: "Sod Installer",
+    desc: "Transform your lawn in a single day. We source, deliver and install fresh sod for residential and commercial properties.",
+    bullets: ["Residential & commercial", "Same-day installation", "Clean, professional finish"],
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="14" width="20" height="6" rx="1"/><path d="M5 14V9M9 14V7M13 14V10M17 14V8"/><path d="M3 9c1-2 3-3 6-3s5 1 6 3"/></svg>`,
+  },
+  {
+    title: "Fast Delivery & Pickup",
+    desc: "Same-day delivery and pickup of materials, bags, or items anywhere in Palm Beach County. Fast, reliable, on-time.",
+    bullets: ["Same-day availability", "Materials, bags & items", "All Palm Beach County"],
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11a2 2 0 012 2v3"/><rect x="9" y="11" width="14" height="10" rx="1"/><circle cx="12" cy="21" r="1"/><circle cx="20" cy="21" r="1"/></svg>`,
+  },
 ];
-
-const icons: Record<string, string> = {
-  "Furniture":            `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11V8a2 2 0 012-2h14a2 2 0 012 2v3"/><path d="M3 11a2 2 0 00-2 2v1h22v-1a2 2 0 00-2-2H3z"/><path d="M5 17v2M19 17v2"/></svg>`,
-  "Electronics":          `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg>`,
-  "Appliances":           `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="14" r="3"/><path d="M9 6h1M13 6h2"/></svg>`,
-  "Mattresses":           `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="8" width="20" height="10" rx="2"/><path d="M2 14h20M6 8V6M18 8V6"/></svg>`,
-  "Yard Waste":           `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22V12"/><path d="M12 12C12 8 7 5 7 5s1 5 5 7"/><path d="M12 12c0-4 5-7 5-7s-1 5-5 7"/><path d="M5 22h14"/></svg>`,
-  "Sod Installation":     `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="14" width="20" height="6" rx="1"/><path d="M5 14V9M9 14V7M13 14V10M17 14V8"/><path d="M3 9c1-2 3-3 6-3s5 1 6 3"/></svg>`,
-  "Delivery & Pickup":    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>`,
-  "Full Space Cleanouts": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
-};
 ---
 
 <section class="services" id="services">
@@ -29,81 +34,31 @@ const icons: Record<string, string> = {
     <div class="tc services__header">
       <span class="eyebrow">What We Do</span>
       <div class="accent-line"></div>
-      <h2 class="h2">Complete Property Services<br/>for Homes &amp; Businesses</h2>
+      <h2 class="h2">Four Services.<br/>One Reliable Crew.</h2>
       <p class="lead">
-        From hauling junk to installing fresh sod and fast deliveries —
-        our crew handles it all so you don't have to.
+        From hauling junk to laying fresh sod and same-day deliveries —
+        we've got Palm Beach County covered.
       </p>
     </div>
 
-    <!-- Service types -->
-    <div class="service-types">
-      <div class="service-type">
-        <div class="service-type__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 3h4l2.68 13.39a2 2 0 001.98 1.61h9.72a2 2 0 001.98-1.61L23 6H6"/></svg>
-        </div>
-        <div>
-          <h3>Junk Removal</h3>
-          <p>Free estimates · Same-day · Pay only for the space you use · Eco-friendly</p>
-        </div>
-      </div>
-      <div class="service-type">
-        <div class="service-type__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="14" width="20" height="6" rx="1"/><path d="M5 14V9M9 14V7M13 14V10M17 14V8"/><path d="M3 9c1-2 3-3 6-3s5 1 6 3"/></svg>
-        </div>
-        <div>
-          <h3>Sod Installation</h3>
-          <p>Fresh sod, fast turnaround · Residential &amp; commercial · Clean installation</p>
-        </div>
-      </div>
-      <div class="service-type">
-        <div class="service-type__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        </div>
-        <div>
-          <h3>Fast Delivery &amp; Pickup</h3>
-          <p>Same-day service · Materials, bags or items · Easy online scheduling</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Items grid -->
-    <div class="items-grid">
-      {items.map((item) => (
-        <div class="item-card">
-          <div class="item-card__icon" set:html={icons[item.title]}></div>
-          <h3 class="item-card__title">{item.title}</h3>
-          <p class="item-card__desc">{item.desc}</p>
+    <!-- 4 main services grid -->
+    <div class="service-cards">
+      {services.map((s) => (
+        <div class="service-card">
+          <div class="service-card__icon" set:html={s.icon}></div>
+          <h3 class="service-card__title">{s.title}</h3>
+          <p class="service-card__desc">{s.desc}</p>
+          <ul class="service-card__bullets">
+            {s.bullets.map((b) => (
+              <li>
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                {b}
+              </li>
+            ))}
+          </ul>
+          <a href="#contact" class="service-card__cta">Get a Free Quote</a>
         </div>
       ))}
-    </div>
-
-    <!-- Rent/Delivery CTA -->
-    <div class="dumpster-cta">
-      <div class="dumpster-cta__text">
-        <span class="eyebrow" style="color:#fff;opacity:0.6;">Fast Delivery &amp; Pickup</span>
-        <h3>Same-Day Delivery &amp; Pickup</h3>
-        <p>Need materials dropped off or items picked up fast? We offer same-day delivery and pickup throughout Palm Beach County. Schedule online and our crew will handle everything — on time, every time.</p>
-        <a href="#contact" class="btn btn-primary">Schedule Now</a>
-      </div>
-      <ul class="dumpster-cta__list">
-        <li>
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 10l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Same-day availability
-        </li>
-        <li>
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 10l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Materials, bags &amp; items
-        </li>
-        <li>
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 10l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Easy online scheduling
-        </li>
-        <li>
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 10l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          All Palm Beach County
-        </li>
-      </ul>
     </div>
 
   </div>
@@ -115,65 +70,82 @@ const icons: Record<string, string> = {
   .services__header .lead { margin: 0 auto; }
   .services__header .eyebrow { color: #000A1A; }
 
-  /* Service types */
-  .service-types {
-    display: grid; grid-template-columns: repeat(3,1fr);
-    gap: 1.25rem; margin-bottom: 3rem;
+  /* 4 service cards grid */
+  .service-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
   }
-  .service-type {
-    display: flex; align-items: flex-start; gap: 1rem;
-    background: var(--white); border: 1px solid var(--ink-200);
-    border-radius: var(--r-lg); padding: 1.5rem;
+
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--ink-200);
+    border-radius: var(--r-lg);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
     transition: all var(--ease);
   }
-  .service-type:hover { border-color: #000A1A; box-shadow: var(--sh-md); }
-  .service-type__icon {
-    width: 42px; height: 42px; background: var(--red-sub);
-    border-radius: var(--r); display: flex; align-items: center;
-    justify-content: center; flex-shrink: 0;
+  .service-card:hover {
+    border-color: #000A1A;
+    transform: translateY(-4px);
+    box-shadow: var(--sh-md);
   }
-  .service-type__icon svg { width: 20px; height: 20px; stroke: #000A1A; }
-  .service-type h3 { font-size: 0.9rem; font-weight: 700; color: var(--ink-900); margin-bottom: 0.3rem; }
-  .service-type p  { font-size: 0.8rem; color: var(--ink-500); line-height: 1.55; }
 
-  /* Items grid */
-  .items-grid {
-    display: grid; grid-template-columns: repeat(4,1fr);
-    gap: 1rem; margin-bottom: 3rem;
+  .service-card__icon {
+    width: 48px; height: 48px;
+    background: var(--red-sub);
+    border-radius: var(--r);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.25rem;
+    flex-shrink: 0;
   }
-  .item-card {
-    background: var(--white); border: 1px solid var(--ink-200);
-    border-radius: var(--r-lg); padding: 1.5rem 1.25rem;
+  .service-card__icon svg { width: 22px; height: 22px; stroke: #000A1A; }
+
+  .service-card__title {
+    font-size: 1rem; font-weight: 800;
+    color: var(--ink-900); letter-spacing: -0.01em;
+    margin-bottom: 0.6rem;
+  }
+
+  .service-card__desc {
+    font-size: 0.85rem; color: var(--ink-500);
+    line-height: 1.65; margin-bottom: 1.25rem;
+  }
+
+  .service-card__bullets {
+    list-style: none; padding: 0; margin: 0 0 1.5rem;
+    display: flex; flex-direction: column; gap: 0.55rem;
+    flex: 1;
+  }
+  .service-card__bullets li {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.8rem; color: var(--ink-600); font-weight: 500;
+  }
+  .service-card__bullets svg {
+    width: 14px; height: 14px;
+    stroke: var(--red); flex-shrink: 0;
+  }
+
+  .service-card__cta {
+    display: inline-block; padding: 0.6rem 1.25rem;
+    background: transparent; border: 1.5px solid #000A1A;
+    border-radius: var(--r); color: var(--ink-900);
+    font-size: 0.82rem; font-weight: 700;
+    text-decoration: none; text-align: center;
     transition: all var(--ease);
+    margin-top: auto;
   }
-  .item-card:hover { border-color: #000A1A; transform: translateY(-3px); box-shadow: var(--sh-md); }
-  .item-card__icon { width: 40px; height: 40px; background: var(--red-sub); border-radius: var(--r); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
-  .item-card__icon svg { width: 20px; height: 20px; stroke: #000A1A; }
-  .item-card__title { font-size: 0.88rem; font-weight: 700; color: var(--ink-900); margin-bottom: 0.4rem; }
-  .item-card__desc  { font-size: 0.8rem; color: var(--ink-500); line-height: 1.55; }
-
-  /* Dumpster CTA */
-  .dumpster-cta {
-    background: var(--ink-900); border-radius: var(--r-xl);
-    padding: 3rem; display: grid; grid-template-columns: 1fr auto;
-    gap: 3rem; align-items: center;
+  .service-card__cta:hover {
+    background: #000A1A; color: var(--white);
   }
-  .dumpster-cta__text h3 { font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 0.85rem; letter-spacing: -0.02em; }
-  .dumpster-cta__text p  { font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 1.75rem; max-width: 480px; }
-  .dumpster-cta__list { display: flex; flex-direction: column; gap: 0.75rem; min-width: 220px; }
-  .dumpster-cta__list li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; color: rgba(255,255,255,0.75); font-weight: 500; }
-  .dumpster-cta__list svg { width: 16px; height: 16px; stroke: var(--red); flex-shrink: 0; }
 
   @media (max-width: 1024px) {
-    .items-grid { grid-template-columns: repeat(3,1fr); }
-    .service-types { grid-template-columns: 1fr; }
+    .service-cards { grid-template-columns: repeat(2, 1fr); }
   }
-  @media (max-width: 768px) {
+  @media (max-width: 600px) {
     .services { padding: 4rem 0; }
-    .items-grid { grid-template-columns: repeat(2,1fr); }
-    .dumpster-cta { grid-template-columns: 1fr; padding: 2rem; gap: 2rem; }
-  }
-  @media (max-width: 480px) {
-    .items-grid { grid-template-columns: 1fr; }
+    .service-cards { grid-template-columns: 1fr; }
   }
 </style>
