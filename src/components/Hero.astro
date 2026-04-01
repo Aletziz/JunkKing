@@ -135,8 +135,9 @@
   .hero__badge svg { width: 13px; height: 13px; }
 
   .hero__title {
-    font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 900;
-    color: #fff; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 1rem;
+    font-size: clamp(1.75rem, 4.5vw, 3.2rem); font-weight: 900;
+    color: #fff; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1rem;
+    word-break: break-word; overflow-wrap: break-word;
     text-shadow:
       0 0 30px rgba(0,0,0,0.9),
       0 2px 8px  rgba(0,0,0,0.8),
@@ -147,6 +148,7 @@
   .hero__desc {
     font-size: 0.95rem; color: rgba(255,255,255,0.85);
     max-width: 400px; margin-bottom: 2rem; line-height: 1.7;
+    word-break: break-word; overflow-wrap: break-word;
     text-shadow:
       0 0 20px rgba(0,0,0,0.95),
       0 1px 6px rgba(0,0,0,0.8);
@@ -155,28 +157,35 @@
   .hero__cta { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
   .hero__cta .btn-ghost { background: rgba(255,255,255,0.07); color: #fff; border-color: rgba(255,255,255,0.18); }
   .hero__cta .btn-ghost:hover { background: rgba(255,255,255,0.13); }
+  /* Allow translated button labels to wrap gracefully */
+  .hero__cta .btn { white-space: normal; text-align: center; min-width: 0; }
 
   .hero__stats {
-    display: flex; align-items: center;
+    display: flex; align-items: stretch;
     background: rgba(0,10,26,0.55); border: 1px solid rgba(255,255,255,0.1);
     backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     border-radius: var(--r-lg); padding: 0.9rem 1.25rem;
-    width: fit-content; flex-wrap: wrap; gap: 0;
+    width: 100%; max-width: 420px; flex-wrap: wrap; gap: 0.5rem 0;
   }
-  .stat { display: flex; flex-direction: column; align-items: center; padding: 0 1rem; }
+  .stat { display: flex; flex-direction: column; align-items: center; padding: 0 0.75rem; flex: 1; min-width: 0; }
   .stat:first-child { padding-left: 0; }
-  .stat__n { font-size: 1.2rem; font-weight: 900; color: var(--red); line-height: 1; }
-  .stat__l { font-size: 0.65rem; color: rgba(255,255,255,0.65); font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.2rem; white-space: nowrap; }
-  .stat__div { width: 1px; height: 28px; background: rgba(255,255,255,0.12); flex-shrink: 0; }
+  .stat__n { font-size: 1.1rem; font-weight: 900; color: var(--red); line-height: 1; }
+  /* Allow stat labels to wrap — no nowrap */
+  .stat__l {
+    font-size: 0.62rem; color: rgba(255,255,255,0.65); font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.2rem;
+    text-align: center; word-break: break-word; hyphens: auto;
+  }
+  .stat__div { width: 1px; background: rgba(255,255,255,0.12); flex-shrink: 0; align-self: stretch; min-height: 28px; }
 
-  /* Chips */
+  /* Chips — allow wrap on translation */
   .chip {
-    display: flex; align-items: center; gap: 0.5rem;
+    display: flex; align-items: center; gap: 0.4rem;
     background: rgba(0,10,26,0.6); border: 1px solid rgba(255,255,255,0.12);
     backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-    border-radius: var(--r); padding: 0.55rem 0.8rem;
-    font-size: 0.75rem; color: rgba(255,255,255,0.85); font-weight: 500;
-    white-space: nowrap;
+    border-radius: var(--r); padding: 0.5rem 0.7rem;
+    font-size: 0.72rem; color: rgba(255,255,255,0.85); font-weight: 500;
+    white-space: normal; word-break: break-word;
   }
   .chip svg { width: 13px; height: 13px; stroke: var(--red); flex-shrink: 0; }
 
