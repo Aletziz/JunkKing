@@ -16,13 +16,11 @@
 
   <div class="nav-bar">
     <div class="container nav-bar__inner">
-      <a href="/" class="logo" aria-label="Junk King Palm Beach">
-        <div class="logo__crown">
-          <svg viewBox="0 0 24 18" fill="currentColor"><path d="M0 18L4 6l5 6 3-12 3 12 5-6 4 12H0z"/></svg>
-        </div>
+      <a href="/" class="logo" aria-label="AMG Junk Removal LLC">
+        <img src="/logo.png" alt="AMG Junk Removal LLC" class="logo__img" />
         <div class="logo__text">
-          <span class="logo__brand">JUNK KING</span>
-          <span class="logo__sub">Palm Beach</span>
+          <span class="logo__brand">AMG JUNK REMOVAL</span>
+          <span class="logo__sub">LLC</span>
         </div>
       </a>
 
@@ -64,10 +62,10 @@
 
 <style>
   /* ── Top bar ── */
-  .top-bar { background: var(--red); color: #fff; padding: 0.45rem 0; font-size: 0.78rem; }
+  .top-bar { background: var(--ink-900); color: #fff; padding: 0.45rem 0; font-size: 0.78rem; border-bottom: 2px solid var(--red); }
   .top-bar__inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
   .top-bar__item  { display: flex; align-items: center; gap: 0.4rem; font-weight: 500; opacity: 0.92; }
-  .top-bar__item svg { width: 14px; height: 14px; stroke: #fff; }
+  .top-bar__item svg { width: 14px; height: 14px; stroke: var(--red); }
 
   /* ── Nav bar ── */
   .nav-bar { background: #fff; border-bottom: 1px solid var(--ink-200); }
@@ -75,8 +73,7 @@
 
   /* Logo */
   .logo { display: flex; align-items: center; gap: 0.65rem; flex-shrink: 0; }
-  .logo__crown { width: 36px; height: 36px; background: var(--red); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .logo__crown svg { width: 20px; height: 15px; color: #fff; }
+  .logo__img   { width: 44px; height: 44px; object-fit: contain; flex-shrink: 0; }
   .logo__text  { display: flex; flex-direction: column; }
   .logo__brand { font-size: 1.05rem; font-weight: 900; color: var(--ink-900); line-height: 1; letter-spacing: -0.01em; }
   .logo__sub   { font-size: 0.6rem; font-weight: 600; color: var(--ink-500); letter-spacing: 0.1em; text-transform: uppercase; }

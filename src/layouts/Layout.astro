@@ -4,8 +4,8 @@ export interface Props {
   description?: string;
 }
 const {
-  title = "Junk King Palm Beach | Junk Removal Services",
-  description = "Junk King Palm Beach — Palm Beach County's #1 junk removal. Same-day appointments, free estimates, eco-friendly.",
+  title = "AMG Junk Removal LLC | Junk Removal Services",
+  description = "AMG Junk Removal LLC — Palm Beach County's #1 junk removal. Same-day appointments, free estimates, eco-friendly.",
 } = Astro.props;
 ---
 <!doctype html>
@@ -18,7 +18,7 @@ const {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/logo.png" />
   </head>
   <body>
     <slot />
@@ -27,9 +27,9 @@ const {
 
 <style is:global>
   :root {
-    --red:        #c8102e;
-    --red-dark:   #a3102b;
-    --red-sub:    rgba(200,16,46,0.07);
+    --red:        #00F7F7;
+    --red-dark:   #00cccc;
+    --red-sub:    rgba(0,247,247,0.07);
     --ink-900:    #0d0f13;
     --ink-800:    #1a1d24;
     --ink-700:    #2c3140;
@@ -82,11 +82,11 @@ const {
   .btn:hover { transform: translateY(-1px); }
   .btn svg   { width: 15px; height: 15px; flex-shrink: 0; }
 
-  .btn-primary  { background: var(--red); color: #fff; border-color: var(--red); }
-  .btn-primary:hover  { background: var(--red-dark); border-color: var(--red-dark); box-shadow: 0 4px 16px rgba(200,16,46,0.30); }
+  .btn-primary  { background: var(--red); color: var(--ink-900); border-color: var(--red); }
+  .btn-primary:hover  { background: var(--red-dark); border-color: var(--red-dark); box-shadow: 0 4px 16px rgba(0,247,247,0.30); }
 
   .btn-outline  { background: transparent; color: var(--red); border-color: var(--red); }
-  .btn-outline:hover  { background: var(--red); color: #fff; }
+  .btn-outline:hover  { background: var(--red); color: var(--ink-900); }
 
   .btn-ghost    { background: rgba(255,255,255,0.06); color: #fff; border-color: rgba(255,255,255,0.14); }
   .btn-ghost:hover    { background: rgba(255,255,255,0.12); }

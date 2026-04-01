@@ -26,11 +26,8 @@ const areas = [
       <!-- Brand -->
       <div class="footer__brand">
         <a href="/" class="footer__logo">
-          <svg viewBox="0 0 28 28" fill="none" aria-hidden="true">
-            <polygon points="14,2 26,8 26,20 14,26 2,20 2,8" fill="#c8102e" opacity="0.12" stroke="#c8102e" stroke-width="1.5"/>
-            <path d="M9 14l3 3 7-7" stroke="#c8102e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span>Junk King <em>Palm Beach</em></span>
+          <img src="/logo.png" alt="AMG Junk Removal LLC" class="footer__logo-img" />
+          <span>AMG Junk Removal <em>LLC</em></span>
         </a>
         <p class="footer__tagline">
           Palm Beach County's most trusted junk removal service.
@@ -112,7 +109,7 @@ const areas = [
   <!-- Bottom bar -->
   <div class="footer__bottom">
     <div class="container footer__bottom-inner">
-      <span>© {new Date().getFullYear()} Junk King Palm Beach. All rights reserved.</span>
+      <span>© {new Date().getFullYear()} AMG Junk Removal LLC. All rights reserved.</span>
       <div class="footer__legal">
         <a href="#">Privacy Policy</a>
         <span>·</span>
@@ -140,7 +137,7 @@ const areas = [
     display: flex; align-items: center; gap: 0.7rem;
     text-decoration: none; margin-bottom: 1.25rem;
   }
-  .footer__logo svg { width: 28px; height: 28px; flex-shrink: 0; }
+  .footer__logo-img { width: 48px; height: 48px; object-fit: contain; flex-shrink: 0; }
   .footer__logo span { font-size: 1rem; font-weight: 800; color: #fff; letter-spacing: -0.01em; }
   .footer__logo em { color: var(--red); font-style: normal; }
   .footer__tagline { font-size: 0.82rem; line-height: 1.7; margin-bottom: 1.5rem; max-width: 280px; }

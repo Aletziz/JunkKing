@@ -9,7 +9,7 @@
         <span>983+ Reviews · 5/5 Rating</span>
       </div>
       <h1 class="hero__title">
-        Palm Beach's #1<br/><span class="hero__red">Junk Removal</span><br/>Service
+        Palm Beach's #1<br/><span class="hero__accent">Junk Removal</span><br/>Service
       </h1>
       <p class="hero__desc">
         Same-day appointments, free estimates, and we do all the heavy lifting.
@@ -107,8 +107,8 @@
   .hero__bg {
     position: absolute; inset: 0;
     background:
-      radial-gradient(ellipse 60% 70% at 100% 50%, rgba(200,16,46,0.13) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 50% at 10% 80%,  rgba(200,16,46,0.07) 0%, transparent 60%);
+      radial-gradient(ellipse 60% 70% at 100% 50%, rgba(0,247,247,0.10) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 50% at 10% 80%,  rgba(0,247,247,0.05) 0%, transparent 60%);
   }
 
   .hero__inner {
@@ -131,7 +131,7 @@
     font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 900;
     color: #fff; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 1.25rem;
   }
-  .hero__red { color: var(--red); }
+  .hero__accent { color: var(--red); }
 
   .hero__desc { font-size: 1rem; color: rgba(255,255,255,0.65); max-width: 460px; margin-bottom: 2.25rem; line-height: 1.7; }
 
@@ -159,14 +159,14 @@
     border-radius: var(--r-xl); padding: 2.25rem;
     transition: border-color var(--ease);
   }
-  .truck-card:hover { border-color: rgba(200,16,46,0.4); }
+  .truck-card:hover { border-color: rgba(0,247,247,0.4); }
   .truck-card__icon { margin-bottom: 1.25rem; }
   .truck-card__icon svg { width: 80px; height: 50px; stroke: rgba(255,255,255,0.8); }
   .truck-card h3 { font-size: 1.15rem; font-weight: 800; color: #fff; margin-bottom: 0.4rem; }
   .truck-card p  { font-size: 0.85rem; color: rgba(255,255,255,0.55); margin-bottom: 1rem; }
   .truck-card__dims {
-    display: inline-block; background: rgba(200,16,46,0.15);
-    color: var(--red); border: 1px solid rgba(200,16,46,0.25);
+    display: inline-block; background: rgba(0,247,247,0.12);
+    color: var(--red); border: 1px solid rgba(0,247,247,0.25);
     font-size: 0.78rem; font-weight: 700; padding: 0.3rem 0.85rem;
     border-radius: var(--r);
   }
@@ -184,20 +184,20 @@
   .offer-bar { background: var(--red); padding: 0.7rem 0; }
   .offer-bar__inner {
     display: flex; align-items: center; gap: 0.75rem;
-    font-size: 0.83rem; font-weight: 500; color: rgba(255,255,255,0.9);
+    font-size: 0.83rem; font-weight: 500; color: rgba(0,0,0,0.75);
     flex-wrap: wrap;
   }
-  .offer-bar__icon { width: 16px; height: 16px; stroke: rgba(255,255,255,0.7); flex-shrink: 0; }
-  .offer-bar__inner strong { color: #fff; font-weight: 700; }
-  .offer-bar__sep  { opacity: 0.4; }
-  .offer-bar__exp  { opacity: 0.75; font-size: 0.78rem; }
+  .offer-bar__icon { width: 16px; height: 16px; stroke: rgba(0,0,0,0.55); flex-shrink: 0; }
+  .offer-bar__inner strong { color: var(--ink-900); font-weight: 700; }
+  .offer-bar__sep  { opacity: 0.35; }
+  .offer-bar__exp  { opacity: 0.6; font-size: 0.78rem; }
   .offer-bar__cta  {
-    margin-left: auto; background: rgba(255,255,255,0.15); color: #fff;
-    border: 1px solid rgba(255,255,255,0.3); border-radius: var(--r);
+    margin-left: auto; background: rgba(0,0,0,0.12); color: var(--ink-900);
+    border: 1px solid rgba(0,0,0,0.2); border-radius: var(--r);
     padding: 0.35rem 1rem; font-size: 0.78rem; font-weight: 700;
     transition: background var(--ease);
   }
-  .offer-bar__cta:hover { background: rgba(255,255,255,0.25); }
+  .offer-bar__cta:hover { background: rgba(0,0,0,0.22); }
 
   @media (max-width: 900px) {
     .hero { padding: 5rem 0 0; }
