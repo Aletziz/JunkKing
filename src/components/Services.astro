@@ -110,11 +110,10 @@ const icons: Record<string, string> = {
 </section>
 
 <style>
-  .services { padding: 6rem 0; background: #000A1A; }
+  .services { padding: 6rem 0; background: var(--ink-50); }
   .services__header { margin-bottom: 4rem; }
-  .services__header .lead { margin: 0 auto; color: rgba(255,255,255,0.6); }
-  .services__header .h2 { color: #fff; }
-  .services__header .eyebrow { color: var(--red); }
+  .services__header .lead { margin: 0 auto; }
+  .services__header .eyebrow { color: #000A1A; }
 
   /* Service types */
   .service-types {
@@ -123,19 +122,19 @@ const icons: Record<string, string> = {
   }
   .service-type {
     display: flex; align-items: flex-start; gap: 1rem;
-    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+    background: var(--white); border: 1px solid var(--ink-200);
     border-radius: var(--r-lg); padding: 1.5rem;
     transition: all var(--ease);
   }
-  .service-type:hover { border-color: #000A1A; box-shadow: 0 4px 24px rgba(0,0,0,0.4); background: rgba(255,255,255,0.07); }
+  .service-type:hover { border-color: #000A1A; box-shadow: var(--sh-md); }
   .service-type__icon {
-    width: 42px; height: 42px; background: rgba(255,255,255,0.08);
+    width: 42px; height: 42px; background: var(--red-sub);
     border-radius: var(--r); display: flex; align-items: center;
     justify-content: center; flex-shrink: 0;
   }
-  .service-type__icon svg { width: 20px; height: 20px; stroke: #fff; }
-  .service-type h3 { font-size: 0.9rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; }
-  .service-type p  { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.55; }
+  .service-type__icon svg { width: 20px; height: 20px; stroke: #000A1A; }
+  .service-type h3 { font-size: 0.9rem; font-weight: 700; color: var(--ink-900); margin-bottom: 0.3rem; }
+  .service-type p  { font-size: 0.8rem; color: var(--ink-500); line-height: 1.55; }
 
   /* Items grid */
   .items-grid {
@@ -143,15 +142,15 @@ const icons: Record<string, string> = {
     gap: 1rem; margin-bottom: 3rem;
   }
   .item-card {
-    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+    background: var(--white); border: 1px solid var(--ink-200);
     border-radius: var(--r-lg); padding: 1.5rem 1.25rem;
     transition: all var(--ease);
   }
-  .item-card:hover { border-color: #000A1A; transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.5); background: rgba(255,255,255,0.07); }
-  .item-card__icon { width: 40px; height: 40px; background: rgba(255,255,255,0.08); border-radius: var(--r); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
-  .item-card__icon svg { width: 20px; height: 20px; stroke: #fff; }
-  .item-card__title { font-size: 0.88rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; }
-  .item-card__desc  { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.55; }
+  .item-card:hover { border-color: #000A1A; transform: translateY(-3px); box-shadow: var(--sh-md); }
+  .item-card__icon { width: 40px; height: 40px; background: var(--red-sub); border-radius: var(--r); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+  .item-card__icon svg { width: 20px; height: 20px; stroke: #000A1A; }
+  .item-card__title { font-size: 0.88rem; font-weight: 700; color: var(--ink-900); margin-bottom: 0.4rem; }
+  .item-card__desc  { font-size: 0.8rem; color: var(--ink-500); line-height: 1.55; }
 
   /* Dumpster CTA */
   .dumpster-cta {
