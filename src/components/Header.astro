@@ -61,6 +61,7 @@
       <nav class="nav" id="mainNav" aria-label="Main">
         <ul class="nav__list">
           <li><a href="#services"    class="nav__link">Services</a></li>
+          <li><a href="#work"        class="nav__link">Our Work</a></li>
           <li><a href="#how-it-works" class="nav__link">How It Works</a></li>
           <li><a href="#why-us"      class="nav__link">Why Us</a></li>
           <li><a href="#areas"       class="nav__link">Areas</a></li>
@@ -69,7 +70,7 @@
       </nav>
 
       <div class="nav-bar__actions">
-        <a href="tel:+15617620065" class="btn btn-ghost-dark hidden-md">
+        <a href="tel:+15617620065" class="btn btn-nav-call hidden-md">
           <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1 1 0 01.95.684l.93 2.8a1 1 0 01-.23 1.02L5.1 7.7a11.04 11.04 0 005.2 5.2l1.196-1.198a1 1 0 011.02-.23l2.8.93A1 1 0 0116 13.35v1.15A1.5 1.5 0 0114.5 16C7.596 16 2 10.404 2 3.5z"/></svg>
           Call Us
         </a>
@@ -102,6 +103,10 @@
       <a href="#services"     class="drawer__link">
         <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 4h14M3 8h14M3 12h10"/></svg>
         Services
+      </a>
+      <a href="#work"         class="drawer__link">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="7" height="7" rx="1"/><rect x="11" y="2" width="7" height="7" rx="1"/><rect x="2" y="11" width="7" height="7" rx="1"/><rect x="11" y="11" width="7" height="7" rx="1"/></svg>
+        Our Work
       </a>
       <a href="#how-it-works" class="drawer__link">
         <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l2.5 2.5" stroke-linecap="round"/></svg>
@@ -363,6 +368,28 @@
   }
   .btn-ghost-dark:hover { background: var(--ink-100); }
   .btn-ghost-dark svg { stroke: var(--ink-600); }
+
+  /* Call Us — botón destacado azul marino */
+  .btn-nav-call {
+    background: var(--ink-900);
+    color: #fff;
+    border-color: var(--ink-900);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.6rem 1.25rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    letter-spacing: 0.01em;
+    box-shadow: 0 2px 8px rgba(0,10,26,0.25);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  }
+  .btn-nav-call:hover {
+    background: #001433;
+    border-color: #001433;
+    box-shadow: 0 4px 14px rgba(0,10,26,0.35);
+    transform: translateY(-1px);
+  }
+  .btn-nav-call svg { stroke: #fff; }
 
   /* Burger button */
   .burger {
