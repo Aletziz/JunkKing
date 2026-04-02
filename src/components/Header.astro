@@ -78,17 +78,124 @@
           <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1 1 0 01.95.684l.93 2.8a1 1 0 01-.23 1.02L5.1 7.7a11.04 11.04 0 005.2 5.2l1.196-1.198a1 1 0 011.02-.23l2.8.93A1 1 0 0116 13.35v1.15A1.5 1.5 0 0114.5 16C7.596 16 2 10.404 2 3.5z"/></svg>
           Call Us
         </a>
-        <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+        <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
   </div>
+
+  <!-- ── Mobile drawer ── -->
+  <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
+  <aside class="drawer" id="drawer" aria-label="Mobile navigation" aria-hidden="true">
+    <!-- Drawer header -->
+    <div class="drawer__head">
+      <a href="/" class="logo" aria-label="AMG Junk Removal LLC">
+        <img src="/logo.png" alt="AMG Junk Removal LLC" class="logo__img" />
+        <div class="logo__text">
+          <span class="logo__brand">AMG JUNK REMOVAL</span>
+          <span class="logo__sub">LLC</span>
+        </div>
+      </a>
+      <button class="drawer__close" id="drawerClose" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- Nav links -->
+    <nav class="drawer__nav">
+      <a href="#services"     class="drawer__link">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 4h14M3 8h14M3 12h10"/></svg>
+        Services
+      </a>
+      <a href="#how-it-works" class="drawer__link">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l2.5 2.5" stroke-linecap="round"/></svg>
+        How It Works
+      </a>
+      <a href="#why-us"       class="drawer__link">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 2l2.5 5 5.5.8-4 3.9.9 5.5L10 14.5l-4.9 2.7.9-5.5L2 7.8 7.5 7z"/></svg>
+        Why Us
+      </a>
+      <a href="#areas"        class="drawer__link">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 17s-6-5-6-9a6 6 0 1112 0c0 4-6 9-6 9z" stroke-linecap="round"/><circle cx="10" cy="8" r="2"/></svg>
+        Service Areas
+      </a>
+      <a href="#faq"          class="drawer__link">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="8"/><path d="M10 14v-1M10 7a2 2 0 011.9 2.6c-.2.5-.6.9-1 1.2-.5.4-.9.8-.9 1.2" stroke-linecap="round"/></svg>
+        FAQ
+      </a>
+      <a href="#contact"      class="drawer__link">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 4a2 2 0 012-2h12a2 2 0 012 2v9a2 2 0 01-2 2H6l-4 3V4z" stroke-linecap="round"/></svg>
+        Contact
+      </a>
+    </nav>
+
+    <!-- Drawer CTAs -->
+    <div class="drawer__ctas">
+      <a href="tel:+15617620065" class="drawer__cta drawer__cta--primary">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1 1 0 01.95.684l.93 2.8a1 1 0 01-.23 1.02L5.1 7.7a11.04 11.04 0 005.2 5.2l1.196-1.198a1 1 0 011.02-.23l2.8.93A1 1 0 0116 13.35v1.15A1.5 1.5 0 0114.5 16C7.596 16 2 10.404 2 3.5z"/></svg>
+        Call (561) 762-0065
+      </a>
+      <a href="sms:+15617620065" class="drawer__cta drawer__cta--ghost">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 4a2 2 0 012-2h12a2 2 0 012 2v9a2 2 0 01-2 2H6l-4 3V4z" stroke-linecap="round"/></svg>
+        Text Us
+      </a>
+    </div>
+
+    <!-- Drawer footer info -->
+    <div class="drawer__footer">
+      <span>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5a5 5 0 100 10A5 5 0 008 1.5z"/><path d="M8 7V4.5M8 9h.01" stroke-linecap="round"/></svg>
+        Free estimates · Same-day service
+      </span>
+      <span>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 14s-5-4-5-8a5 5 0 1110 0c0 4-5 8-5 8z"/><circle cx="8" cy="6" r="1.5"/></svg>
+        Jupiter, FL 33469
+      </span>
+    </div>
+  </aside>
 </header>
 
 <script>
-  /* ── Burger ── */
-  const burger = document.getElementById("burger")!;
+  /* ── Drawer / Burger ── */
+  const burger       = document.getElementById("burger")!;
+  const drawer       = document.getElementById("drawer")!;
+  const overlay      = document.getElementById("drawerOverlay")!;
+  const drawerClose  = document.getElementById("drawerClose")!;
+
+  function openDrawer() {
+    drawer.classList.add("is-open");
+    overlay.classList.add("is-open");
+    burger.setAttribute("aria-expanded", "true");
+    burger.classList.add("is-open");
+    drawer.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeDrawer() {
+    drawer.classList.remove("is-open");
+    overlay.classList.remove("is-open");
+    burger.setAttribute("aria-expanded", "false");
+    burger.classList.remove("is-open");
+    drawer.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  burger.addEventListener("click", () => {
+    drawer.classList.contains("is-open") ? closeDrawer() : openDrawer();
+  });
+  drawerClose.addEventListener("click", closeDrawer);
+  overlay.addEventListener("click", closeDrawer);
+
+  // Close on nav link click
+  drawer.querySelectorAll(".drawer__link, .drawer__cta").forEach((link) => {
+    link.addEventListener("click", closeDrawer);
+  });
+
+  // Close on Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeDrawer();
+  });
   const nav    = document.getElementById("mainNav")!;
   burger.addEventListener("click", () => {
     const open = burger.getAttribute("aria-expanded") === "true";
@@ -200,7 +307,6 @@
 
   /* ── Language switcher ── */
   .lang-wrap { position: relative; margin-left: auto; flex-shrink: 0; }
-
   .lang-btn {
     display: flex; align-items: center; gap: 0.35rem;
     background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18);
@@ -214,7 +320,6 @@
   .lang-chevron { width: 12px; height: 12px; transition: transform 0.2s; flex-shrink: 0; }
   .lang-btn[aria-expanded="true"] .lang-chevron { transform: rotate(180deg); }
   #langLabel { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-
   .lang-dropdown {
     display: none; position: absolute; top: calc(100% + 6px); right: 0;
     background: #fff; border: 1px solid var(--ink-200); border-radius: 8px;
@@ -232,25 +337,25 @@
   .lang-dropdown li:hover { background: var(--red-sub); color: var(--ink-900); }
 
   /* ── Nav bar ── */
-  .nav-bar { background: #fff; border-bottom: 1px solid var(--ink-200); overflow: hidden; }
+  .nav-bar { background: #fff; border-bottom: 1px solid var(--ink-200); }
   .nav-bar__inner { display: flex; align-items: center; gap: 1rem; padding-top: 0.9rem; padding-bottom: 0.9rem; flex-wrap: nowrap; min-width: 0; }
 
   /* Logo */
-  .logo { display: flex; align-items: center; gap: 0.65rem; flex-shrink: 0; }
+  .logo { display: flex; align-items: center; gap: 0.65rem; flex-shrink: 0; text-decoration: none; }
   .logo__img   { width: 44px; height: 44px; object-fit: contain; flex-shrink: 0; }
   .logo__text  { display: flex; flex-direction: column; }
   .logo__brand { font-size: 1.05rem; font-weight: 900; color: var(--ink-900); line-height: 1; letter-spacing: -0.01em; white-space: nowrap; }
   .logo__sub   { font-size: 0.6rem; font-weight: 600; color: var(--ink-500); letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; }
 
-  /* Nav */
+  /* Desktop nav */
   .nav { margin-left: auto; min-width: 0; overflow: hidden; }
-  .nav__list { display: flex; gap: 0; flex-wrap: nowrap; }
+  .nav__list { display: flex; gap: 0; flex-wrap: nowrap; list-style: none; }
   .nav__link {
     display: block; padding: 0.45rem 0.55rem; font-size: 0.8rem; font-weight: 500;
     color: var(--ink-600); border-radius: 6px; transition: all var(--ease);
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    white-space: nowrap;
   }
-  .nav__link:hover { color: #000A1A; background: rgba(0,10,26,0.06); }
+  .nav__link:hover { color: var(--ink-900); background: rgba(0,10,26,0.06); }
 
   /* Actions */
   .nav-bar__actions { display: flex; align-items: center; gap: 0.6rem; flex-shrink: 0; margin-left: auto; }
@@ -261,37 +366,132 @@
   .btn-ghost-dark:hover { background: var(--ink-100); }
   .btn-ghost-dark svg { stroke: var(--ink-600); }
 
-  /* Burger */
-  .burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 6px; }
-  .burger span { display: block; width: 22px; height: 1.5px; background: var(--ink-700); border-radius: 2px; transition: all 0.25s; }
+  /* Burger button */
+  .burger {
+    display: none; flex-direction: column; justify-content: center; gap: 5px;
+    background: none; border: 1px solid var(--ink-200); border-radius: 8px;
+    padding: 8px 9px; cursor: pointer; flex-shrink: 0;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .burger:hover { background: var(--ink-100); border-color: var(--ink-300); }
+  .burger span { display: block; width: 20px; height: 1.5px; background: var(--ink-700); border-radius: 2px; transition: all 0.28s cubic-bezier(.4,0,.2,1); }
   .burger.is-open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
   .burger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
   .burger.is-open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-  /* Suppress Google Translate banner (backup, Layout.astro has the canonical rules) */
+  /* ── Drawer overlay ── */
+  .drawer-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,10,26,0.55); backdrop-filter: blur(3px);
+    z-index: 1100; opacity: 0; transition: opacity 0.3s ease;
+  }
+  .drawer-overlay.is-open { display: block; opacity: 1; }
+
+  /* ── Drawer panel ── */
+  .drawer {
+    position: fixed; top: 0; right: 0; bottom: 0;
+    width: min(320px, 85vw);
+    background: #fff; z-index: 1200;
+    display: flex; flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.32s cubic-bezier(.4,0,.2,1);
+    box-shadow: -8px 0 40px rgba(0,10,26,0.18);
+    overflow-y: auto;
+  }
+  .drawer.is-open { transform: translateX(0); }
+
+  /* Drawer header */
+  .drawer__head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 1.25rem; border-bottom: 1px solid var(--ink-100);
+    flex-shrink: 0;
+  }
+  .drawer__head .logo__brand { font-size: 0.9rem; }
+  .drawer__head .logo__img   { width: 36px; height: 36px; }
+
+  .drawer__close {
+    display: flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; border-radius: 8px;
+    background: var(--ink-100); border: none; cursor: pointer;
+    transition: background 0.2s;
+    flex-shrink: 0;
+  }
+  .drawer__close:hover { background: var(--ink-200); }
+  .drawer__close svg { width: 18px; height: 18px; stroke: var(--ink-700); }
+
+  /* Drawer nav links */
+  .drawer__nav {
+    display: flex; flex-direction: column; padding: 0.75rem 0;
+    flex: 1;
+  }
+  .drawer__link {
+    display: flex; align-items: center; gap: 0.85rem;
+    padding: 0.85rem 1.5rem;
+    font-size: 0.95rem; font-weight: 600; color: var(--ink-700);
+    text-decoration: none; transition: background 0.15s, color 0.15s;
+    border-left: 3px solid transparent;
+  }
+  .drawer__link svg {
+    width: 18px; height: 18px; flex-shrink: 0;
+    stroke: var(--ink-400); transition: stroke 0.15s;
+  }
+  .drawer__link:hover {
+    background: var(--red-sub); color: var(--ink-900);
+    border-left-color: var(--red);
+  }
+  .drawer__link:hover svg { stroke: var(--red); }
+
+  /* Drawer CTAs */
+  .drawer__ctas {
+    display: flex; flex-direction: column; gap: 0.6rem;
+    padding: 1rem 1.25rem; border-top: 1px solid var(--ink-100);
+    flex-shrink: 0;
+  }
+  .drawer__cta {
+    display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+    padding: 0.85rem 1rem; border-radius: var(--r); font-size: 0.9rem; font-weight: 700;
+    text-decoration: none; transition: all 0.2s; border: 2px solid transparent;
+  }
+  .drawer__cta svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .drawer__cta--primary {
+    background: var(--red); color: var(--ink-900); border-color: var(--red);
+  }
+  .drawer__cta--primary:hover { background: var(--red-dark); border-color: var(--red-dark); }
+  .drawer__cta--ghost {
+    background: transparent; color: var(--ink-700); border-color: var(--ink-300);
+  }
+  .drawer__cta--ghost:hover { background: var(--ink-100); }
+  .drawer__cta--ghost svg { stroke: var(--ink-600); }
+
+  /* Drawer footer */
+  .drawer__footer {
+    display: flex; flex-direction: column; gap: 0.5rem;
+    padding: 0.9rem 1.25rem 1.25rem;
+    border-top: 1px solid var(--ink-100); flex-shrink: 0;
+  }
+  .drawer__footer span {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.75rem; color: var(--ink-400); font-weight: 500;
+  }
+  .drawer__footer svg { width: 13px; height: 13px; stroke: var(--ink-400); flex-shrink: 0; }
+
+  /* Suppress Google Translate banner */
   :global(.goog-te-banner-frame)   { display: none !important; }
   :global(body.translated-ltr),
   :global(body.translated-rtl)     { top: 0 !important; margin-top: 0 !important; }
   :global(.skiptranslate > iframe) { display: none !important; height: 0 !important; }
 
+  /* ── Desktop only: show nav, hide burger ── */
+  @media (min-width: 1025px) {
+    .burger  { display: none !important; }
+    .drawer, .drawer-overlay { display: none !important; }
+  }
+
+  /* ── Mobile: hide desktop nav, show burger ── */
   @media (max-width: 1024px) {
-    .nav {
-      display: none; position: absolute; top: 100%; left: 0; right: 0;
-      background: #fff; border-bottom: 1px solid var(--ink-200);
-      padding: 1rem 1.5rem; box-shadow: var(--sh-lg); z-index: 999;
-      overflow: visible;
-    }
-    .nav.is-open { display: block; }
-    .nav__list { flex-direction: column; gap: 0.1rem; }
-    .nav__link {
-      display: block; padding: 0.6rem 0.75rem; font-size: 0.9rem;
-      white-space: normal; overflow: visible; text-overflow: unset;
-    }
-    .nav-bar__inner { position: relative; flex-wrap: wrap; gap: 0.5rem; }
-    .nav { margin-left: 0; }
+    .nav     { display: none; }
     .hidden-md { display: none; }
-    .burger { display: flex; }
-    /* On mobile the nav actions don't need margin-left:auto since nav is hidden */
+    .burger  { display: flex; }
     .nav-bar__actions { margin-left: auto; }
   }
 
@@ -301,3 +501,4 @@
     .top-bar__item:nth-child(2) { display: none; }
   }
 </style>
+
