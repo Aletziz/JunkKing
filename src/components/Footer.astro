@@ -1,104 +1,97 @@
----
+﻿---
 const serviceLinks = [
-  "Junk Removal", "Sod Installation", "Fast Delivery & Pickup",
-  "Furniture Removal", "Appliance Removal", "Electronics Recycling",
-  "Yard Waste Removal", "Full Space Cleanout",
+  { label: "Junk Removal",          href: "#services" },
+  { label: "Sod Installation",      href: "#services" },
+  { label: "Fast Delivery & Pickup",href: "#services" },
+  { label: "Truck & Dumpster Rent", href: "#services" },
 ];
 const companyLinks = [
-  { label: "How It Works", href: "#how-it-works" },
+  { label: "How It Works",  href: "#how-it-works" },
   { label: "Why Choose Us", href: "#why-us" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Blog & Resources", href: "#resources" },
-];
-const areas = [
-  "West Palm Beach", "Boca Raton", "Delray Beach", "Boynton Beach",
-  "Wellington", "Jupiter", "Palm Beach Gardens", "Lake Worth",
+  { label: "Service Areas", href: "#areas" },
+  { label: "FAQ",           href: "#faq" },
+  { label: "Contact Us",    href: "#contact" },
 ];
 ---
 
 <footer class="footer">
 
-  <!-- Main footer grid -->
+  <div class="footer__accent-bar"></div>
+
   <div class="footer__main">
     <div class="container footer__grid">
 
-      <!-- Brand -->
       <div class="footer__brand">
         <a href="/" class="footer__logo">
           <img src="/logo.png" alt="AMG Junk Removal LLC" class="footer__logo-img" />
-          <span>AMG Junk Removal <em>LLC</em></span>
+          <div class="footer__logo-text">
+            <span class="footer__logo-name">AMG Junk Removal</span>
+            <span class="footer__logo-sub">LLC · Palm Beach County</span>
+          </div>
         </a>
         <p class="footer__tagline">
-          Palm Beach County's most trusted junk removal service.
-          Fast, eco-friendly, and priced right.
+          Fast, eco-friendly junk removal, sod installation and same-day delivery
+          across Palm Beach County.
         </p>
-        <ul class="footer__contact-list">
-          <li>
-            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M18 14.7v2.5a1.67 1.67 0 01-1.82 1.67A16.5 16.5 0 019.5 16.3a16.25 16.25 0 01-4.67-4.67 16.5 16.5 0 01-2.5-7.22A1.67 1.67 0 013.99 2.5H6.5a1.67 1.67 0 011.67 1.43c.1.8.3 1.59.58 2.35a1.67 1.67 0 01-.38 1.76l-1.07 1.07A13.34 13.34 0 0012.57 14l1.07-1.07a1.67 1.67 0 011.76-.38c.76.28 1.54.48 2.35.58A1.67 1.67 0 0118 14.7z"/>
-            </svg>
-            <a href="tel:+15617620065">(561) 762-0065</a>
-          </li>
-        </ul>
+        <a href="tel:+15617620065" class="footer__phone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.02 2.84 2 2 0 012 .67h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.49a16 16 0 006.29 6.29l1.1-1.1a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          (561) 762-0065
+        </a>
         <div class="footer__social">
-          <a href="https://www.facebook.com/share/1EF19WmpxJ/?mibextid=wwXIfr" aria-label="Facebook" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-          </a>
-          <a href="https://www.instagram.com/amgjunk?igsh=MWhobXdoeXc0bWV0MQ%3D%3D&utm_source=qr" aria-label="Instagram" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5" stroke-width="2.5" stroke-linecap="round"/></svg>
-          </a>
-          <a href="https://www.tiktok.com/@amg_junk_removal_?_r=1&_t=ZT-95BnLjIcq4r" aria-label="TikTok" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg>
-          </a>
-          <a href="https://wa.me/15617620065" aria-label="WhatsApp" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          </a>
+          <a href="https://www.facebook.com/share/1EF19WmpxJ/?mibextid=wwXIfr" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://www.instagram.com/amgjunk?igsh=MWhobXdoeXc0bWV0MQ%3D%3D&utm_source=qr" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5" stroke-width="2.5" stroke-linecap="round"/></svg></a>
+          <a href="https://www.tiktok.com/@amg_junk_removal_?_r=1&_t=ZT-95BnLjIcq4r" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg></a>
+          <a href="https://wa.me/15617620065" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
         </div>
       </div>
 
-      <!-- Services -->
       <div class="footer__col">
         <h4 class="footer__heading">Services</h4>
         <ul class="footer__links">
           {serviceLinks.map((s) => (
-            <li><a href="#services">{s}</a></li>
+            <li><a href={s.href}><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h8M9 5l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>{s.label}</a></li>
           ))}
         </ul>
       </div>
 
-      <!-- Company -->
       <div class="footer__col">
         <h4 class="footer__heading">Company</h4>
         <ul class="footer__links">
           {companyLinks.map((l) => (
-            <li><a href={l.href}>{l.label}</a></li>
+            <li><a href={l.href}><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h8M9 5l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>{l.label}</a></li>
           ))}
         </ul>
       </div>
 
-      <!-- Areas -->
-      <div class="footer__col">
-        <h4 class="footer__heading">Service Areas</h4>
-        <ul class="footer__links">
-          {areas.map((a) => (
-            <li><a href="#areas">{a}</a></li>
-          ))}
-        </ul>
+      <div class="footer__col footer__col--cta">
+        <h4 class="footer__heading">Ready to Start?</h4>
+        <p class="footer__cta-text">Same-day service available. Call or text us now.</p>
+        <div class="footer__cta-btns">
+          <a href="tel:+15617620065" class="footer__btn footer__btn--primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.02 2.84 2 2 0 012 .67h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.49a16 16 0 006.29 6.29l1.1-1.1a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            Call Us
+          </a>
+          <a href="https://wa.me/15617620065" target="_blank" rel="noopener" class="footer__btn footer__btn--ghost">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width:15px;height:15px;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+        <div class="footer__hours">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 7v5l3 3" stroke-linecap="round"/></svg>
+          Every day · 7 AM – 7 PM
+        </div>
       </div>
 
     </div>
   </div>
 
-  <!-- Bottom bar -->
   <div class="footer__bottom">
     <div class="container footer__bottom-inner">
       <span>© {new Date().getFullYear()} AMG Junk Removal LLC. All rights reserved.</span>
       <div class="footer__legal">
         <a href="#">Privacy Policy</a>
-        <span>·</span>
+        <span aria-hidden="true">·</span>
         <a href="#">Terms of Service</a>
-        <span>·</span>
-        <a href="#">Sitemap</a>
       </div>
     </div>
   </div>
@@ -106,74 +99,122 @@ const areas = [
 </footer>
 
 <style>
-  .footer { background: var(--ink-900); color: rgba(255,255,255,0.55); }
+  .footer { background: var(--ink-900); color: rgba(255,255,255,0.5); }
 
-  /* Main grid */
-  .footer__main { padding: 5rem 0 4rem; }
+  .footer__accent-bar {
+    height: 3px;
+    background: linear-gradient(90deg, var(--red) 0%, var(--red-dark) 100%);
+  }
+
+  .footer__main { padding: 4.5rem 0 3.5rem; }
   .footer__grid {
-    display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr;
-    gap: 3.5rem; align-items: start;
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
+    gap: 3rem;
+    align-items: start;
   }
 
-  /* Brand */
   .footer__logo {
-    display: flex; align-items: center; gap: 0.7rem;
+    display: flex; align-items: center; gap: 0.75rem;
+    text-decoration: none; margin-bottom: 1rem;
+  }
+  .footer__logo-img { width: 44px; height: 44px; object-fit: contain; flex-shrink: 0; border-radius: 8px; }
+  .footer__logo-text { display: flex; flex-direction: column; gap: 0.1rem; }
+  .footer__logo-name { font-size: 0.95rem; font-weight: 800; color: #fff; line-height: 1.1; }
+  .footer__logo-sub  { font-size: 0.62rem; color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .footer__tagline {
+    font-size: 0.82rem; line-height: 1.72;
+    margin-bottom: 1.25rem; color: rgba(255,255,255,0.45); max-width: 290px;
+  }
+
+  .footer__phone {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 1rem; font-weight: 700; color: var(--red);
     text-decoration: none; margin-bottom: 1.25rem;
+    transition: color 0.18s;
   }
-  .footer__logo-img { width: 48px; height: 48px; object-fit: contain; flex-shrink: 0; }
-  .footer__logo span { font-size: 1rem; font-weight: 800; color: #fff; letter-spacing: -0.01em; }
-  .footer__logo em { color: var(--red); font-style: normal; }
-  .footer__tagline { font-size: 0.82rem; line-height: 1.7; margin-bottom: 1.5rem; max-width: 280px; }
+  .footer__phone:hover { color: var(--red-dark); }
+  .footer__phone svg { width: 16px; height: 16px; flex-shrink: 0; }
 
-  .footer__contact-list { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.5rem; }
-  .footer__contact-list li { display: flex; align-items: center; gap: 0.55rem; font-size: 0.82rem; }
-  .footer__contact-list svg { width: 14px; height: 14px; flex-shrink: 0; opacity: 0.5; }
-  .footer__contact-list a { color: rgba(255,255,255,0.7); text-decoration: none; }
-  .footer__contact-list a:hover { color: #fff; }
-
-  .footer__social { display: flex; gap: 0.6rem; }
+  .footer__social { display: flex; gap: 0.5rem; flex-wrap: wrap; }
   .footer__social a {
-    width: 32px; height: 32px; background: rgba(255,255,255,0.07);
-    border-radius: var(--r); display: flex; align-items: center;
-    justify-content: center; color: rgba(255,255,255,0.4);
-    transition: all var(--ease);
+    width: 34px; height: 34px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.45);
+    transition: background 0.18s, color 0.18s, border-color 0.18s;
   }
-  .footer__social a:hover { background: rgba(255,255,255,0.13); color: #fff; }
-  .footer__social svg { width: 14px; height: 14px; }
+  .footer__social a:hover { background: var(--red); color: var(--ink-900); border-color: var(--red); }
+  .footer__social svg { width: 15px; height: 15px; }
 
-  /* Columns */
   .footer__heading {
-    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.1em; color: rgba(255,255,255,0.35);
-    margin-bottom: 1.25rem;
+    font-size: 0.68rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 1.1rem;
+    padding-bottom: 0.55rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
   }
-  .footer__links { display: flex; flex-direction: column; gap: 0.6rem; }
-  .footer__links li {}
+  .footer__links { display: flex; flex-direction: column; gap: 0.4rem; list-style: none; }
   .footer__links a {
-    font-size: 0.83rem; color: rgba(255,255,255,0.55); text-decoration: none;
-    transition: color var(--ease);
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.83rem; color: rgba(255,255,255,0.5);
+    text-decoration: none; padding: 0.18rem 0;
+    transition: color 0.18s;
   }
+  .footer__links a svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0; transition: opacity 0.18s; stroke: var(--red); }
   .footer__links a:hover { color: #fff; }
+  .footer__links a:hover svg { opacity: 1; }
 
-  /* Bottom */
-  .footer__bottom { padding: 1.5rem 0; }
+  .footer__cta-text {
+    font-size: 0.82rem; line-height: 1.65;
+    color: rgba(255,255,255,0.45); margin-bottom: 1.1rem;
+  }
+  .footer__cta-btns { display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 1.1rem; }
+  .footer__btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 0.5rem; padding: 0.6rem 1rem;
+    border-radius: 8px; font-size: 0.83rem; font-weight: 600;
+    text-decoration: none; border: 1.5px solid transparent;
+    transition: all 0.18s;
+  }
+  .footer__btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+  .footer__btn--primary { background: var(--red); color: var(--ink-900); border-color: var(--red); }
+  .footer__btn--primary:hover { background: var(--red-dark); border-color: var(--red-dark); transform: translateY(-1px); }
+  .footer__btn--ghost { background: transparent; color: rgba(255,255,255,0.65); border-color: rgba(255,255,255,0.15); }
+  .footer__btn--ghost:hover { background: rgba(255,255,255,0.07); color: #fff; border-color: rgba(255,255,255,0.3); }
+
+  .footer__hours {
+    display: flex; align-items: center; gap: 0.45rem;
+    font-size: 0.78rem; color: rgba(255,255,255,0.3);
+  }
+  .footer__hours svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+  .footer__bottom { border-top: 1px solid rgba(255,255,255,0.07); padding: 1.25rem 0; }
   .footer__bottom-inner {
     display: flex; align-items: center; justify-content: space-between;
-    gap: 1.5rem; flex-wrap: wrap;
-    font-size: 0.78rem;
+    gap: 1rem; flex-wrap: wrap; font-size: 0.77rem;
   }
   .footer__legal { display: flex; align-items: center; gap: 0.5rem; }
-  .footer__legal a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color var(--ease); }
-  .footer__legal a:hover { color: rgba(255,255,255,0.75); }
-  .footer__legal span { opacity: 0.25; }
+  .footer__legal a { color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.18s; }
+  .footer__legal a:hover { color: rgba(255,255,255,0.7); }
+  .footer__legal span { opacity: 0.2; }
 
   @media (max-width: 1024px) {
     .footer__grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
     .footer__brand { grid-column: 1 / -1; }
+    .footer__tagline { max-width: 100%; }
+    .footer__cta-btns { flex-direction: row; }
   }
-  @media (max-width: 640px) {
-    .footer__grid { grid-template-columns: 1fr; }
-    .footer__main { padding: 4rem 0 3rem; }
-    .footer__bottom-inner { flex-direction: column; text-align: center; }
+
+  @media (max-width: 600px) {
+    .footer__main { padding: 3rem 0 2.5rem; }
+    .footer__grid { grid-template-columns: 1fr; gap: 2rem; }
+    .footer__brand { grid-column: auto; }
+    .footer__cta-btns { flex-direction: row; }
+    .footer__bottom-inner { flex-direction: column; text-align: center; gap: 0.5rem; }
   }
 </style>
