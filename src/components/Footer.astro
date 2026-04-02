@@ -80,24 +80,6 @@ const companyLinks = [
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 7v5l3 3" stroke-linecap="round"/></svg>
           Every day · 7 AM – 7 PM
         </div>
-
-        <div class="footer__payment">
-          <span class="footer__payment-label">We Accept</span>
-          <div class="footer__payment-badges">
-            <span class="footer__pay-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
-              Credit Card
-            </span>
-            <span class="footer__pay-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l2 2" stroke-linecap="round"/><path d="M8 12h4" stroke-linecap="round"/></svg>
-              Zelle
-            </span>
-            <span class="footer__pay-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" fill="currentColor" stroke="none"/></svg>
-              Cash
-            </span>
-          </div>
-        </div>
       </div>
 
     </div>
@@ -220,34 +202,6 @@ const companyLinks = [
   .footer__legal a { color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.18s; }
   .footer__legal a:hover { color: rgba(255,255,255,0.7); }
   .footer__legal span { opacity: 0.2; }
-
-  /* Payment badges */
-  .footer__payment { margin-top: 1.1rem; }
-  .footer__payment-label {
-    display: block;
-    font-size: 0.65rem; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.11em;
-    color: rgba(255,255,255,0.28);
-    margin-bottom: 0.55rem;
-  }
-  .footer__payment-badges { display: flex; gap: 0.4rem; flex-wrap: wrap; }
-  .footer__pay-badge {
-    display: inline-flex; align-items: center; gap: 0.35rem;
-    font-size: 0.72rem; font-weight: 600;
-    color: rgba(255,255,255,0.55);
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 6px;
-    padding: 0.28rem 0.6rem;
-    white-space: nowrap;
-    transition: background 0.18s, color 0.18s, border-color 0.18s;
-  }
-  .footer__pay-badge:hover {
-    background: rgba(0,200,200,0.1);
-    color: var(--red);
-    border-color: rgba(0,200,200,0.3);
-  }
-  .footer__pay-badge svg { width: 13px; height: 13px; flex-shrink: 0; }
 
   @media (max-width: 1024px) {
     .footer__grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
