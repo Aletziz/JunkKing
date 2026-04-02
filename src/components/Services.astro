@@ -31,7 +31,7 @@ const services = [
   <div class="container">
 
     <!-- Header -->
-    <div class="tc services__header">
+    <div class="tc services__header reveal">
       <span class="eyebrow">What We Do</span>
       <div class="accent-line"></div>
       <h2 class="h2">Four Services.<br/>One Reliable Crew.</h2>
@@ -42,7 +42,7 @@ const services = [
     </div>
 
     <!-- 4 main services grid -->
-    <div class="service-cards">
+    <div class="service-cards reveal-group">
       {services.map((s) => (
         <div class="service-card">
           <div class="service-card__icon" set:html={s.icon}></div>

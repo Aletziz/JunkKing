@@ -38,7 +38,7 @@ const contacts = [
 <section class="how" id="how-it-works">
   <div class="container">
 
-    <div class="tc how__header">
+    <div class="tc how__header reveal">
       <span class="eyebrow" style="color:#000A1A;">Simple Process</span>
       <div class="accent-line"></div>
       <h2 class="h2">How It Works</h2>
@@ -48,7 +48,7 @@ const contacts = [
       </p>
     </div>
 
-    <div class="steps">
+    <div class="steps reveal-group">
       {steps.map((s, i) => (
         <div class="step">
           <span class="step__number">{s.number}</span>
@@ -64,7 +64,7 @@ const contacts = [
     </div>
 
     <!-- Same-day callout -->
-    <div class="same-day">
+    <div class="same-day reveal">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
         <circle cx="12" cy="12" r="10"/>
         <path d="M12 8v4l3 3" stroke-linecap="round" stroke-linejoin="round"/>

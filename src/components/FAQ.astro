@@ -32,7 +32,7 @@ const faqs = [
     <div class="faq__layout">
 
       <!-- Left column -->
-      <div class="faq__sidebar">
+      <div class="faq__sidebar reveal reveal--left">
         <span class="eyebrow" style="color:#000A1A;">FAQ</span>
         <div class="accent-line" style="margin: 0.6rem 0 1rem;"></div>
         <h2 class="h2" style="text-align:left;">Frequently Asked Questions</h2>
@@ -56,7 +56,7 @@ const faqs = [
       </div>
 
       <!-- Accordion -->
-      <div class="faq__accordion">
+      <div class="faq__accordion reveal reveal--right">
         {faqs.map((item, i) => (
           <details class="faq__item" name="faq">
             <summary class="faq__question">

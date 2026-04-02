@@ -32,14 +32,14 @@ const badges = [
 <section class="why" id="why-us">
   <div class="container">
 
-    <div class="tc why__header">
+    <div class="tc why__header reveal">
       <span class="eyebrow">Why Choose Us</span>
       <div class="accent-line"></div>
       <h2 class="h2">The AMG Difference</h2>
       <p class="lead">We don't just remove junk — we do it faster, cleaner, and more responsibly than anyone else in Palm Beach County.</p>
     </div>
 
-    <div class="reasons">
+    <div class="reasons reveal-group">
       {reasons.map((r) => (
         <div class="reason">
           <div class="reason__icon" set:html={r.icon}></div>
@@ -50,7 +50,7 @@ const badges = [
     </div>
 
     <!-- Truck specs -->
-    <div class="truck-specs">
+    <div class="truck-specs reveal">
       <div class="truck-specs__label">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
           <rect x="1" y="10" width="15" height="10" rx="1"/><path d="M16 13h4l3 3v4h-7V13z"/>
@@ -72,7 +72,7 @@ const badges = [
     </div>
 
     <!-- Trust badges -->
-    <div class="badges">
+    <div class="badges reveal-group">
       {badges.map((b) => (
         <div class="badge-card">
           <div class="badge-card__icon" set:html={b.icon}></div>
