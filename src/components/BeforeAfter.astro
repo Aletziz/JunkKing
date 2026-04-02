@@ -59,6 +59,13 @@ const projects = [
                 Drag
               </div>
             </div>
+            <!-- Flechas laterales (solo móvil) -->
+            <div class="ba__arrow-left" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor"><path d="M13 4l-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="ba__arrow-right" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor"><path d="M7 4l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
           </div>
 
           <div class="ba__info">
@@ -137,6 +144,9 @@ const projects = [
       if (hint && !hint.classList.contains('ba__hint--hidden')) {
         hint.classList.add('ba__hint--hidden');
       }
+      // Ocultar también las flechas laterales al primer uso
+      const arrows = card.querySelectorAll('.ba__arrow-left, .ba__arrow-right');
+      arrows.forEach(a => { a.style.opacity = '0'; a.style.transition = 'opacity 0.4s'; });
     }
 
     handle.addEventListener('mousedown',  e => { dragging = true; e.preventDefault(); dismissHint(); });
@@ -303,12 +313,60 @@ const projects = [
   @media (max-width: 768px) {
     .ba { padding: 3.5rem 0; }
     .ba__grid { grid-template-columns: 1fr; gap: 2rem; }
-    .ba__handle { width: 44px; height: 44px; }
-    .ba__handle svg { width: 20px; height: 20px; }
+
+    /* Fix: no sobreescribir el handle contenedor, solo el círculo */
+    .ba__handle-circle { width: 48px; height: 48px; }
+    .ba__handle-circle svg { width: 22px; height: 22px; }
+    .ba__handle-line { width: 3px; }
+
     .ba__label { padding: 0.25rem 0.6rem; font-size: 0.68rem; }
+
+    /* Hint más grande y fácil de ver en táctil */
+    .ba__hint {
+      font-size: 0.75rem;
+      padding: 0.4rem 0.9rem;
+      gap: 0.45rem;
+      top: calc(50% + 34px);
+    }
+    .ba__hint svg { width: 16px; height: 16px; }
+
+    /* Flechas laterales permanentes — guían al usuario a deslizar */
+    .ba__arrow-left,
+    .ba__arrow-right {
+      display: flex;
+    }
   }
+
+  /* Flechas de navegación lateral — ocultas en desktop */
+  .ba__arrow-left,
+  .ba__arrow-right {
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 6;
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.92);
+    border-radius: 50%;
+    align-items: center; justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+    pointer-events: none;
+  }
+  .ba__arrow-left  { left: 0.75rem; }
+  .ba__arrow-right { right: 0.75rem; }
+  .ba__arrow-left svg,
+  .ba__arrow-right svg {
+    width: 18px; height: 18px;
+    stroke: var(--ink-900); stroke-width: 2.2;
+    flex-shrink: 0;
+  }
+
   @media (max-width: 480px) {
     .ba__slider { aspect-ratio: 4/3; }
     .ba__info { flex-direction: column; align-items: flex-start; gap: 0.25rem; }
+    .ba__arrow-left,
+    .ba__arrow-right { width: 32px; height: 32px; }
+    .ba__arrow-left svg,
+    .ba__arrow-right svg { width: 16px; height: 16px; }
   }
 </style>
