@@ -143,10 +143,11 @@ const cities = [
     .areas__cta { flex-direction: column; text-align: center; }
   }
   @media (max-width: 768px) {
-    .areas { padding: 4rem 0; }
+    .areas { padding: 3.5rem 0; }
     .cities-grid { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 480px) {
-    .cities-grid { grid-template-columns: 1fr; }
+    .cities-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+    .city-chip { padding: 0.45rem 0.65rem; font-size: 0.78rem; }
   }
 </style>

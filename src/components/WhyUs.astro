@@ -172,7 +172,7 @@ const badges = [
 
   @media (max-width: 1024px) { .reasons { grid-template-columns: repeat(2,1fr); } }
   @media (max-width: 768px) {
-    .why { padding: 4rem 0; }
+    .why { padding: 3.5rem 0; }
     .reasons { grid-template-columns: 1fr; }
     .badges { grid-template-columns: 1fr; }
     .truck-specs { grid-template-columns: 1fr; }
@@ -181,5 +181,12 @@ const badges = [
     .truck-specs__stats { flex-wrap: wrap; gap: 1rem; }
     .spec-divider { display: none; }
     .spec { flex: 0 0 calc(50% - 0.5rem); }
+  }
+  @media (max-width: 480px) {
+    .reasons { gap: 0.75rem; }
+    .reason { padding: 1.25rem; }
+    .truck-specs__content { padding: 1.25rem 1rem; }
+    .spec { flex: 0 0 calc(50% - 0.5rem); min-width: 0; }
+    .spec__n { font-size: 1.4rem; }
   }
 </style>

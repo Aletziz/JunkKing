@@ -149,8 +149,12 @@ function initials(name: string) {
 
   @media (max-width: 1024px) { .reviews__grid { grid-template-columns: repeat(2,1fr); } }
   @media (max-width: 768px) {
-    .reviews { padding: 4rem 0; }
+    .reviews { padding: 3.5rem 0; }
     .reviews__grid { grid-template-columns: 1fr; }
     .reviews__summary { gap: 1.25rem; }
+  }
+  @media (max-width: 480px) {
+    .reviews__grid { gap: 1rem; }
+    .review-card { padding: 1.25rem; }
   }
 </style>
