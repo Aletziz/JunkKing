@@ -114,8 +114,8 @@ const services = [
             </select>
           </div>
           <div class="form-group">
-            <label for="wa-zip">ZIP Code</label>
-            <input type="text" id="wa-zip" name="zip" placeholder="33401" required />
+            <label for="wa-zip">City / Area</label>
+            <input type="text" id="wa-zip" name="zip" placeholder="e.g. West Palm Beach, Boca Raton…" required />
           </div>
           <div class="form-group">
             <label for="wa-msg">Brief Description <span>(optional)</span></label>
@@ -142,7 +142,7 @@ const services = [
     const msg     = (form.querySelector("#wa-msg")     as HTMLTextAreaElement).value.trim();
 
     if (!name || !service || !zip) {
-      alert("Please fill in your name, service and ZIP code.");
+      alert("Please fill in your name, service and city.");
       return;
     }
 
@@ -151,7 +151,7 @@ const services = [
       ``,
       `*Name:* ${name}`,
       `*Service:* ${service}`,
-      `*ZIP Code:* ${zip}`,
+      `*City / Area:* ${zip}`,
       msg ? `*Details:* ${msg}` : "",
     ].filter(Boolean).join("\n");
 
