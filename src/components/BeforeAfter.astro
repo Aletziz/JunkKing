@@ -52,6 +52,12 @@ const projects = [
                 </svg>
               </div>
               <div class="ba__handle-line"></div>
+              <div class="ba__hint">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M4 10h12M4 10l3-3M4 10l3 3M16 10l-3-3M16 10l-3 3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Drag
+              </div>
             </div>
           </div>
 
@@ -78,8 +84,10 @@ const projects = [
   function initSlider(card) {
     const before = card.querySelector('.ba__img--before');
     const handle = card.querySelector('.ba__handle');
+    const hint   = card.querySelector('.ba__hint');
     let pct = 50;
     let dragging = false;
+    let hintDone = false;
 
     function setPos(x) {
       const rect = card.getBoundingClientRect();
@@ -88,15 +96,56 @@ const projects = [
       handle.style.left = pct + '%';
     }
 
-    setPos(card.getBoundingClientRect().left + card.getBoundingClientRect().width * 0.5);
+    function setPct(p) {
+      pct = p;
+      before.style.clipPath = `inset(0 ${100 - p}% 0 0)`;
+      handle.style.left = p + '%';
+    }
 
-    handle.addEventListener('mousedown',  e => { dragging = true; e.preventDefault(); });
-    handle.addEventListener('touchstart', e => { dragging = true; }, { passive: true });
+    // Animación de hint: se mueve derecha → izquierda → centro
+    function playHint() {
+      if (hintDone) return;
+      hintDone = true;
+      card.classList.add('ba--hinting');
+      // Secuencia: 50% → 72% → 28% → 50%
+      const steps = [
+        { pct: 72,  delay: 400  },
+        { pct: 28,  delay: 900  },
+        { pct: 50,  delay: 1500 },
+      ];
+      steps.forEach(({ pct: p, delay }) => {
+        setTimeout(() => setPct(p), delay);
+      });
+      setTimeout(() => {
+        card.classList.remove('ba--hinting');
+        if (hint) hint.classList.add('ba__hint--hidden');
+      }, 2200);
+    }
+
+    setPct(50);
+
+    // Dispara hint cuando la card entra en pantalla
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { playHint(); obs.unobserve(card); }
+      });
+    }, { threshold: 0.5 });
+    obs.observe(card);
+
+    // Ocultar hint al primer drag/click
+    function dismissHint() {
+      if (hint && !hint.classList.contains('ba__hint--hidden')) {
+        hint.classList.add('ba__hint--hidden');
+      }
+    }
+
+    handle.addEventListener('mousedown',  e => { dragging = true; e.preventDefault(); dismissHint(); });
+    handle.addEventListener('touchstart', e => { dragging = true; dismissHint(); }, { passive: true });
     window.addEventListener('mousemove',  e => { if (dragging) setPos(e.clientX); });
     window.addEventListener('touchmove',  e => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
     window.addEventListener('mouseup',  () => dragging = false);
     window.addEventListener('touchend', () => dragging = false);
-    card.addEventListener('click', e => setPos(e.clientX));
+    card.addEventListener('click', e => { setPos(e.clientX); dismissHint(); });
   }
 
   document.querySelectorAll('[data-slider]').forEach(initSlider);
@@ -206,6 +255,40 @@ const projects = [
   }
   .ba__handle-circle:hover { transform: scale(1.1); }
   .ba__handle-circle svg { width: 18px; height: 18px; stroke: var(--ink-900); }
+
+  /* Hint tooltip */
+  .ba__hint {
+    position: absolute;
+    top: calc(50% + 30px);
+    left: 50%; transform: translateX(-50%);
+    background: rgba(0,0,0,0.72);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    font-size: 0.68rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    padding: 0.3rem 0.7rem;
+    border-radius: 100px;
+    white-space: nowrap;
+    display: flex; align-items: center; gap: 0.35rem;
+    pointer-events: none;
+    transition: opacity 0.4s;
+    animation: hint-pulse 1.2s ease-in-out infinite;
+  }
+  .ba__hint svg { width: 14px; height: 14px; flex-shrink: 0; }
+  .ba__hint--hidden { opacity: 0 !important; animation: none; }
+
+  /* Animación de pulso del tooltip */
+  @keyframes hint-pulse {
+    0%, 100% { opacity: 1; transform: translateX(-50%) scale(1); }
+    50%       { opacity: 0.7; transform: translateX(-50%) scale(1.05); }
+  }
+
+  /* Transición suave del handle durante el hint automático */
+  .ba--hinting .ba__handle,
+  .ba--hinting .ba__img--before {
+    transition: left 0.55s cubic-bezier(0.4,0,0.2,1),
+                clip-path 0.55s cubic-bezier(0.4,0,0.2,1);
+  }
 
   .ba__info {
     display: flex; align-items: center; justify-content: space-between;
