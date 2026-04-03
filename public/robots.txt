@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://amgjunkremoval.com/sitemap.xml
+Sitemap: https://amgjunkremovalpalmbeach.com/sitemap.xml
