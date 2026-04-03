@@ -1,12 +1,12 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://amgjunkremoval.com',
-  output: 'static',
+  site: "https://amgjunkremovalpalmbeach.com",
+  output: "static",
   build: {
-    assets: '_assets',
+    assets: "_assets",
   },
   compressHTML: true,
 });
