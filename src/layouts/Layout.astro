@@ -118,15 +118,28 @@ const ogImage     = "https://amgjunkremovalpalmbeach.com/og-image.jpg";
       "sameAs": []
     })}</script>
 
-    <!-- ── Google Translate: ocultar banners residuales ── -->
+    <!-- ── Google Translate layout fix ── -->
     <style>
       .goog-te-banner-frame,
       .goog-te-banner-frame.skiptranslate { display: none !important; visibility: hidden !important; }
       .skiptranslate > iframe              { display: none !important; height: 0 !important; }
       #goog-gt-tt, .goog-te-balloon-frame  { display: none !important; }
+      body                                 { top: 0 !important; position: static !important; }
       body.translated-ltr,
       body.translated-rtl                  { top: 0 !important; margin-top: 0 !important; }
     </style>
+    <script is:inline>
+      (function () {
+        var mo = new MutationObserver(function () {
+          if (document.body && document.body.style.top && document.body.style.top !== '0px') {
+            document.body.style.top = '0px';
+          }
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+          mo.observe(document.body, { attributes: true, attributeFilter: ['style', 'class'] });
+        });
+      })();
+    </script>
   </head>
   <body>
     <slot />
