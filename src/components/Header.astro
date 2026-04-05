@@ -216,6 +216,14 @@
     fa: "فارسی", sw: "Kiswahili", ht: "Kreyòl"
   };
 
+  /* Restore active language label from sessionStorage */
+  (function () {
+    const saved = sessionStorage.getItem("siteLang");
+    if (saved && saved !== "en" && LANG_NAMES[saved]) {
+      langLabel.textContent = LANG_NAMES[saved];
+    }
+  })();
+
   /* Toggle dropdown */
   langBtn.addEventListener("click", (e) => {
     e.stopPropagation();
@@ -231,75 +239,38 @@
   });
   langDropdown.addEventListener("click", (e) => e.stopPropagation());
 
-  /* Restore saved language label on page load */
-  (function () {
-    const saved = getCookieLang();
-    if (saved && saved !== "en" && LANG_NAMES[saved]) {
-      langLabel.textContent = LANG_NAMES[saved];
-    }
-  })();
-
-  /* Select language */
+  /* Select language → redirect to Google Translate proxy */
   langDropdown.querySelectorAll("li[data-lang]").forEach((li) => {
     li.addEventListener("click", () => {
       const code = (li as HTMLElement).dataset.lang!;
-      langLabel.textContent = LANG_NAMES[code] ?? code;
       langBtn.setAttribute("aria-expanded", "false");
       langDropdown.classList.remove("is-open");
-      translatePage(code);
+
+      if (code === "en") {
+        sessionStorage.removeItem("siteLang");
+        langLabel.textContent = "Language";
+        // If currently on Google Translate proxy, go back to original
+        const origin = location.href.replace(/^https?:\/\/[^/]+\.translate\.goog/, location.origin.replace(/https?:\/\//, "https://"));
+        if (location.hostname.endsWith(".translate.goog")) {
+          location.href = "https://amgjunkremovalpalmbeach.com/";
+        }
+        return;
+      }
+
+      sessionStorage.setItem("siteLang", code);
+      langLabel.textContent = LANG_NAMES[code] ?? code;
+
+      // Build Google Translate proxy URL
+      // Format: https://<domain>--<tld>.translate.goog/?_x_tr_sl=en&_x_tr_tl=<lang>&_x_tr_hl=en
+      const siteUrl = "amgjunkremovalpalmbeach.com";
+      const proxyDomain = siteUrl.replace(/\./g, "--") + ".translate.goog";
+      const targetUrl = `https://${proxyDomain}/?_x_tr_sl=en&_x_tr_tl=${encodeURIComponent(code)}&_x_tr_hl=en&_x_tr_pto=wapp`;
+      location.href = targetUrl;
     });
   });
-
-  /* Read current googtrans cookie */
-  function getCookieLang(): string {
-    const match = document.cookie.match(/(?:^|;\s*)googtrans=([^;]+)/);
-    if (!match) return "en";
-    // format: /en/es  →  "es"
-    const parts = decodeURIComponent(match[1]).split("/");
-    return parts[2] || "en";
-  }
-
-  /* Google Translate via cookie + reload (most reliable method) */
-  function translatePage(lang: string) {
-    const exp = "expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-    const hostname = location.hostname;
-
-    if (lang === "en") {
-      // Clear translation cookies and reload
-      document.cookie = `googtrans=; ${exp}`;
-      document.cookie = `googtrans=; ${exp}; domain=.${hostname}`;
-      document.cookie = `googtrans=; ${exp}; domain=${hostname}`;
-      location.reload();
-      return;
-    }
-
-    // Set googtrans cookie and reload — Google Translate picks it up automatically
-    const val = encodeURIComponent(`/en/${lang}`);
-    const maxAge = "max-age=86400"; // 1 day
-    document.cookie = `googtrans=/en/${lang}; ${maxAge}; path=/`;
-    document.cookie = `googtrans=/en/${lang}; ${maxAge}; path=/; domain=.${hostname}`;
-    document.cookie = `googtrans=/en/${lang}; ${maxAge}; path=/; domain=${hostname}`;
-    location.reload();
-  }
 </script>
 
-<!-- Google Translate widget (hidden, drives translations via .goog-te-combo select) -->
-<div id="google_translate_element" style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none" aria-hidden="true"></div>
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    // @ts-ignore
-    new google.translate.TranslateElement(
-      {
-        pageLanguage: "en",
-        includedLanguages: "en,es,pt,fr,de,it,nl,pl,ru,uk,ar,he,hi,bn,zh-CN,zh-TW,ja,ko,vi,th,id,ms,tl,tr,fa,sw,ht",
-        autoDisplay: false,
-        layout: 0
-      },
-      "google_translate_element"
-    );
-  }
-</script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+<!-- No se necesita widget de Google Translate - usamos el proxy translate.goog directamente -->
 
 <style>
   /* ── Sticky header ── */

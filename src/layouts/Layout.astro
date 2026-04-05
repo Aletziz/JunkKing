@@ -118,33 +118,15 @@ const ogImage     = "https://amgjunkremovalpalmbeach.com/og-image.jpg";
       "sameAs": []
     })}</script>
 
-    <!-- ── Google Translate layout fix ── -->
+    <!-- ── Google Translate: ocultar banners residuales ── -->
     <style>
       .goog-te-banner-frame,
       .goog-te-banner-frame.skiptranslate { display: none !important; visibility: hidden !important; }
       .skiptranslate > iframe              { display: none !important; height: 0 !important; }
       #goog-gt-tt, .goog-te-balloon-frame  { display: none !important; }
-      /* Prevent body offset caused by Google Translate banner */
       body.translated-ltr,
       body.translated-rtl                  { top: 0 !important; margin-top: 0 !important; }
     </style>
-    <script is:inline>
-      /* Fix body top offset injected by Google Translate */
-      (function () {
-        function fixBodyTop() {
-          if (document.body && document.body.style.top && document.body.style.top !== '0px') {
-            document.body.style.top = '0px';
-          }
-        }
-        /* Run on load */
-        document.addEventListener('DOMContentLoaded', function () {
-          fixBodyTop();
-          /* Watch for attribute changes only AFTER translate has had time to run */
-          var mo = new MutationObserver(fixBodyTop);
-          mo.observe(document.body, { attributes: true, attributeFilter: ['style'] });
-        });
-      })();
-    </script>
   </head>
   <body>
     <slot />
