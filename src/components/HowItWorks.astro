@@ -39,28 +39,41 @@ const contacts = [
   <div class="container">
 
     <div class="tc how__header reveal">
-      <span class="eyebrow" style="color:#000A1A;">Simple Process</span>
+      <span class="eyebrow" style="color:#000A1A;" data-i18n="how.eyebrow">Simple Process</span>
       <div class="accent-line"></div>
-      <h2 class="h2">How It Works</h2>
-      <p class="lead">
+      <h2 class="h2" data-i18n="how.title">How It Works</h2>
+      <p class="lead" data-i18n="how.lead">
         Getting rid of junk has never been easier. Three steps and it's done —
         90% of the time we can take your junk the same day you call.
       </p>
     </div>
 
     <div class="steps reveal-group">
-      {steps.map((s, i) => (
-        <div class="step">
-          <span class="step__number">{s.number}</span>
-          {i < steps.length - 1 && <span class="step__arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-              <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>}
-          <h3 class="step__title">{s.title}</h3>
-          <p class="step__desc">{s.desc}</p>
-        </div>
-      ))}
+      <div class="step">
+        <span class="step__number">01</span>
+        <span class="step__arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <h3 class="step__title" data-i18n="how.s1t">Call or Text Us</h3>
+        <p class="step__desc" data-i18n="how.s1d">Give us a call or send a text. Choose a 2-hour arrival window that works for your schedule.</p>
+      </div>
+      <div class="step">
+        <span class="step__number">02</span>
+        <span class="step__arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <h3 class="step__title" data-i18n="how.s2t">We Call 15 Min Ahead</h3>
+        <p class="step__desc" data-i18n="how.s2d">Our crew calls before arrival so you're never waiting around. We show up on time, every time.</p>
+      </div>
+      <div class="step">
+        <span class="step__number">03</span>
+        <h3 class="step__title" data-i18n="how.s3t">Approve Price. We Haul.</h3>
+        <p class="step__desc" data-i18n="how.s3d">Review the upfront quote — no surprise fees. Approve it and we remove your junk on the spot.</p>
+      </div>
     </div>
 
     <!-- Same-day callout -->
@@ -69,7 +82,7 @@ const contacts = [
         <circle cx="12" cy="12" r="10"/>
         <path d="M12 8v4l3 3" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      <p><strong>Same-day service available.</strong> 90% of the time we can take your junk immediately after you call.</p>
+      <p><strong>Same-day service available.</strong> <span data-i18n="how.sameday">90% of the time we can take your junk immediately after you call.</span></p>
     </div>
 
     <!-- Contact methods -->

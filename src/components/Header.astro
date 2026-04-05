@@ -60,19 +60,19 @@
 
       <nav class="nav" id="mainNav" aria-label="Main">
         <ul class="nav__list">
-          <li><a href="#services"    class="nav__link">Services</a></li>
-          <li><a href="#work"        class="nav__link">Our Work</a></li>
-          <li><a href="#how-it-works" class="nav__link">How It Works</a></li>
-          <li><a href="#why-us"      class="nav__link">Why Us</a></li>
-          <li><a href="#areas"       class="nav__link">Areas</a></li>
-          <li><a href="#faq"         class="nav__link">FAQ</a></li>
+          <li><a href="#services"    class="nav__link" data-i18n="nav.services">Services</a></li>
+          <li><a href="#work"        class="nav__link" data-i18n="nav.ourwork">Our Work</a></li>
+          <li><a href="#how-it-works" class="nav__link" data-i18n="nav.howitworks">How It Works</a></li>
+          <li><a href="#why-us"      class="nav__link" data-i18n="nav.whyus">Why Us</a></li>
+          <li><a href="#areas"       class="nav__link" data-i18n="nav.areas">Areas</a></li>
+          <li><a href="#faq"         class="nav__link" data-i18n="nav.faq">FAQ</a></li>
         </ul>
       </nav>
 
       <div class="nav-bar__actions">
         <a href="tel:+15617620065" class="btn btn-nav-call hidden-md">
           <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1 1 0 01.95.684l.93 2.8a1 1 0 01-.23 1.02L5.1 7.7a11.04 11.04 0 005.2 5.2l1.196-1.198a1 1 0 011.02-.23l2.8.93A1 1 0 0116 13.35v1.15A1.5 1.5 0 0114.5 16C7.596 16 2 10.404 2 3.5z"/></svg>
-          Call Us
+          <span data-i18n="nav.callus">Call Us</span>
         </a>
         <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -216,11 +216,118 @@
     fa: "فارسی", sw: "Kiswahili", ht: "Kreyòl"
   };
 
-  /* Restore active language label from sessionStorage */
+  // Traducciones inline — sin servicios externos, instantáneo
+  const TRANSLATIONS: Record<string, Record<string, string>> = {
+    "nav.services":     { es:"Servicios", pt:"Serviços", fr:"Services", de:"Dienstleistungen", it:"Servizi", ht:"Sèvis" },
+    "nav.ourwork":      { es:"Nuestro Trabajo", pt:"Nosso Trabalho", fr:"Nos Travaux", de:"Unsere Arbeit", it:"Il Nostro Lavoro", ht:"Travay Nou" },
+    "nav.howitworks":   { es:"Cómo Funciona", pt:"Como Funciona", fr:"Comment Ça Marche", de:"Wie Es Funktioniert", it:"Come Funziona", ht:"Kijan Sa Travay" },
+    "nav.whyus":        { es:"Por Qué Nosotros", pt:"Por Que Nós", fr:"Pourquoi Nous", de:"Warum Wir", it:"Perché Noi", ht:"Poukisa Nou" },
+    "nav.areas":        { es:"Áreas", pt:"Áreas", fr:"Zones", de:"Gebiete", it:"Zone", ht:"Zòn" },
+    "nav.faq":          { es:"FAQ", pt:"FAQ", fr:"FAQ", de:"FAQ", it:"FAQ", ht:"FAQ" },
+    "nav.callus":       { es:"Llámanos", pt:"Ligue-nos", fr:"Appelez-nous", de:"Ruf uns an", it:"Chiamaci", ht:"Rele Nou" },
+    "nav.textus":       { es:"Escríbenos", pt:"Mensagem", fr:"Écrivez-nous", de:"Schreib uns", it:"Scrivici", ht:"Ekri Nou" },
+    "nav.contact":      { es:"Contacto", pt:"Contato", fr:"Contact", de:"Kontakt", it:"Contatto", ht:"Kontakt" },
+    "nav.serviceareas": { es:"Áreas de Servicio", pt:"Áreas de Serviço", fr:"Zones de Service", de:"Servicegebiete", it:"Zone di Servizio", ht:"Zòn Sèvis" },
+    "hero.title1":      { es:"El Servicio #1 de", pt:"O Serviço #1 de", fr:"Le Service #1 d'", de:"Palm Beachs #1", it:"Il Servizio #1 di", ht:"Sèvis #1" },
+    "hero.title2":      { es:"Remoción de Basura", pt:"Remoção de Lixo", fr:"Enlèvement", de:"Schrottentsorgung", it:"Rimozione Rifiuti", ht:"Retire Fatra" },
+    "hero.title3":      { es:"en Palm Beach", pt:"em Palm Beach", fr:"à Palm Beach", de:"Service", it:"a Palm Beach", ht:"nan Palm Beach" },
+    "hero.desc":        { es:"Remoción de basura, instalación de césped y entrega/recogida el mismo día. Presupuestos gratis, disposición ecológica — hasta 60% reciclado o donado.", pt:"Remoção de lixo, instalação de grama e entrega/coleta no mesmo dia. Orçamentos grátis, descarte ecológico — até 60% reciclado ou doado.", fr:"Enlèvement d'encombrants, pose de gazon et livraison le jour même. Devis gratuits, élimination écologique — jusqu'à 60% recyclé ou donné.", de:"Schrottentsorgung, Rasenverlegung und Same-Day-Lieferung. Kostenlose Angebote, umweltfreundliche Entsorgung — bis zu 60% recycelt oder gespendet.", it:"Rimozione rifiuti, posa del prato e consegna in giornata. Preventivi gratuiti, smaltimento ecologico — fino al 60% riciclato o donato.", ht:"Retire fatra, enstalasyon gazon ak livrezon menm jou a. Estimasyon gratis — jiska 60% resikle." },
+    "hero.stat1n":      { es:"Mismo Día", pt:"Mesmo Dia", fr:"Même Jour", de:"Gleicher Tag", it:"Stesso Giorno", ht:"Menm Jou" },
+    "hero.stat1l":      { es:"Citas", pt:"Agendamentos", fr:"Rendez-vous", de:"Termine", it:"Appuntamenti", ht:"Randevou" },
+    "hero.stat2l":      { es:"Reciclado/Donado", pt:"Reciclado/Doado", fr:"Recyclé/Donné", de:"Recycelt/Gespendet", it:"Riciclato/Donato", ht:"Resikle/Bay" },
+    "hero.stat3n":      { es:"Gratis", pt:"Grátis", fr:"Gratuit", de:"Kostenlos", it:"Gratuito", ht:"Gratis" },
+    "hero.stat3l":      { es:"Presupuestos", pt:"Orçamentos", fr:"Devis", de:"Angebote", it:"Preventivi", ht:"Estimasyon" },
+    "hero.chip1":       { es:"Remoción de Basura", pt:"Remoção de Lixo", fr:"Enlèvement", de:"Schrottentsorgung", it:"Rimozione Rifiuti", ht:"Retire Fatra" },
+    "hero.chip2":       { es:"Instalación de Césped", pt:"Instalação de Grama", fr:"Pose de Gazon", de:"Rasenverlegung", it:"Posa del Prato", ht:"Enstalasyon Gazon" },
+    "hero.chip3":       { es:"Entrega Rápida", pt:"Entrega Rápida", fr:"Livraison Rapide", de:"Schnelle Lieferung", it:"Consegna Rapida", ht:"Livrezon Rapid" },
+    "hero.chip4":       { es:"Recogida el mismo día", pt:"Coleta no mesmo dia", fr:"Collecte le jour même", de:"Same-Day-Abholung", it:"Ritiro in giornata", ht:"Koleksyon menm jou" },
+    "services.eyebrow": { es:"Lo Que Hacemos", pt:"O Que Fazemos", fr:"Ce Que Nous Faisons", de:"Was Wir Tun", it:"Cosa Facciamo", ht:"Sa Nou Fè" },
+    "services.title":   { es:"Cuatro Servicios. Un Equipo Confiable.", pt:"Quatro Serviços. Uma Equipe Confiável.", fr:"Quatre Services. Une Équipe Fiable.", de:"Vier Dienstleistungen. Ein zuverlässiges Team.", it:"Quattro Servizi. Una Squadra Affidabile.", ht:"Kat Sèvis. Yon Ekip Fyab." },
+    "services.lead":    { es:"Desde recoger basura hasta instalar césped fresco y entregas el mismo día — cubrimos todo Palm Beach County.", pt:"De recolher lixo a instalar grama fresca e entregas no mesmo dia — cobrimos todo o Condado de Palm Beach.", fr:"Du ramassage à la pose de gazon et aux livraisons le jour même — nous couvrons tout Palm Beach County.", de:"Von der Schrottabholung bis zur Rasenverlegung — wir haben Palm Beach County abgedeckt.", it:"Dal trasporto rifiuti alla posa di prato e consegne in giornata — copriamo tutto Palm Beach County.", ht:"Depi ranmase fatra rive livrezon menm jou a — nou kouvri tout Palm Beach County." },
+    "services.cta":     { es:"Solicitar Servicio", pt:"Solicitar Serviço", fr:"Demander un Service", de:"Service anfragen", it:"Richiedi Servizio", ht:"Mande Sèvis" },
+    "how.eyebrow":      { es:"Proceso Simple", pt:"Processo Simples", fr:"Processus Simple", de:"Einfacher Prozess", it:"Processo Semplice", ht:"Pwosesis Senp" },
+    "how.title":        { es:"Cómo Funciona", pt:"Como Funciona", fr:"Comment Ça Marche", de:"Wie Es Funktioniert", it:"Come Funziona", ht:"Kijan Sa Travay" },
+    "how.lead":         { es:"Deshacerse de la basura nunca ha sido tan fácil. Tres pasos y listo — el 90% de las veces podemos recoger tu basura el mismo día.", pt:"Livrar-se do lixo nunca foi tão fácil. Três passos — 90% das vezes recolhemos no mesmo dia.", fr:"Se débarrasser des encombrants n'a jamais été aussi facile. Trois étapes — 90% du temps, le jour même.", de:"Schrott loswerden war nie so einfach. Drei Schritte — 90% der Zeit am selben Tag.", it:"Sbarazzarsi dei rifiuti non è mai stato così facile. Tre passaggi — nel 90% dei casi lo stesso giorno.", ht:"Debarase ak fatra pa t janm pi fasil. Twa etap — 90% tan menm jou ou rele." },
+    "how.s1t":          { es:"Llámanos o Escríbenos", pt:"Ligue ou Escreva", fr:"Appelez ou Écrivez", de:"Anrufen oder Schreiben", it:"Chiama o Scrivi", ht:"Rele oswa Ekri Nou" },
+    "how.s1d":          { es:"Llámanos o envía un mensaje. Elige una ventana de 2 horas para tu horario.", pt:"Ligue ou envie mensagem. Escolha uma janela de 2 horas.", fr:"Appelez ou envoyez un SMS. Choisissez une fenêtre de 2 heures.", de:"Rufen Sie an oder schreiben. Wählen Sie ein 2-Stunden-Fenster.", it:"Chiama o scrivi. Scegli una finestra di 2 ore.", ht:"Rele nou oswa voye mesaj. Chwazi yon fenèt 2 èdtan." },
+    "how.s2t":          { es:"Llamamos 15 Min Antes", pt:"Ligamos 15 Min Antes", fr:"Nous appelons 15 min avant", de:"Wir rufen 15 Min vorher an", it:"Chiamiamo 15 Min Prima", ht:"Nou Rele 15 Min Anvan" },
+    "how.s2d":          { es:"Nuestro equipo llama antes de llegar. Llegamos a tiempo, siempre.", pt:"Nossa equipe liga antes de chegar. Chegamos na hora, sempre.", fr:"Notre équipe appelle avant d'arriver. Nous arrivons à l'heure, toujours.", de:"Unser Team ruft vor der Ankunft an. Wir kommen pünktlich, immer.", it:"La nostra squadra chiama prima di arrivare. Arriviamo in orario, sempre.", ht:"Ekip nou rele anvan rive. Nou rive alè, chak fwa." },
+    "how.s3t":          { es:"Aprueba el Precio. Retiramos.", pt:"Aprove o Preço. Retiramos.", fr:"Approuvez le prix. On enlève.", de:"Preis genehmigen. Wir holen ab.", it:"Approva il Prezzo. Portiamo via.", ht:"Apwouve Pri a. Nou Ranmase." },
+    "how.s3d":          { es:"Revisa el presupuesto — sin cargos sorpresa. Aprueba y retiramos en el acto.", pt:"Revise o orçamento — sem taxas surpresa. Aprove e retiramos na hora.", fr:"Examinez le devis — sans frais surprises. Approuvez et nous enlevons sur place.", de:"Angebot prüfen — keine Überraschungen. Genehmigen und wir holen sofort ab.", it:"Esamina il preventivo — senza sorprese. Approva e rimuoviamo sul posto.", ht:"Revize devis la — san sipriz. Apwouve epi nou retire la menm." },
+    "how.sameday":      { es:"Servicio el mismo día disponible. El 90% de las veces podemos recoger tu basura inmediatamente.", pt:"Serviço no mesmo dia disponível. 90% das vezes recolhemos imediatamente após o contato.", fr:"Service le jour même disponible. 90% du temps, enlèvement immédiat après votre appel.", de:"Same-Day-Service verfügbar. 90% der Zeit sofortige Abholung nach Ihrem Anruf.", it:"Servizio in giornata disponibile. Nel 90% dei casi ritiro immediato dopo la chiamata.", ht:"Sèvis menm jou disponib. 90% tan koleksyon imedyat apre ou rele." },
+    "how.callus":       { es:"Llámanos", pt:"Ligue-nos", fr:"Appelez-nous", de:"Ruf uns an", it:"Chiamaci", ht:"Rele Nou" },
+    "how.textus":       { es:"Escríbenos", pt:"Mensagem", fr:"Écrivez-nous", de:"Schreib uns", it:"Scrivici", ht:"Ekri Nou" },
+    "whyus.eyebrow":    { es:"Por Qué Elegirnos", pt:"Por Que Nos Escolher", fr:"Pourquoi Nous Choisir", de:"Warum Uns Wählen", it:"Perché Sceglierci", ht:"Poukisa Chwazi Nou" },
+    "whyus.title":      { es:"Lo Que Distingue a AMG", pt:"O Que Diferencia a AMG", fr:"Ce Qui Distingue AMG", de:"Was AMG Auszeichnet", it:"Cosa Distingue AMG", ht:"Sa Ki Diferansye AMG" },
+    "areas.eyebrow":    { es:"Área de Servicio", pt:"Área de Serviço", fr:"Zone de Service", de:"Servicegebiet", it:"Zona di Servizio", ht:"Zòn Sèvis" },
+    "areas.title":      { es:"Sirviendo Todo el Condado de Palm Beach", pt:"Atendendo Todo o Condado de Palm Beach", fr:"Couvrant Tout le Comté de Palm Beach", de:"Wir bedienen ganz Palm Beach County", it:"Serviamo Tutto Palm Beach County", ht:"Sèvi Tout Palm Beach County" },
+    "areas.lead":       { es:"Desde la costa hasta las comunidades del oeste — si estás en el Condado de Palm Beach, vamos a ti.", pt:"Da costa às comunidades ocidentais — se você está no Condado, nós vamos até você.", fr:"De la côte aux communautés de l'ouest — si vous êtes dans le comté, nous venons.", de:"Von der Küste bis zu den westlichen Gemeinden — wenn Sie in Palm Beach County sind, kommen wir.", it:"Dalla costa alle comunità occidentali — se sei a Palm Beach County, veniamo da te.", ht:"Depi kòt la rive kominote lwès yo — si ou nan Palm Beach County, nou vini." },
+    "reviews.eyebrow":  { es:"Reseñas de Clientes", pt:"Avaliações de Clientes", fr:"Avis Clients", de:"Kundenbewertungen", it:"Recensioni dei Clienti", ht:"Revizyon Kliyan" },
+    "reviews.title":    { es:"Lo Que Dicen Nuestros Clientes", pt:"O Que Nossos Clientes Dizem", fr:"Ce Que Disent Nos Clients", de:"Was Unsere Kunden Sagen", it:"Cosa Dicono i Nostri Clienti", ht:"Sa Kliyan Nou Di" },
+    "faq.eyebrow":      { es:"FAQ", pt:"FAQ", fr:"FAQ", de:"FAQ", it:"FAQ", ht:"FAQ" },
+    "faq.title":        { es:"Preguntas Frecuentes", pt:"Perguntas Frequentes", fr:"Foire Aux Questions", de:"Häufig gestellte Fragen", it:"Domande Frequenti", ht:"Kesyon Souvan" },
+    "faq.subtitle":     { es:"¿Tienes una pregunta? Nuestro equipo siempre está listo para ayudar.", pt:"Tem uma pergunta? Nossa equipe está sempre pronta para ajudar.", fr:"Vous avez une question ? Notre équipe est toujours prête.", de:"Haben Sie eine Frage? Unser Team hilft Ihnen gerne.", it:"Hai una domanda? Il nostro team è sempre felice di aiutare.", ht:"Ou gen yon kesyon? Ekip nou an toujou pare pou ede." },
+    "faq.contact":      { es:"Formulario de Contacto", pt:"Formulário de Contato", fr:"Formulaire de Contact", de:"Kontaktformular", it:"Modulo di Contatto", ht:"Fòm Kontakt" },
+    "contact.eyebrow":  { es:"Contáctenos", pt:"Entre em Contato", fr:"Contactez-nous", de:"Kontaktieren Sie uns", it:"Contattaci", ht:"Kontakte Nou" },
+    "contact.title":    { es:"Obtén Tu Presupuesto Gratis", pt:"Obtenha Seu Orçamento Grátis", fr:"Obtenez Votre Devis Gratuit", de:"Holen Sie sich Ihr kostenloses Angebot", it:"Ottieni il Tuo Preventivo Gratuito", ht:"Jwenn Estimasyon Gratis Ou" },
+    "contact.name":     { es:"Tu Nombre", pt:"Seu Nome", fr:"Votre Nom", de:"Ihr Name", it:"Il Tuo Nome", ht:"Non Ou" },
+    "contact.phone":    { es:"Número de Teléfono", pt:"Número de Telefone", fr:"Numéro de Téléphone", de:"Telefonnummer", it:"Numero di Telefono", ht:"Nimewo Telefòn" },
+    "contact.message":  { es:"Describe tu trabajo...", pt:"Descreva seu trabalho...", fr:"Décrivez votre besoin...", de:"Beschreiben Sie Ihren Auftrag...", it:"Descrivi il tuo lavoro...", ht:"Dekri travay ou..." },
+    "contact.send":     { es:"Enviar por WhatsApp", pt:"Enviar pelo WhatsApp", fr:"Envoyer par WhatsApp", de:"Per WhatsApp senden", it:"Invia via WhatsApp", ht:"Voye pa WhatsApp" },
+    "offer.title":      { es:"$20 de Descuento en Tu Primer Servicio", pt:"$20 de Desconto no Seu Primeiro Serviço", fr:"$20 de Réduction sur Votre Premier Service", de:"$20 Rabatt auf Ihren ersten Service", it:"$20 di Sconto sul Tuo Primo Servizio", ht:"$20 Rabè sou Premye Sèvis Ou" },
+    "offer.desc":       { es:"Menciona esta oferta cuando llames o escribas.", pt:"Mencione esta oferta quando ligar ou escrever.", fr:"Mentionnez cette offre en appelant ou en écrivant.", de:"Erwähnen Sie dieses Angebot beim Anrufen.", it:"Menziona questa offerta quando chiami o scrivi.", ht:"Mansyone òf sa a lè ou rele oswa ekri." },
+    "offer.cta":        { es:"Reclamar Oferta", pt:"Reivindicar Oferta", fr:"Réclamer l'Offre", de:"Angebot Beanspruchen", it:"Riscatta Offerta", ht:"Reklame Òf" },
+    "footer.rights":    { es:"Todos los derechos reservados.", pt:"Todos os direitos reservados.", fr:"Tous droits réservés.", de:"Alle Rechte vorbehalten.", it:"Tutti i diritti riservati.", ht:"Tout dwa rezève." },
+  };
+
+  /* Aplica las traducciones a todos los elementos [data-i18n] */
+  function applyTranslations(lang: string) {
+    if (lang === "en") {
+      // Restaurar textos originales guardados
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const orig = (el as HTMLElement).dataset.i18nOrig;
+        if (orig !== undefined) {
+          if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+            (el as HTMLInputElement).placeholder = orig;
+          } else {
+            el.textContent = orig;
+          }
+        }
+      });
+      document.documentElement.lang = "en";
+      return;
+    }
+
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = (el as HTMLElement).dataset.i18n!;
+      const translated = TRANSLATIONS[key]?.[lang];
+      if (!translated) return;
+
+      // Guardar original la primera vez
+      if ((el as HTMLElement).dataset.i18nOrig === undefined) {
+        if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+          (el as HTMLElement).dataset.i18nOrig = (el as HTMLInputElement).placeholder;
+        } else {
+          (el as HTMLElement).dataset.i18nOrig = el.textContent ?? "";
+        }
+      }
+
+      if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+        (el as HTMLInputElement).placeholder = translated;
+      } else {
+        el.textContent = translated;
+      }
+    });
+
+    document.documentElement.lang = lang.split("-")[0];
+  }
+
+  /* Restore active language on page load */
   (function () {
-    const saved = sessionStorage.getItem("siteLang");
+    const saved = localStorage.getItem("siteLang");
     if (saved && saved !== "en" && LANG_NAMES[saved]) {
       langLabel.textContent = LANG_NAMES[saved];
+      applyTranslations(saved);
     }
   })();
 
@@ -239,38 +346,20 @@
   });
   langDropdown.addEventListener("click", (e) => e.stopPropagation());
 
-  /* Select language → redirect to Google Translate proxy */
+  /* Select language → aplica al instante sin redirigir */
   langDropdown.querySelectorAll("li[data-lang]").forEach((li) => {
     li.addEventListener("click", () => {
       const code = (li as HTMLElement).dataset.lang!;
       langBtn.setAttribute("aria-expanded", "false");
       langDropdown.classList.remove("is-open");
-
-      if (code === "en") {
-        sessionStorage.removeItem("siteLang");
-        langLabel.textContent = "Language";
-        // If currently on Google Translate proxy, go back to original
-        const origin = location.href.replace(/^https?:\/\/[^/]+\.translate\.goog/, location.origin.replace(/https?:\/\//, "https://"));
-        if (location.hostname.endsWith(".translate.goog")) {
-          location.href = "https://amgjunkremovalpalmbeach.com/";
-        }
-        return;
-      }
-
-      sessionStorage.setItem("siteLang", code);
       langLabel.textContent = LANG_NAMES[code] ?? code;
-
-      // Build Google Translate proxy URL
-      // Format: https://<domain>--<tld>.translate.goog/?_x_tr_sl=en&_x_tr_tl=<lang>&_x_tr_hl=en
-      const siteUrl = "amgjunkremovalpalmbeach.com";
-      const proxyDomain = siteUrl.replace(/\./g, "--") + ".translate.goog";
-      const targetUrl = `https://${proxyDomain}/?_x_tr_sl=en&_x_tr_tl=${encodeURIComponent(code)}&_x_tr_hl=en&_x_tr_pto=wapp`;
-      location.href = targetUrl;
+      localStorage.setItem("siteLang", code);
+      applyTranslations(code);
     });
   });
 </script>
 
-<!-- No se necesita widget de Google Translate - usamos el proxy translate.goog directamente -->
+<!-- Sistema de traducción propio via data-i18n — sin servicios externos -->
 
 <style>
   /* ── Sticky header ── */
