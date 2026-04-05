@@ -231,6 +231,14 @@
   });
   langDropdown.addEventListener("click", (e) => e.stopPropagation());
 
+  /* Restore saved language label on page load */
+  (function () {
+    const saved = getCookieLang();
+    if (saved && saved !== "en" && LANG_NAMES[saved]) {
+      langLabel.textContent = LANG_NAMES[saved];
+    }
+  })();
+
   /* Select language */
   langDropdown.querySelectorAll("li[data-lang]").forEach((li) => {
     li.addEventListener("click", () => {
@@ -242,37 +250,36 @@
     });
   });
 
-  /* Google Translate helper */
+  /* Read current googtrans cookie */
+  function getCookieLang(): string {
+    const match = document.cookie.match(/(?:^|;\s*)googtrans=([^;]+)/);
+    if (!match) return "en";
+    // format: /en/es  →  "es"
+    const parts = decodeURIComponent(match[1]).split("/");
+    return parts[2] || "en";
+  }
+
+  /* Google Translate via cookie + reload (most reliable method) */
   function translatePage(lang: string) {
-    // Wait for the widget to be ready, then use its select element
-    function doTranslate() {
-      // @ts-ignore
-      const gtCombo: HTMLSelectElement | null = document.querySelector(".goog-te-combo");
-      if (gtCombo) {
-        gtCombo.value = lang;
-        gtCombo.dispatchEvent(new Event("change"));
-        return true;
-      }
-      return false;
-    }
+    const exp = "expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    const hostname = location.hostname;
 
     if (lang === "en") {
-      // Reset: remove cookies and reload
-      const exp = "expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+      // Clear translation cookies and reload
       document.cookie = `googtrans=; ${exp}`;
-      document.cookie = `googtrans=; ${exp}; domain=.${location.hostname}`;
+      document.cookie = `googtrans=; ${exp}; domain=.${hostname}`;
+      document.cookie = `googtrans=; ${exp}; domain=${hostname}`;
       location.reload();
       return;
     }
 
-    // Try immediately, then poll until widget is ready
-    if (!doTranslate()) {
-      let attempts = 0;
-      const poll = setInterval(() => {
-        attempts++;
-        if (doTranslate() || attempts > 40) clearInterval(poll);
-      }, 150);
-    }
+    // Set googtrans cookie and reload — Google Translate picks it up automatically
+    const val = encodeURIComponent(`/en/${lang}`);
+    const maxAge = "max-age=86400"; // 1 day
+    document.cookie = `googtrans=/en/${lang}; ${maxAge}; path=/`;
+    document.cookie = `googtrans=/en/${lang}; ${maxAge}; path=/; domain=.${hostname}`;
+    document.cookie = `googtrans=/en/${lang}; ${maxAge}; path=/; domain=${hostname}`;
+    location.reload();
   }
 </script>
 
